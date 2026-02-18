@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Navigation from "@/components/landing/Navigation";
+
 import HeroSection from "@/components/landing/HeroSection";
 import FeatureGrid from "@/components/landing/FeatureGrid";
 import PlatinumCore from "@/components/landing/PlatinumCore";
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1200px] bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,0,0.1),transparent_70%)] z-0"></div>
       </div>
 
-      <Navigation />
+
 
       {/* --- Main Content Area --- */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-32 pb-12 px-4 perspective-1000">
@@ -74,7 +74,7 @@ export default function Home() {
       {/* --- Footer --- */}
       <footer className="relative z-10 w-full border-t border-white/10 bg-black backdrop-blur-md mt-12">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-600 text-xs font-mono uppercase tracking-wide">© 2024 CodeRush. System Optimized.</p>
+          <p className="text-zinc-600 text-xs font-mono uppercase tracking-wide">© 2024 CodeBattle. System Optimized.</p>
           <div className="flex gap-6">
             <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Privacy</a>
             <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Terms</a>

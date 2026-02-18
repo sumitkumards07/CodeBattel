@@ -19,7 +19,7 @@ export default function SandpackEditor() {
                     "/App.js": `export default function App() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Hello CodeRush</h1>
+      <h1>Hello CodeBattle</h1>
       <p>Start building your project here.</p>
     </div>
   );

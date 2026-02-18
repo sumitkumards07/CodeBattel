@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import { Terminal, Search } from "lucide-react";
+import Link from "next/link";
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import Logo from "./Logo";
 
 export default function Navigation() {
     return (
@@ -11,10 +12,8 @@ export default function Navigation() {
 
                 {/* Brand Logo */}
                 <div className="flex items-center gap-3 pl-4">
-                    <div className="size-8 rounded-full bg-black border border-white/20 flex items-center justify-center shadow-inner-light">
-                        <Terminal className="text-primary w-5 h-5" />
-                    </div>
-                    <span className="dot-matrix-text text-lg tracking-wider text-white">CODERUSH</span>
+                    <Logo className="w-10 h-10" />
+                    <span className="dot-matrix-text text-lg tracking-wider text-white">CODEBATTLE</span>
                 </div>
 
                 {/* Playground Links (Desktop) */}
@@ -22,7 +21,7 @@ export default function Navigation() {
                     {["HTML", "CSS", "JavaScript", "Python", "Java"].map((lang) => (
                         <Link
                             key={lang}
-                            href={lang === "Python" ? "/playground/python" : "#"}
+                            href={lang === "Python" ? "/playground/python" : lang === "HTML" ? "/campaign/html" : "#"}
                             className="nothing-ui-text px-4 py-2 rounded-full text-xs font-medium text-zinc-400 border border-transparent hover:text-white hover:bg-primary/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] hover:drop-shadow-[0_0_5px_rgba(255,0,0,1)] transition-all duration-300 uppercase tracking-wide whitespace-nowrap"
                         >
                             {lang}
@@ -35,13 +34,30 @@ export default function Navigation() {
                     <button className="size-10 flex items-center justify-center rounded-full bg-transparent hover:bg-white/5 text-zinc-400 hover:text-white transition-colors border border-transparent hover:border-white/10">
                         <Search className="w-5 h-5" />
                     </button>
-                    <button
-                        onClick={() => alert("Wallet Connection Module Loading...")}
-                        className="bg-zinc-950 hover:bg-zinc-900 text-white text-xs font-mono uppercase tracking-widest px-6 py-2.5 rounded-full border border-zinc-700 hover:border-primary transition-all flex items-center gap-2 group shadow-inner-light"
-                    >
-                        <span>Connect</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,0,0,0.8)] animate-pulse"></span>
-                    </button>
+
+                    <SignedOut>
+                        <SignInButton mode="modal">
+                            <button className="bg-zinc-950 hover:bg-zinc-900 text-white text-xs font-mono uppercase tracking-widest px-6 py-2.5 rounded-full border border-zinc-700 hover:border-primary transition-all flex items-center gap-2 group shadow-inner-light">
+                                <span>Sign In</span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,0,0,0.8)] animate-pulse"></span>
+                            </button>
+                        </SignInButton>
+                    </SignedOut>
+
+                    <SignedIn>
+                        <div className="flex items-center gap-4">
+                            <Link href="/profile" className="hidden sm:block text-xs font-mono text-zinc-400 hover:text-white uppercase tracking-widest">
+                                Profile
+                            </Link>
+                            <UserButton
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "w-9 h-9 border border-white/20"
+                                    }
+                                }}
+                            />
+                        </div>
+                    </SignedIn>
                 </div>
             </div>
         </nav>

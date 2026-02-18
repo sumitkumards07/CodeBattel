@@ -10,8 +10,8 @@ export default function HeroSection() {
             {/* Badge */}
             <div className="flex items-center gap-3 mb-2">
                 <div className="h-px w-8 bg-primary"></div>
-                <span className="text-white font-semibold dot-matrix-text text-xs tracking-[0.2em] uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-                    Season 04 // RED_SHIFT
+                <span className="text-white font-semibold dot-matrix-text text-xs tracking-[0.1em] uppercase drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] border border-primary/50 bg-primary/10 px-3 py-1 rounded-full shadow-[0_0_15px_rgba(255,0,0,0.2)]">
+                    Interactive Coding Platform
                 </span>
             </div>
 

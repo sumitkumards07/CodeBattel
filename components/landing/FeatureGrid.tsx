@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { Code, Star, Heart } from "lucide-react";
+import { Target, Cpu, Zap } from "lucide-react";
 
 export default function FeatureGrid() {
     const features = [
-        { icon: Code, label: "Write Code" },
-        { icon: Star, label: "Earn XP" },
-        { icon: Heart, label: "Get Feedback" },
+        { icon: Target, label: "500+ Challenges" },
+        { icon: Cpu, label: "10+ Technologies" },
+        { icon: Zap, label: "50k+ Total XP" },
     ];
 
     return (

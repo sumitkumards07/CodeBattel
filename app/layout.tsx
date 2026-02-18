@@ -25,9 +25,13 @@ const shareTechMono = Share_Tech_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CodeRush: Strategic Code Warfare",
+  title: "CodeBattle: Strategic Code Warfare",
   description: "Master the craft of code through tactical challenges.",
 };
+
+import Navigation from "@/components/landing/Navigation";
+
+import { ClerkProvider } from '@clerk/nextjs'
 
 export default function RootLayout({
   children,
@@ -35,12 +39,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${silkscreen.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} antialiased bg-background-dark text-white`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className="dark">
+        <body
+          className={`${inter.variable} ${silkscreen.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} antialiased bg-background-dark text-white`}
+        >
+          <Navigation />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
