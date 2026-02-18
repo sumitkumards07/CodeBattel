@@ -1,16 +1,15 @@
 "use client";
 
 import React from "react";
-import { useUser } from "@clerk/nextjs";
 import { Terminal, Trophy, Flame, Target, Calendar } from "lucide-react";
 import Sidebar from "@/components/Sidebar";
 
 export default function ProfilePage() {
-    const { user, isLoaded } = useUser();
-
-    if (!isLoaded) {
-        return <div className="text-white p-10">Loading profile data...</div>;
-    }
+    const user = {
+        fullName: "Commander Shepherd",
+        imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Shepherd",
+        createdAt: new Date().toISOString()
+    };
 
     // Mock Data for Profile
     const stats = [
@@ -39,16 +38,16 @@ export default function ProfilePage() {
                     <header className="flex items-center gap-6 mb-12">
                         <div className="w-24 h-24 rounded-full border-2 border-primary p-1">
                             <img
-                                src={user?.imageUrl}
-                                alt={user?.fullName || "User"}
+                                src={user.imageUrl}
+                                alt={user.fullName}
                                 className="w-full h-full rounded-full object-cover"
                             />
                         </div>
                         <div>
-                            <h1 className="text-3xl font-black text-white dot-matrix-text uppercase mb-1">{user?.fullName}</h1>
+                            <h1 className="text-3xl font-black text-white dot-matrix-text uppercase mb-1">{user.fullName}</h1>
                             <div className="flex items-center gap-3">
                                 <span className="text-primary font-mono text-xs uppercase tracking-widest border border-primary/30 bg-primary/10 px-2 py-1 rounded">Rank: Corporal</span>
-                                <span className="text-zinc-500 font-mono text-xs">Joined {user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'Recently'}</span>
+                                <span className="text-zinc-500 font-mono text-xs">Joined {new Date(user.createdAt).toLocaleDateString()}</span>
                             </div>
                         </div>
                     </header>

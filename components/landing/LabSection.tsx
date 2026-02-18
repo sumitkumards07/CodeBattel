@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Lock, ArrowRight, Code, Database, Globe, Palette, FileCode, Coffee } from "lucide-react";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+
 
 const LABS = [
     {
