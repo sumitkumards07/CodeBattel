@@ -4,8 +4,11 @@ import React, { useState, useEffect } from "react";
 
 import HeroSection from "@/components/landing/HeroSection";
 import FeatureGrid from "@/components/landing/FeatureGrid";
-import PlatinumCore from "@/components/landing/PlatinumCore";
+import FloatingCards from "@/components/landing/FloatingCards";
 import StatusPanel from "@/components/landing/StatusPanel";
+import LabSection from "@/components/landing/LabSection";
+import WhyCodeBattle from "@/components/landing/WhyCodeBattle";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   // --- Simulation State ---
@@ -60,8 +63,14 @@ export default function Home() {
             <HeroSection />
             <FeatureGrid />
           </div>
-          <PlatinumCore />
+          <FloatingCards />
         </div>
+
+        {/* Labs Section */}
+        <LabSection />
+
+        {/* Why CodeBattle Section */}
+        <WhyCodeBattle />
 
         {/* Bottom Section: Live Stats */}
         <StatusPanel
@@ -72,19 +81,7 @@ export default function Home() {
       </main>
 
       {/* --- Footer --- */}
-      <footer className="relative z-10 w-full border-t border-white/10 bg-black backdrop-blur-md mt-12">
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-600 text-xs font-mono uppercase tracking-wide">© 2024 CodeBattle. System Optimized.</p>
-          <div className="flex gap-6">
-            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Privacy</a>
-            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Terms</a>
-            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide flex items-center gap-2" href="#">
-              Status
-              <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_rgba(255,0,0,0.8)]"></span>
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
