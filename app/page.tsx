@@ -1,65 +1,90 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Navigation from "@/components/landing/Navigation";
+import HeroSection from "@/components/landing/HeroSection";
+import FeatureGrid from "@/components/landing/FeatureGrid";
+import PlatinumCore from "@/components/landing/PlatinumCore";
+import StatusPanel from "@/components/landing/StatusPanel";
 
 export default function Home() {
+  // --- Simulation State ---
+  // Mock data to make the page feel "alive"
+  const [timeLeft, setTimeLeft] = useState(4 * 3600 + 22 * 60 + 10);
+  const [playerCount, setPlayerCount] = useState(85291);
+
+  useEffect(() => {
+    // 1. Countdown Logic
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    // 2. Mock Player Count Fluctuation
+    const fluctuating = setInterval(() => {
+      setPlayerCount((prev) => prev + Math.floor(Math.random() * 50) - 20);
+    }, 3000);
+
+    return () => {
+      clearInterval(timer);
+      clearInterval(fluctuating);
+    };
+  }, []);
+
+  // Helper: Format seconds into HH:MM:SS
+  const formatTime = (seconds: number) => {
+    const h = Math.floor(seconds / 3600).toString().padStart(2, "0");
+    const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, "0");
+    const s = (seconds % 60).toString().padStart(2, "0");
+    return `${h}:${m}:${s}`;
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="relative min-h-screen overflow-x-hidden bg-background-dark text-slate-100 font-display selection:bg-primary selection:text-white">
+
+      {/* --- Background Effects --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-black">
+        <div className="absolute inset-0 grid-bg opacity-30 z-10"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[150px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary/5 blur-[150px] rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1200px] bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,0,0.1),transparent_70%)] z-0"></div>
+      </div>
+
+      <Navigation />
+
+      {/* --- Main Content Area --- */}
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-32 pb-12 px-4 perspective-1000">
+
+        {/* Top Section: Hero & Visuals */}
+        <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-7">
+            <HeroSection />
+            <FeatureGrid />
+          </div>
+          <PlatinumCore />
+        </div>
+
+        {/* Bottom Section: Live Stats */}
+        <StatusPanel
+          playerCount={playerCount}
+          timeLeftString={formatTime(timeLeft)}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
       </main>
+
+      {/* --- Footer --- */}
+      <footer className="relative z-10 w-full border-t border-white/10 bg-black backdrop-blur-md mt-12">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-600 text-xs font-mono uppercase tracking-wide">© 2024 CodeRush. System Optimized.</p>
+          <div className="flex gap-6">
+            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Privacy</a>
+            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide" href="#">Terms</a>
+            <a className="text-zinc-600 hover:text-white transition-colors text-xs font-mono uppercase tracking-wide flex items-center gap-2" href="#">
+              Status
+              <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_rgba(255,0,0,0.8)]"></span>
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

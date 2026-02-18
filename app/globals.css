@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: #FF0000;
+  --color-primary-dark: #8B0000;
+  --color-background-light: #f7f8f5;
+  --color-background-dark: #050505;
+  --color-obsidian: #080808;
+  --color-obsidian-light: #0F0F0F;
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-surface: rgba(10, 10, 10, 0.6);
+  --color-editor-bg: #050505;
+  --color-console-bg: #080808;
+  --color-border-separator: #333333;
+
+  --font-display: "Inter", sans-serif;
+  --font-pixel: "Silkscreen", cursive;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-terminal: "Share Tech Mono", monospace;
+
+  --shadow-red-glow: 0 0 25px rgba(255, 0, 0, 0.6), 0 0 10px rgba(255, 0, 0, 0.4);
+  --shadow-red-glow-strong: 0 0 30px rgba(255, 0, 0, 0.7), inset 0 0 15px rgba(255, 0, 0, 0.2);
+  --shadow-glass-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --shadow-inner-light: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+  --image-grid-lines: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .dot-matrix-text {
+    font-family: var(--font-pixel);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nothing-ui-text {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  .grid-bg {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  .glass-panel {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .crt-scanline {
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0,0,0,0.05) 50%,
+        rgba(0,0,0,0.05)
+    );
+    background-size: 100% 4px;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background-dark);
+  color: #f1f5f9;
 }
