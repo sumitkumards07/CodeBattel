@@ -2,7 +2,7 @@
 
 import { Terminal, Search } from "lucide-react";
 import Link from "next/link";
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 import Logo from "./Logo";
 
 export default function Navigation() {
@@ -35,29 +35,10 @@ export default function Navigation() {
                         <Search className="w-5 h-5" />
                     </button>
 
-                    <SignedOut>
-                        <SignInButton mode="modal">
-                            <button className="bg-zinc-950 hover:bg-zinc-900 text-white text-xs font-mono uppercase tracking-widest px-6 py-2.5 rounded-full border border-zinc-700 hover:border-primary transition-all flex items-center gap-2 group shadow-inner-light">
-                                <span>Sign In</span>
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,0,0,0.8)] animate-pulse"></span>
-                            </button>
-                        </SignInButton>
-                    </SignedOut>
-
-                    <SignedIn>
-                        <div className="flex items-center gap-4">
-                            <Link href="/profile" className="hidden sm:block text-xs font-mono text-zinc-400 hover:text-white uppercase tracking-widest">
-                                Profile
-                            </Link>
-                            <UserButton
-                                appearance={{
-                                    elements: {
-                                        avatarBox: "w-9 h-9 border border-white/20"
-                                    }
-                                }}
-                            />
-                        </div>
-                    </SignedIn>
+                    <button disabled className="bg-zinc-950 text-zinc-500 text-xs font-mono uppercase tracking-widest px-6 py-2.5 rounded-full border border-zinc-800 flex items-center gap-2 cursor-not-allowed opacity-70">
+                        <span>Sign In</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-700"></span>
+                    </button>
                 </div>
             </div>
         </nav>
