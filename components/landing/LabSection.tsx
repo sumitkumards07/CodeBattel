@@ -119,20 +119,20 @@ export default function LabSection() {
 
                         <div className="mt-auto">
                             {lab.status === "LOCKED" ? (
-                                <button
-                                    disabled
-                                    className="w-full py-3 rounded-lg bg-zinc-800 text-zinc-500 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-not-allowed"
+                                <Link
+                                    href="/coming-soon"
+                                    className="w-full py-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-500 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all group/btn"
                                 >
-                                    <Lock className="w-3 h-3" />
+                                    <Lock className="w-3 h-3 group-hover/btn:text-white" />
                                     Coming Soon
-                                </button>
+                                </Link>
                             ) : (
-                                <button
-                                    disabled
-                                    className="w-full py-3 rounded-lg bg-zinc-800 text-zinc-500 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-not-allowed"
+                                <Link
+                                    href="/coming-soon"
+                                    className="w-full py-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-500 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer"
                                 >
                                     Coming Soon
-                                </button>
+                                </Link>
                             )}
                         </div>
                     </div>
