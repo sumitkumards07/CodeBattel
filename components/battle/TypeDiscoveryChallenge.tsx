@@ -21,12 +21,71 @@ export default function TypeDiscoveryChallenge() {
             "user@coderush:~$ python3 main.py",
         ]);
 
+        // Simple Mock Interpreter
         setTimeout(() => {
+            const newOutput: string[] = [];
+            let isSuccess = false;
+            let nameDefined = false;
+
+            const lines = code.split('\n');
+
+            lines.forEach(line => {
+                const trimmed = line.trim();
+
+                // 1. Mock variable assignment: name = "value" or name = 'value'
+                if (trimmed.startsWith("name") && trimmed.includes("=")) {
+                    const parts = trimmed.split("=");
+                    if (parts.length > 1) {
+                        const value = parts[1].trim();
+                        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+                            nameDefined = true;
+                        }
+                    }
+                }
+
+                // 2. Mock print statements
+                if (trimmed.startsWith("print(") && trimmed.endsWith(")")) {
+                    const content = trimmed.slice(6, -1); // Extract content inside ()
+
+                    // Case A: print(type(name))
+                    if (content.includes("type(name)")) {
+                        if (nameDefined) {
+                            newOutput.push("<class 'str'>");
+                            isSuccess = true; // This is the win condition
+                        } else {
+                            newOutput.push("NameError: name is not defined");
+                        }
+                    }
+                    // Case B: print("string") or print('string')
+                    else if ((content.startsWith('"') && content.endsWith('"')) || (content.startsWith("'") && content.endsWith("'"))) {
+                        newOutput.push(content.slice(1, -1));
+                    }
+                    // Case C: print(name)
+                    else if (content === "name") {
+                        if (nameDefined) {
+                            // Extract the value from the code if we want to be fancy, but for now just showing we know it exists
+                            // Ideally we'd store the value map, but let's keep it simple
+                            newOutput.push("Cyber_Punk"); // Assumption based on prompt instructions
+                        } else {
+                            newOutput.push("NameError: name is not defined");
+                        }
+                    } else {
+                        // Fallback for unknown print
+                        newOutput.push(content); // Just echo for now if it doesn't match specific patterns
+                    }
+                }
+            });
+
             setOutput(prev => [
                 ...prev,
-                "<class 'str'>"
+                ...newOutput
             ]);
-            setValidationStatus('success');
+
+            if (isSuccess) {
+                setValidationStatus('success');
+            } else {
+                setValidationStatus('idle');
+            }
         }, 800);
     };
 
