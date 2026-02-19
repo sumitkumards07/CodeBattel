@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
-import { oneDark } from "@codemirror/theme-one-dark";
+import { cyberpunkTheme } from "./CyberpunkTheme";
 import { Play, RotateCcw, Settings, FileCode } from "lucide-react";
 
 export default function EditorPanel() {
@@ -53,7 +53,7 @@ export default function EditorPanel() {
                 <CodeMirror
                     value={code}
                     height="100%"
-                    theme={oneDark} // Temporarily keep oneDark, will add custom theme if user insists on specific JSON
+                    theme={cyberpunkTheme}
                     extensions={[javascript({ jsx: true })]}
                     onChange={(value) => setCode(value)}
                     className="absolute inset-0 text-base font-mono"
