@@ -12,10 +12,10 @@ interface BattleLayoutProps {
 
 export default function BattleLayout({ leftPanel, centerPanel, rightPanel }: BattleLayoutProps) {
     return (
-        <div className="min-h-screen bg-[#050505] text-white flex flex-col font-mono overflow-hidden">
+        <div className="h-screen bg-[#050505] text-white flex flex-col font-mono overflow-hidden pt-16">
 
             {/* Top Bar */}
-            <header className="h-14 border-b border-white/10 flex items-center justify-between px-4 bg-[#080808] z-50">
+            <header className="h-10 border-b border-white/10 flex items-center justify-between px-4 bg-[#080808] z-30 relative">
                 <div className="flex items-center gap-4">
                     <Link href="/" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
                         <ArrowLeft className="w-5 h-5" />

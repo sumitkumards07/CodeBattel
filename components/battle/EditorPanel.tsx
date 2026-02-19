@@ -23,7 +23,7 @@ export default function EditorPanel() {
 
                 {/* File Tabs */}
                 <div className="flex items-end h-full px-2">
-                    <div className="h-full flex items-center gap-2 px-4 bg-[#111] border-t-2 border-[#00F0FF] text-[#00F0FF] text-xs font-mono uppercase tracking-wider relative top-[1px]">
+                    <div className="h-full flex items-center gap-2 px-4 bg-[#1a1a1a] border-t-2 border-[#00F0FF] text-[#00F0FF] text-xs font-mono uppercase tracking-wider relative top-[1px]">
                         <FileCode className="w-3 h-3" />
                         breach_protocol.js
                     </div>
@@ -42,7 +42,7 @@ export default function EditorPanel() {
                     </button>
                     <button className="h-full px-6 flex items-center gap-2 bg-transparent text-[#FF0033] hover:bg-[#FF0033]/10 transition-colors border-l border-white/10 font-['VT323'] uppercase text-lg tracking-wider group relative overflow-hidden">
                         <Play className="w-3 h-3 fill-current" />
-                        Deploy Script
+                        DEPLOY SCRIPT
                         <div className="absolute inset-0 border-b-2 border-[#FF0033] opacity-50 group-hover:opacity-100 transition-opacity"></div>
                     </button>
                 </div>
@@ -53,7 +53,7 @@ export default function EditorPanel() {
                 <CodeMirror
                     value={code}
                     height="100%"
-                    theme={oneDark}
+                    theme={oneDark} // Temporarily keep oneDark, will add custom theme if user insists on specific JSON
                     extensions={[javascript({ jsx: true })]}
                     onChange={(value) => setCode(value)}
                     className="absolute inset-0 text-base font-mono"

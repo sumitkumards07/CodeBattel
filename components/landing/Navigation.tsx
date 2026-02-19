@@ -7,8 +7,8 @@ import Logo from "./Logo";
 
 export default function Navigation() {
     return (
-        <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 w-full">
-            <div className="glass-panel rounded-full px-2 py-2 flex items-center gap-2 max-w-6xl w-full justify-between shadow-glass-glow transition-all duration-300 hover:border-primary/50 bg-black/80">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full border-b border-white/10 bg-black/90 backdrop-blur-md">
+            <div className="w-full px-6 py-2 flex items-center gap-2 justify-between">
 
                 {/* Brand Logo */}
                 <Link href="/" className="flex items-center gap-3 pl-4 hover:opacity-80 transition-opacity">
