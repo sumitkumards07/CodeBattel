@@ -11,27 +11,23 @@ import CurriculumSidebar from "@/components/battle/CurriculumSidebar";
 export default function TypeDiscoveryChallenge() {
     const [code, setCode] = useState(`# Create name variable\nname = "Cyber_Punk"\n\n# Check type\nprint(type(name))`);
     const [output, setOutput] = useState<string[]>([
-        "> System initialized...",
-        "> Awaiting deployment..."
+        "user@coderush:~$ _"
     ]);
     const [validationStatus, setValidationStatus] = useState<'idle' | 'running' | 'success' | 'minimized'>('idle');
 
     const runCode = () => {
         setValidationStatus('running');
         setOutput([
-            "> System initialized...",
-            "> Awaiting deployment...",
-            "> Executing...",
+            "user@coderush:~$ python3 main.py",
         ]);
 
         setTimeout(() => {
             setOutput(prev => [
                 ...prev,
-                "<class 'str'>",
-                "> [SUCCESS] Type Identified."
+                "<class 'str'>"
             ]);
             setValidationStatus('success');
-        }, 1000);
+        }, 800);
     };
 
     return (
@@ -166,7 +162,7 @@ export default function TypeDiscoveryChallenge() {
                         </div>
                         <div className="flex-1 bg-[#0a0a0a] border border-[#333] p-4 font-mono text-sm shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-y-auto">
                             {output.map((line, i) => (
-                                <div key={i} className={`mb-2 ${line.startsWith('>') ? 'text-zinc-500' : 'text-[#00F0FF]'}`}>
+                                <div key={i} className={`mb-2 ${line.startsWith('user@') ? 'text-zinc-500' : 'text-[#00F0FF]'}`}>
                                     {line}
                                 </div>
                             ))}
