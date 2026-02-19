@@ -24,6 +24,14 @@
   --shadow-inner-light: inset 0 1px 1px rgba(255, 255, 255, 0.2);
 
   --image-grid-lines: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+  /* Cyberpunk Battle Theme */
+  --font-vt323: "VT323", monospace;
+  --font-press-start: "Press Start 2P", cursive;
+  --bg-void: #050505;
+  --neon-red: #FF0033;
+  --neon-blue: #00F0FF;
+  --text-dim: #888888;
 }
 
 @layer utilities {
@@ -32,29 +40,31 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+
   .nothing-ui-text {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+
   .grid-bg {
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   }
+
   .glass-panel {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+
   .crt-scanline {
-    background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0) 50%,
-        rgba(0,0,0,0.05) 50%,
-        rgba(0,0,0,0.05)
-    );
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
+        rgba(0, 0, 0, 0.05));
     background-size: 100% 4px;
   }
 }

@@ -21,7 +21,7 @@ export default function Navigation() {
                     {["HTML", "CSS", "JavaScript", "Python", "Java"].map((lang) => (
                         <Link
                             key={lang}
-                            href="/coming-soon"
+                            href={lang === "JavaScript" ? "/battle" : "/coming-soon"}
                             className="nothing-ui-text px-4 py-2 rounded-full text-xs font-medium text-zinc-400 border border-transparent hover:text-white hover:bg-primary/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] hover:drop-shadow-[0_0_5px_rgba(255,0,0,1)] transition-all duration-300 uppercase tracking-wide whitespace-nowrap"
                         >
                             {lang}
