@@ -1,0 +1,149 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: bad87fee1348bd9aedf08834.md
+Original Title: Create a Set of Radio Buttons
+Challenge ID: bad87fee1348bd9aedf08834
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: bad87fee1348bd9aedf08834
+ORIGINAL TITLE: Create a Set of Radio Buttons
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+You can use <dfn>radio buttons</dfn> for questions where you want the user to only give you one answer out of multiple options.
+
+Radio buttons are a type of `input`.
+
+Each of your radio buttons can be nested within its own `label` element. By wrapping an `input` element inside of a `label` element it will automatically associate the radio button input with the label element surrounding it.
+
+All related radio buttons should have the same `name` attribute to create a radio button group. By creating a radio group, selecting any single radio button will automatically deselect the other buttons within the same group ensuring only one answer is provided by the user.
+
+Here's an example of a radio button:
+
+```html
+<label> 
+  <input type="radio" name="indoor-outdoor">Indoor 
+</label>
+```
+
+It is considered best practice to set a `for` attribute on the `label` element, with a value that matches the value of the `id` attribute of the `input` element. This allows assistive technologies to create a linked relationship between the label and the related `input` element. For example:
+
+```html
+<input id="indoor" type="radio" name="indoor-outdoor">
+<label for="indoor">Indoor</label>
+```
+
+We can also nest the `input` element within the `label` tags:
+
+```html
+<label for="indoor"> 
+  <input id="indoor" type="radio" name="indoor-outdoor">Indoor 
+</label>
+```
+
+INSTRUCTIONS:
+Add a pair of radio buttons to your form, each nested in its own `label` element. One should have the option of `indoor` and the other should have the option of `outdoor`. Both should share the `name` attribute of `indoor-outdoor` to create a radio group.
+
+TEST HINTS:
+Your page should have two `radio` button elements.
+Your radio buttons should be given the `name` attribute of `indoor-outdoor`.
+Each of your two radio button elements should be nested in its own `label` element.
+Each of your `label` elements should have a closing tag.
+One of your radio buttons should have the label `indoor`.
+const labelTexts = [...document.querySelectorAll('label')].map(label => label.textContent);
+const hasMatch = labelTexts.some(label =>  label.match(/indoor/gi));
+One of your radio buttons should have the label `outdoor`.
+const labelTexts = [...document.querySelectorAll('label')].map(label => label.textContent);
+const hasMatch = labelTexts.some(label => label.match(/outdoor/gi));
+Each of your radio button elements should be added within the `form` tag.
+const labelParent = document.querySelector('label').parentNode;
+
+STARTER CODE:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>flea treatment</li>
+    <li>thunder</li>
+    <li>other cats</li>
+  </ol>
+  <form action="https://www.freecatphotoapp.com/submit-cat-photo">
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+SOLUTION:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+  
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+  
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>flea treatment</li>
+    <li>thunder</li>
+    <li>other cats</li>
+  </ol>
+  <form action="https://www.freecatphotoapp.com/submit-cat-photo">
+   <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor"> Indoor</label>
+    <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor"> Outdoor</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===

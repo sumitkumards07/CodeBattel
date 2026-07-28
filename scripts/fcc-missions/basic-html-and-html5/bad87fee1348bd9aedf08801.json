@@ -1,0 +1,28 @@
+{
+  "mission_id": "bad87fee1348bd9aedf08801",
+  "mission_title": "Paragraph Protocol Deployment",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Recruit, the 'p' element is your primary tool for structuring text on a webpage. Think of it as a secure data block for transmitting critical information. Master its deployment to organize your intel effectively.",
+  "objective": "Your mission: create a 'p' element beneath your 'h2' and load it with the intel 'Hello Paragraph'.",
+  "starting_code": "<h1>Hello World</h1>\n<h2>CatPhotoApp</h2>",
+  "solution_code": "<h1>Hello World</h1>\n<h2>CatPhotoApp</h2>\n<p>Hello Paragraph</p>",
+  "test_assertions": [
+    "Verify a valid `p` element exists in the data stream.",
+    "Confirm the `p` element contains the exact intel: `Hello Paragraph`.",
+    "Ensure the `p` element's data block is properly terminated with a closing tag."
+  ],
+  "hints": [
+    "Directive: all HTML tags are lowercase, recruit. No exceptions.",
+    "A data block requires both an entry (`<p>`) and exit point (`</p>`).",
+    "Position the new data block directly after the `h2` header, as per protocol."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "text"
+  ],
+  "original_fcc_title": "Inform with the Paragraph Element",
+  "block": "basic-html-and-html5"
+}

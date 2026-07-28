@@ -1,0 +1,28 @@
+{
+  "mission_id": "587d78aa367417b2b2512aed",
+  "mission_title": "Root Access Protocol: Declare System Type",
+  "xp_reward": 120,
+  "difficulty": "recruit",
+  "briefing": "Listen up, recruit! Before you even think about injecting code into the mainframe, you need to declare your intentions. Every system requires a proper handshake to identify its core architecture. Fail to declare, and your payload will be rejected.",
+  "objective": "Establish the foundational system declaration for an HTML5 schematic and wrap your initial command within the core structure.",
+  "starting_code": "",
+  "solution_code": "<!DOCTYPE html>\n<html>\n  <h1> Hello world </h1>\n</html>",
+  "test_assertions": [
+    "Verify the `<!DOCTYPE html>` declaration is present at the schematic's apex.",
+    "Confirm a single `html` element encompasses the entire operational schematic.",
+    "Ensure the `html` container correctly encapsulates a single `h1` header element."
+  ],
+  "hints": [
+    "The `DOCTYPE` is your system's ID badge; make it loud and clear: `<!DOCTYPE html>`.",
+    "The `<html>` tags are your secure shell; all commands go inside.",
+    "Use `<h1>` for critical primary data display."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "structure"
+  ],
+  "original_fcc_title": "Declare the Doctype of an HTML Document",
+  "block": "basic-html-and-html5"
+}

@@ -1,0 +1,77 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: bad87fee1348bd9aedf08804.md
+Original Title: Comment out HTML
+Challenge ID: bad87fee1348bd9aedf08804
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: bad87fee1348bd9aedf08804
+ORIGINAL TITLE: Comment out HTML
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+Remember that in order to start a comment, you need to use `<!--` and to end a comment, you need to use `-->`
+
+Here you'll need to end the comment before your `h2` element begins.
+
+INSTRUCTIONS:
+Comment out your `h1` element and your `p` element, but not your `h2` element.
+
+TEST HINTS:
+Your `h1` element should be commented out so that it is not visible on the page.
+Your `h2` element should not be commented out so that it is visible on the page.
+Your `p` element should be commented out so that it is not visible on the page.
+Each of your comments should be closed with `-->`.
+You should not change the order of the `h1`, `h2`, or `p` elements in the code.
+
+STARTER CODE:
+<!--
+<h1>Hello World</h1>
+
+<h2>CatPhotoApp</h2>
+
+<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>
+-->
+
+SOLUTION:
+<!--<h1>Hello World</h1>-->
+<h2>CatPhotoApp</h2> 
+<!--<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p> -->
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===

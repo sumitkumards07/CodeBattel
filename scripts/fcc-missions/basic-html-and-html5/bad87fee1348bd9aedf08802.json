@@ -1,0 +1,29 @@
+{
+  "mission_id": "bad87fee1348bd9aedf08802",
+  "mission_title": "Unmask Hidden Data",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Listen up, recruit! Sometimes data is cloaked, hidden from plain sight to prevent unauthorized access or system errors. These 'comment protocols' are used by dev-ops to temporarily sideline code or leave critical intel for other agents. Your mission: disable these protocols and reveal the core data.",
+  "objective": "Reveal the hidden `h1`, `h2`, and `p` elements by disabling their comment protocols.",
+  "starting_code": "<!--\n<h1>Hello World</h1>\n\n<h2>CatPhotoApp</h2>\n\n<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n-->",
+  "solution_code": "<h1>Hello World</h1>\n\n<h2>CatPhotoApp</h2>\n\n<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+  "test_assertions": [
+    "Ensure the `h1` element is visible in the system output.",
+    "Confirm the `h2` element is no longer obscured.",
+    "Verify the `p` element's data stream is active.",
+    "Eradicate all lingering comment protocols from the visible interface."
+  ],
+  "hints": [
+    "Remember, comment protocols are like digital cloaking devices.",
+    "Look for the `<!--` and `-->` markers.",
+    "Only the active code should remain."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "comments"
+  ],
+  "original_fcc_title": "Uncomment HTML",
+  "block": "basic-html-and-html5"
+}

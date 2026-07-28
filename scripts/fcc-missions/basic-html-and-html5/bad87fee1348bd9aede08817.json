@@ -1,0 +1,35 @@
+{
+  "mission_id": "bad87fee1348bd9aede08817",
+  "mission_title": "Data Stream Encapsulation",
+  "xp_reward": 120,
+  "difficulty": "recruit",
+  "briefing": "Recruit, listen up! In the digital frontier, data streams often need to be embedded within larger information blocks. Your mission is to master the art of encapsulating a critical hyperlink within a standard text paragraph. This is fundamental for structured data presentation and efficient information retrieval.",
+  "objective": "Your objective: Take the existing `<a>` element and encapsulate it within a *new* `<p>` element. The new paragraph must display 'View more [hyperlink to cat photos]'.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n<main>\n\n  <a href=\"https://www.freecatphotoapp.com\" target=\"_blank\">cat photos</a>\n\n  <img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\">\n\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>View more <a target=\"_blank\" href=\"https://www.freecatphotoapp.com\">cat photos</a></p>\n\n  <img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\">\n\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "test_assertions": [
+    "System integrity check: Ensure only one `<a>` element is present in your code.",
+    "Target verification: The `href` attribute of your `<a>` element must be `https://www.freecatphotoapp.com`.",
+    "Payload content check: The anchor text of your `<a>` element must explicitly be 'cat photos'.",
+    "Structural scan: You must deploy a new `<p>` element. Ensure at least three total `<p>` tags are present in your HTML.",
+    "Nesting protocol: The `<a>` element must be directly nested *within* your newly created `<p>` element.",
+    "Text string validation: Your new `<p>` element must begin with the exact text 'View more ' (note the trailing space).",
+    "Payload isolation: The `<a>` element itself must *not* contain the text 'View more'.",
+    "Syntax check: All `<p>` elements in your code require a proper closing tag.",
+    "Syntax check: All `<a>` elements in your code require a proper closing tag."
+  ],
+  "hints": [
+    "Remember, the existing `<a>` tag needs to be *moved* inside a new `<p>` container, not duplicated.",
+    "The text 'View more ' should be placed *inside* the new `<p>` element, but *before* the `<a>` element.",
+    "Verify your paragraph count. A new `<p>` means you'll have one more than before."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "nesting",
+    "links"
+  ],
+  "original_fcc_title": "Nest an Anchor Element within a Paragraph",
+  "block": "basic-html-and-html5"
+}

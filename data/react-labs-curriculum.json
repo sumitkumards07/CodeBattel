@@ -1,0 +1,608 @@
+{
+  "lessons": [
+    {
+      "id": "jsx-basics",
+      "title": "JSX Basics",
+      "description": "Learn how JSX lets you write HTML-like syntax in JavaScript.",
+      "tags": [
+        "JSX syntax",
+        "Expressions with {}",
+        "className"
+      ],
+      "order": 1,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  const year = 2026;\n  \n  return (\n    // Write your JSX here\n    <div>\n      \n    </div>\n  );\n}"
+      },
+      "category": "lessons",
+      "instructions": "## JSX Basics\n\nJSX looks like HTML but lives inside JavaScript. Under the hood, `<h1>Hello</h1>` becomes `React.createElement('h1', null, 'Hello')`.\n\n### Key Rules\n- Use `className` instead of `class`\n- Embed JavaScript expressions with curly braces `{}`\n- JSX must return a **single root element** (use `<div>` or `<>` fragments)\n- Self-closing tags must end with `/>` (e.g., `<img />`, `<br />`)\n\n### Your Task\nCreate an `App` component that renders:\n1. A `<div>` wrapper containing:\n   - An `<h1>` with the text **\"Hello, React!\"**\n   - A `<p>` that displays the value of `const year = 2026` using a JSX expression\n   - A `<p>` with `className=\"subtitle\"` containing any text\n\n> **Hint:** Use `{year}` inside JSX to embed the variable."
+    },
+    {
+      "id": "components-props",
+      "title": "Components & Props",
+      "description": "Break your UI into reusable components and pass data with props.",
+      "tags": [
+        "Function components",
+        "Props",
+        "Destructuring"
+      ],
+      "order": 2,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "state-usestate",
+      "title": "State & useState",
+      "description": "Make your components interactive with state.",
+      "tags": [
+        "useState hook",
+        "State updates",
+        "Re-rendering"
+      ],
+      "order": 3,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "event-handling",
+      "title": "Event Handling",
+      "description": "Respond to user interactions with event handlers.",
+      "tags": [
+        "onClick",
+        "onChange",
+        "Event object"
+      ],
+      "order": 4,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "useeffect-lifecycle",
+      "title": "useEffect & Lifecycle",
+      "description": "Run side effects and manage component lifecycle.",
+      "tags": [
+        "useEffect",
+        "Dependency array",
+        "Cleanup"
+      ],
+      "order": 5,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "conditional-rendering",
+      "title": "Conditional Rendering",
+      "description": "Show different UI based on state and conditions.",
+      "tags": [
+        "Ternary operator",
+        "&& short-circuit",
+        "Conditional styles"
+      ],
+      "order": 6,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "lists-keys",
+      "title": "Lists & Keys",
+      "description": "Render dynamic lists and understand why keys matter.",
+      "tags": [
+        "Array.map()",
+        "key prop",
+        "Filtering lists"
+      ],
+      "order": 7,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "forms-controlled-components",
+      "title": "Forms & Controlled Components",
+      "description": "Handle form inputs the React way with controlled components.",
+      "tags": [
+        "Controlled inputs",
+        "Form submission",
+        "Select & textarea"
+      ],
+      "order": 8,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "context-api",
+      "title": "Context API",
+      "description": "Share data across components without prop drilling.",
+      "tags": [
+        "createContext",
+        "useContext",
+        "Provider"
+      ],
+      "order": 9,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "custom-hooks",
+      "title": "Custom Hooks",
+      "description": "Extract and reuse stateful logic with custom hooks.",
+      "tags": [
+        "Custom hooks",
+        "use prefix",
+        "Reusability"
+      ],
+      "order": 10,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "component-composition",
+      "title": "Component Composition",
+      "description": "Build flexible components using children and composition patterns.",
+      "tags": [
+        "children prop",
+        "Composition vs inheritance",
+        "Compound components"
+      ],
+      "order": 11,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "useref",
+      "title": "useRef",
+      "description": "Hold mutable values and reach into DOM nodes.",
+      "tags": [
+        "useRef hook",
+        "DOM access",
+        "Mutable refs"
+      ],
+      "order": 12,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "usereducer",
+      "title": "useReducer",
+      "description": "Action-based state for complex updates.",
+      "tags": [
+        "useReducer hook",
+        "Reducer pattern",
+        "Action dispatching"
+      ],
+      "order": 13,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "usememo-usecallback",
+      "title": "useMemo & useCallback",
+      "description": "Cache expensive values and stable function references.",
+      "tags": [
+        "useMemo",
+        "useCallback",
+        "Referential equality"
+      ],
+      "order": 14,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "react-memo",
+      "title": "React.memo",
+      "description": "Skip re-rendering child components when their props haven’t changed.",
+      "tags": [
+        "React.memo",
+        "Re-render prevention",
+        "Prop equality"
+      ],
+      "order": 15,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "error-boundaries",
+      "title": "Error Boundaries",
+      "description": "Catch render errors and show a fallback UI.",
+      "tags": [
+        "Error boundaries",
+        "Class components",
+        "getDerivedStateFromError"
+      ],
+      "order": 16,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "suspense-lazy",
+      "title": "Suspense & lazy",
+      "description": "Show a fallback while a component or data is loading.",
+      "tags": [
+        "React.Suspense",
+        "React.lazy",
+        "Loading states"
+      ],
+      "order": 17,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "portals",
+      "title": "Portals",
+      "description": "Render children into a DOM node outside the parent tree.",
+      "tags": [
+        "createPortal",
+        "Modals",
+        "DOM hierarchy"
+      ],
+      "order": 18,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    },
+    {
+      "id": "capstone-notes-app",
+      "title": "Capstone: Notes App",
+      "description": "Combine everything you learned to build a real mini-app.",
+      "tags": [
+        "State management",
+        "Lists",
+        "Forms"
+      ],
+      "order": 19,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "category": "lessons"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "the-frozen-counter",
+      "title": "The Frozen Counter",
+      "description": "The counter displays but never updates when buttons are clicked.",
+      "tags": [
+        "useState",
+        "State setter"
+      ],
+      "order": 1,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-infinite-loop",
+      "title": "The Infinite Loop",
+      "description": "The component crashes or freezes immediately on mount.",
+      "tags": [
+        "useEffect",
+        "Dependency array"
+      ],
+      "order": 2,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "5 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-stale-closure",
+      "title": "The Stale Closure",
+      "description": "Rapid clicks on the counter only increment by 1 total.",
+      "tags": [
+        "Closures",
+        "Functional updates"
+      ],
+      "order": 3,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "5 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-disappearing-list",
+      "title": "The Disappearing List",
+      "description": "List items get jumbled when you delete from the middle.",
+      "tags": [
+        "Keys",
+        "List rendering"
+      ],
+      "order": 4,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-instant-fire",
+      "title": "The Instant Fire",
+      "description": "Alert fires immediately on render, not on button click.",
+      "tags": [
+        "Event handlers",
+        "Function reference vs call"
+      ],
+      "order": 5,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-mutant-array",
+      "title": "The Mutant Array",
+      "description": "New items seem to be added but the list never updates on screen.",
+      "tags": [
+        "Immutability",
+        "State updates",
+        "Array spread"
+      ],
+      "order": 6,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-missing-cleanup",
+      "title": "The Missing Cleanup",
+      "description": "The timer speeds up every time the component updates.",
+      "tags": [
+        "useEffect cleanup",
+        "setInterval",
+        "Memory leaks"
+      ],
+      "order": 7,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "5 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-conditional-hook",
+      "title": "The Conditional Hook",
+      "description": "Component crashes with \"Rendered more hooks than during the previous render\".",
+      "tags": [
+        "Rules of Hooks",
+        "Conditional rendering"
+      ],
+      "order": 8,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "5 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-slow-reply",
+      "title": "The Slow Reply",
+      "description": "A slow earlier fetch overwrites the result of a faster, more recent one.",
+      "tags": [
+        "useEffect cleanup",
+        "Race conditions",
+        "Cancellation"
+      ],
+      "order": 9,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "hard",
+      "time": "10 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-wandering-edit",
+      "title": "The Wandering Edit",
+      "description": "Editing an input and then reordering the list moves the edit to the wrong row.",
+      "tags": [
+        "List keys",
+        "Reconciliation",
+        "Uncontrolled inputs"
+      ],
+      "order": 10,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "hard",
+      "time": "10 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-lost-increment",
+      "title": "The Lost Increment",
+      "description": "A delayed update overwrites a more recent one, swallowing increments.",
+      "tags": [
+        "Stale closures",
+        "Functional updaters",
+        "setState with previous state"
+      ],
+      "order": 11,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "hard",
+      "time": "10 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-dropped-prop",
+      "title": "The Dropped Prop",
+      "description": "A theme value is supposed to reach a deeply nested component but never arrives.",
+      "tags": [
+        "Prop drilling",
+        "Context API",
+        "createContext + useContext"
+      ],
+      "order": 12,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "5 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-read-only-input",
+      "title": "The Read-Only Input",
+      "description": "A controlled input refuses to accept any typing.",
+      "tags": [
+        "Controlled inputs",
+        "value vs defaultValue",
+        "onChange"
+      ],
+      "order": 13,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-restless-effect",
+      "title": "The Restless Effect",
+      "description": "A child’s useEffect re-runs every render, even when its dependency “hasn’t changed”.",
+      "tags": [
+        "Referential equality",
+        "useMemo",
+        "useEffect dependencies"
+      ],
+      "order": 14,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "medium",
+      "time": "6 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-page-reload",
+      "title": "The Page Reload",
+      "description": "Submitting the form reloads the page and wipes all state.",
+      "tags": [
+        "Form submit",
+        "Event default behavior",
+        "Synthetic events"
+      ],
+      "order": 15,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "easy",
+      "time": "3 min",
+      "category": "challenges"
+    },
+    {
+      "id": "the-lost-this",
+      "title": "The Lost This",
+      "description": "A class component’s click handler throws because `this` is undefined.",
+      "tags": [
+        "Class components",
+        "this binding",
+        "Arrow methods"
+      ],
+      "order": 16,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "difficulty": "hard",
+      "time": "9 min",
+      "category": "challenges"
+    }
+  ],
+  "projects": [
+    {
+      "id": "todo-app",
+      "title": "Todo App",
+      "description": "Build a working todo list — add, complete, delete, and persist.",
+      "tags": [
+        "useState",
+        "Lists & keys",
+        "useEffect"
+      ],
+      "order": 1,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "steps": "0/3 steps",
+      "category": "projects"
+    },
+    {
+      "id": "user-directory",
+      "title": "User Directory",
+      "description": "Render, filter, and slice a list of users.",
+      "tags": [
+        "Lists & keys",
+        "Controlled inputs",
+        "Derived state"
+      ],
+      "order": 2,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "steps": "0/3 steps",
+      "category": "projects"
+    },
+    {
+      "id": "form-wizard",
+      "title": "Form Wizard",
+      "description": "A single form, then split it into steps, then validate it.",
+      "tags": [
+        "Controlled forms",
+        "Conditional rendering",
+        "Validation"
+      ],
+      "order": 3,
+      "files": {
+        "/App.js": "import React from 'react';\n\nexport default function App() {\n  return (\n    <div style={{ fontFamily: 'sans-serif', padding: '2rem' }}>\n      <h2>Placeholder Starter Code</h2>\n      <p>This is the default starter code. Follow the instructions to write your solution here.</p>\n    </div>\n  );\n}"
+      },
+      "steps": "0/3 steps",
+      "category": "projects"
+    }
+  ]
+}

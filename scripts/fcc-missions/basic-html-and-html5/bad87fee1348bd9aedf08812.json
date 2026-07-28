@@ -1,0 +1,28 @@
+{
+  "mission_id": "bad87fee1348bd9aedf08812",
+  "mission_title": "Visual Data Injection",
+  "xp_reward": 120,
+  "difficulty": "recruit",
+  "briefing": "Recruit, visual data is critical for target identification. Use the `img` element to deploy visual assets, targeting the data stream with `src`. Always include an `alt` attribute for system accessibility and data redundancy.",
+  "objective": "Deploy a new `img` element within the `main` container, linking to the provided visual asset and ensuring robust accessibility with an `alt` attribute.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n<main>\n\n\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  <img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cat relaxing.\">\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "test_assertions": [
+    "System must detect deployed `img` element.",
+    "Deployed `img` element must target the specified visual data stream.",
+    "The `img` element's `alt` attribute must contain valid fallback text."
+  ],
+  "hints": [
+    "Remember, the `img` element operates without a closing tag – it's a self-contained deployment.",
+    "The `src` attribute is your direct link, your data stream pipeline. Point it precisely.",
+    "Never skip the `alt` attribute. It's your critical fallback protocol for visual data integrity."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "images"
+  ],
+  "original_fcc_title": "Add Images to Your Website",
+  "block": "basic-html-and-html5"
+}

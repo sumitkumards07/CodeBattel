@@ -1,0 +1,33 @@
+{
+  "mission_id": "bad87fee1348bd9aecf08801",
+  "mission_title": "Core Content Isolation Protocol",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Listen up, recruit! The network architecture is a mess of legacy code. We're deploying HTML5 semantic tags to bring order to the chaos. Your first task: isolate the core content of a page using the `main` element. This improves data parsing for our bots and makes our intel readable for other operatives.",
+  "objective": "Encapsulate two `p` elements within a `main` container, ensuring critical data is properly segmented.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n\n<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "test_assertions": [
+    "System check: Verify two `p` elements containing the designated Kitty Ipsum data.",
+    "System check: Ensure each `p` element has a proper termination tag.",
+    "System check: Confirm the second `p` element contains the specified initial Kitty Ipsum data.",
+    "System check: Validate the presence of a single `main` element.",
+    "System check: Confirm the `main` element contains exactly two `p` elements as direct children.",
+    "System check: The `main` element's opening tag must precede the first `p` element.",
+    "System check: The `main` element's closing tag must follow the second `p` element's termination."
+  ],
+  "hints": [
+    "Remember to close all your tags, recruit. No loose ends in the network.",
+    "The `main` element is for primary content. Keep its payload focused.",
+    "Nest the `p` elements directly inside `main` like a secure data packet."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "semantic",
+    "html5"
+  ],
+  "original_fcc_title": "Introduction to HTML5 Elements",
+  "block": "basic-html-and-html5"
+}

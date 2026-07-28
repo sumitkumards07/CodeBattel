@@ -1,0 +1,28 @@
+{
+  "mission_id": "bad87fee1348bd9aedf08816",
+  "mission_title": "Cross-Network Data Link",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Recruit, you need to establish links to external data streams. The `a` (anchor) element is your primary tool for cross-network navigation. Each link requires an `href` attribute, pointing to the target URL, and anchor text for the user interface.",
+  "objective": "Deploy an `a` element to create a direct link to `https://www.freecatphotoapp.com` with 'cat photos' as its visible identifier.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n<main>\n\n\n\n  <img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\">\n\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  \n  <img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\">\n  \n  <a href=\"https://www.freecatphotoapp.com\">cat photos</a>\n  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>\n</main>",
+  "test_assertions": [
+    "Your `a` element should have the anchor text of `cat photos`.",
+    "You need an `a` element that links to `https://www.freecatphotoapp.com`",
+    "Your `a` element should have a closing tag."
+  ],
+  "hints": [
+    "Remember the `href` attribute is your target vector.",
+    "The visible text between the tags is what the user sees.",
+    "Don't forget to close your element, recruit, or the connection will be unstable."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "links"
+  ],
+  "original_fcc_title": "Link to External Pages with Anchor Elements",
+  "block": "basic-html-and-html5"
+}

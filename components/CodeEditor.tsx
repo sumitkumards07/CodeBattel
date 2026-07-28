@@ -4,11 +4,12 @@ import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { python } from "@codemirror/lang-python";
+import { java } from "@codemirror/lang-java";
 import { oneDark } from "@codemirror/theme-one-dark";
 
 interface CodeEditorProps {
     value: string;
-    language?: "javascript" | "python";
+    language?: "javascript" | "python" | "java";
     onChange?: (value: string) => void;
     className?: string;
 }
@@ -19,7 +20,11 @@ export default function CodeEditor({
     onChange,
     className,
 }: CodeEditorProps) {
-    const extensions = [language === "python" ? python() : javascript({ jsx: true })];
+    const extensions = [
+        language === "python" ? python() : 
+        language === "java" ? java() : 
+        javascript({ jsx: true })
+    ];
 
     return (
         <div className={`text-sm font-mono overflow-hidden rounded-md ${className}`}>

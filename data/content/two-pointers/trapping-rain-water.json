@@ -1,0 +1,1137 @@
+{
+  "slug": "trapping-rain-water",
+  "category": "two-pointers",
+  "title": "Trapping Rain Water",
+  "oneLiner": "Water held between bars of varying heights",
+  "problemStatement": "Given an elevation map of bar heights, compute how many units of water can be trapped between the bars after rain.",
+  "sequence": [
+    2,
+    0,
+    4,
+    1,
+    0,
+    3,
+    1
+  ],
+  "phases": [
+    {
+      "label": "Brute force · scan both sides per column",
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given h[]",
+        "total ← 0",
+        "for i ← 0 to n − 1:",
+        "    maxL ← max(h[0..i])",
+        "    maxR ← max(h[i..n − 1])",
+        "    cap = min(maxL, maxR)",
+        "    total += max(0, cap − h[i])",
+        "return total"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7
+          },
+          "narration": "Imagine rain falling on these bars. Where does the water collect? Water can only sit above a column if there are TALLER bars on BOTH sides to hold it."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "formula": "min(maxL, maxR) − h[i]"
+          },
+          "narration": "For each column i, water above it = max(0, min(maxL, maxR) − h[i]). maxL = tallest bar in h[0..i], maxR = tallest in h[i..n−1]. The min is the \"cap\" — water only rises as high as the SHORTER wall."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 0,
+            "h[i]": 2,
+            "leftMax": 2,
+            "total": 0
+          },
+          "narration": "Column 0 (h[0] = 2). Scan left over h[0..0] — the tallest bar is leftMax = 2. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 0,
+            "leftMax": 2,
+            "rightMax": 4,
+            "total": 0
+          },
+          "narration": "Scan right over h[0..6] — the tallest is rightMax = 4. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "leftMax": 2,
+            "rightMax": 4,
+            "cap": 2,
+            "water[i]": 0,
+            "total": 0
+          },
+          "narration": "cap = min(2, 4) = 2. h[0] = 2 already reaches the cap, so water[0] = 0. This column is a wall, not a valley."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "water[i]": 0,
+            "total": 0
+          },
+          "narration": "Nothing to settle (column 0 hits the cap). total = 0."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 1,
+            "h[i]": 0,
+            "leftMax": 2,
+            "total": 0
+          },
+          "narration": "Column 1 (h[1] = 0). Scan left over h[0..1] — the tallest bar is leftMax = 2. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 1,
+            "leftMax": 2,
+            "rightMax": 4,
+            "total": 0
+          },
+          "narration": "Scan right over h[1..6] — the tallest is rightMax = 4. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "leftMax": 2,
+            "rightMax": 4,
+            "cap": 2,
+            "water[i]": 2,
+            "total": 0
+          },
+          "narration": "cap = min(2, 4) = 2. (Gold line is the water surface — the SHORTER wall sets it.) water[1] = 2 − 0 = 2."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 1,
+            "water[i]": 2,
+            "total": 2
+          },
+          "narration": "Water settles above column 1. total = 2."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 2,
+            "h[i]": 4,
+            "leftMax": 4,
+            "total": 2
+          },
+          "narration": "Column 2 (h[2] = 4). Scan left over h[0..2] — the tallest bar is leftMax = 4. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "leftMax": 4,
+            "rightMax": 4,
+            "total": 2
+          },
+          "narration": "Scan right over h[2..6] — the tallest is rightMax = 4. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 2,
+            "leftMax": 4,
+            "rightMax": 4,
+            "cap": 4,
+            "water[i]": 0,
+            "total": 2
+          },
+          "narration": "cap = min(4, 4) = 4. h[2] = 4 already reaches the cap, so water[2] = 0. This column is a wall, not a valley."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 2,
+            "water[i]": 0,
+            "total": 2
+          },
+          "narration": "Nothing to settle (column 2 hits the cap). total = 2."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 3,
+            "h[i]": 1,
+            "leftMax": 4,
+            "total": 2
+          },
+          "narration": "Column 3 (h[3] = 1). Scan left over h[0..3] — the tallest bar is leftMax = 4. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "leftMax": 4,
+            "rightMax": 3,
+            "total": 2
+          },
+          "narration": "Scan right over h[3..6] — the tallest is rightMax = 3. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 3,
+            "leftMax": 4,
+            "rightMax": 3,
+            "cap": 3,
+            "water[i]": 2,
+            "total": 2
+          },
+          "narration": "cap = min(4, 3) = 3. (Gold line is the water surface — the SHORTER wall sets it.) water[3] = 3 − 1 = 2."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 3,
+            "water[i]": 2,
+            "total": 4
+          },
+          "narration": "Water settles above column 3. total = 4."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 4,
+            "h[i]": 0,
+            "leftMax": 4,
+            "total": 4
+          },
+          "narration": "Column 4 (h[4] = 0). Scan left over h[0..4] — the tallest bar is leftMax = 4. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "leftMax": 4,
+            "rightMax": 3,
+            "total": 4
+          },
+          "narration": "Scan right over h[4..6] — the tallest is rightMax = 3. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 4,
+            "leftMax": 4,
+            "rightMax": 3,
+            "cap": 3,
+            "water[i]": 3,
+            "total": 4
+          },
+          "narration": "cap = min(4, 3) = 3. (Gold line is the water surface — the SHORTER wall sets it.) water[4] = 3 − 0 = 3."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 4,
+            "water[i]": 3,
+            "total": 7
+          },
+          "narration": "Water settles above column 4. total = 7."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 5,
+            "h[i]": 3,
+            "leftMax": 4,
+            "total": 7
+          },
+          "narration": "Column 5 (h[5] = 3). Scan left over h[0..5] — the tallest bar is leftMax = 4. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 5,
+            "leftMax": 4,
+            "rightMax": 3,
+            "total": 7
+          },
+          "narration": "Scan right over h[5..6] — the tallest is rightMax = 3. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 5,
+            "leftMax": 4,
+            "rightMax": 3,
+            "cap": 3,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "cap = min(4, 3) = 3. h[5] = 3 already reaches the cap, so water[5] = 0. This column is a wall, not a valley."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 5,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "Nothing to settle (column 5 hits the cap). total = 7."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 6,
+            "h[i]": 1,
+            "leftMax": 4,
+            "total": 7
+          },
+          "narration": "Column 6 (h[6] = 1). Scan left over h[0..6] — the tallest bar is leftMax = 4. (Red dashed line is the LEFT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 6,
+            "leftMax": 4,
+            "rightMax": 1,
+            "total": 7
+          },
+          "narration": "Scan right over h[6..6] — the tallest is rightMax = 1. (Blue dashed line is the RIGHT wall.)"
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 6,
+            "leftMax": 4,
+            "rightMax": 1,
+            "cap": 1,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "cap = min(4, 1) = 1. h[6] = 1 already reaches the cap, so water[6] = 0. This column is a wall, not a valley."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 6,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "Nothing to settle (column 6 hits the cap). total = 7."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 8,
+          "state": {
+            "time": "O(n²)",
+            "space": "O(1)",
+            "total": 7
+          },
+          "narration": "Done. total = 7. Each column did a full left-scan and right-scan → O(n²) time. Notice we re-walked the SAME bars for every column. Can we compute maxL and maxR once?"
+        }
+      ]
+    },
+    {
+      "label": "Better · precompute maxL[] and maxR[] arrays",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "pseudocode": [
+        "given h[]",
+        "maxL ← array of size n",
+        "maxL[0] = h[0]",
+        "for i ← 1 to n − 1:",
+        "    maxL[i] = max(maxL[i − 1], h[i])",
+        "maxR ← array of size n",
+        "maxR[n − 1] = h[n − 1]",
+        "for i ← n − 2 down to 0:",
+        "    maxR[i] = max(maxR[i + 1], h[i])",
+        "total ← 0",
+        "for i ← 0 to n − 1:",
+        "    total += max(0, min(maxL[i], maxR[i]) − h[i])",
+        "return total"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7,
+            "plan": "maxL[] + maxR[] + water[]"
+          },
+          "narration": "The brute approach re-scanned for every column. Idea: compute maxL[] in ONE left-to-right pass and maxR[] in ONE right-to-left pass. Then one more pass to settle water. Three passes total → O(n)."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 4,
+          "state": {
+            "phase": "pass 1: maxL[]",
+            "i": 0,
+            "maxL[i]": 2
+          },
+          "narration": "Pass 1: build maxL[]. maxL[0] = h[0] = 2. The leftMax line starts here."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 1,
+            "h[i]": 0,
+            "maxL[i-1]": 2,
+            "maxL[i]": 2
+          },
+          "narration": "i = 1: h[1] = 0 ≤ maxL[0] = 2. maxL[1] = 2 — same as before."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "h[i]": 4,
+            "maxL[i-1]": 2,
+            "maxL[i]": 4
+          },
+          "narration": "i = 2: h[2] = 4 > maxL[1] = 2. maxL[2] = 4 — the wall lifts."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "h[i]": 1,
+            "maxL[i-1]": 4,
+            "maxL[i]": 4
+          },
+          "narration": "i = 3: h[3] = 1 ≤ maxL[2] = 4. maxL[3] = 4 — same as before."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "h[i]": 0,
+            "maxL[i-1]": 4,
+            "maxL[i]": 4
+          },
+          "narration": "i = 4: h[4] = 0 ≤ maxL[3] = 4. maxL[4] = 4 — same as before."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 5,
+            "h[i]": 3,
+            "maxL[i-1]": 4,
+            "maxL[i]": 4
+          },
+          "narration": "i = 5: h[5] = 3 ≤ maxL[4] = 4. maxL[5] = 4 — same as before."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 6,
+            "h[i]": 1,
+            "maxL[i-1]": 4,
+            "maxL[i]": 4
+          },
+          "narration": "i = 6: h[6] = 1 ≤ maxL[5] = 4. maxL[6] = 4 — same as before."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 5,
+          "state": {
+            "phase": "pass 1 done",
+            "maxL[]": "[2, 2, 4, 4, 4, 4, 4]"
+          },
+          "narration": "Pass 1 done. maxL[] = [2, 2, 4, 4, 4, 4, 4]. The red stairstep is the running tallest-from-left."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "phase": "pass 2: maxR[]",
+            "i": 6,
+            "maxR[i]": 1
+          },
+          "narration": "Pass 2: build maxR[] right-to-left. maxR[6] = h[6] = 1."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 5,
+            "h[i]": 3,
+            "maxR[i+1]": 1,
+            "maxR[i]": 3
+          },
+          "narration": "i = 5: h[5] = 3 > maxR[6] = 1. maxR[5] = 3 — the wall lifts."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 4,
+            "h[i]": 0,
+            "maxR[i+1]": 3,
+            "maxR[i]": 3
+          },
+          "narration": "i = 4: h[4] = 0 ≤ maxR[5] = 3. maxR[4] = 3 — carries over from the right."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 3,
+            "h[i]": 1,
+            "maxR[i+1]": 3,
+            "maxR[i]": 3
+          },
+          "narration": "i = 3: h[3] = 1 ≤ maxR[4] = 3. maxR[3] = 3 — carries over from the right."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 2,
+            "h[i]": 4,
+            "maxR[i+1]": 3,
+            "maxR[i]": 4
+          },
+          "narration": "i = 2: h[2] = 4 > maxR[3] = 3. maxR[2] = 4 — the wall lifts."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 1,
+            "h[i]": 0,
+            "maxR[i+1]": 4,
+            "maxR[i]": 4
+          },
+          "narration": "i = 1: h[1] = 0 ≤ maxR[2] = 4. maxR[1] = 4 — carries over from the right."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 0,
+            "h[i]": 2,
+            "maxR[i+1]": 4,
+            "maxR[i]": 4
+          },
+          "narration": "i = 0: h[0] = 2 ≤ maxR[1] = 4. maxR[0] = 4 — carries over from the right."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 8,
+          "state": {
+            "phase": "pass 2 done",
+            "maxR[]": "[4, 4, 4, 3, 3, 3, 1]"
+          },
+          "narration": "Pass 2 done. maxR[] = [4, 4, 4, 3, 3, 3, 1]. The blue stairstep is the running tallest-from-right."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 10,
+          "state": {
+            "phase": "pass 3: water[]",
+            "total": 0
+          },
+          "narration": "Pass 3: for each column i, water = max(0, min(maxL[i], maxR[i]) − h[i]). With both stairsteps in hand, this is a single sweep."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 0,
+            "maxL[i]": 2,
+            "maxR[i]": 4,
+            "cap": 2,
+            "water[i]": 0,
+            "total": 0
+          },
+          "narration": "Column 0: min(2, 4) = 2 ≤ h[0] = 2. water = 0."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 1,
+            "maxL[i]": 2,
+            "maxR[i]": 4,
+            "cap": 2,
+            "water[i]": 2,
+            "total": 2
+          },
+          "narration": "Column 1: min(maxL=2, maxR=4) = 2. water = 2 − 0 = 2. total = 2."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 2,
+            "maxL[i]": 4,
+            "maxR[i]": 4,
+            "cap": 4,
+            "water[i]": 0,
+            "total": 2
+          },
+          "narration": "Column 2: min(4, 4) = 4 ≤ h[2] = 4. water = 0."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 3,
+            "maxL[i]": 4,
+            "maxR[i]": 3,
+            "cap": 3,
+            "water[i]": 2,
+            "total": 4
+          },
+          "narration": "Column 3: min(maxL=4, maxR=3) = 3. water = 3 − 1 = 2. total = 4."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 4,
+            "maxL[i]": 4,
+            "maxR[i]": 3,
+            "cap": 3,
+            "water[i]": 3,
+            "total": 7
+          },
+          "narration": "Column 4: min(maxL=4, maxR=3) = 3. water = 3 − 0 = 3. total = 7."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 5,
+            "maxL[i]": 4,
+            "maxR[i]": 3,
+            "cap": 3,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "Column 5: min(4, 3) = 3 ≤ h[5] = 3. water = 0."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 6,
+            "maxL[i]": 4,
+            "maxR[i]": 1,
+            "cap": 1,
+            "water[i]": 0,
+            "total": 7
+          },
+          "narration": "Column 6: min(4, 1) = 1 ≤ h[6] = 1. water = 0."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 12,
+          "state": {
+            "time": "O(n)",
+            "space": "O(n)",
+            "total": 7
+          },
+          "narration": "Done. total = 7. Three single passes → O(n) time, O(n) space (for maxL[] and maxR[]). Can we get rid of those two arrays?"
+        }
+      ]
+    },
+    {
+      "label": "Optimized · two pointers, O(1) space",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given h[]",
+        "left ← 0; right ← n − 1",
+        "leftMax ← 0; rightMax ← 0; total ← 0",
+        "while left < right:",
+        "    if h[left] < h[right]:",
+        "        if h[left] ≥ leftMax: leftMax = h[left]",
+        "        else: total += leftMax − h[left]",
+        "        left++",
+        "    else:",
+        "        if h[right] ≥ rightMax: rightMax = h[right]",
+        "        else: total += rightMax − h[right]",
+        "        right−−",
+        "return total"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7
+          },
+          "narration": "Better idea: we only need to know which side is the BOTTLENECK at each step. Use two pointers walking inward — track the leftMax seen so far (red line) and rightMax (blue line)."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "rule": "settle the smaller side"
+          },
+          "narration": "Key insight: if h[left] < h[right], then the right side has a wall ≥ h[right] > h[left]. So leftMax (whatever it is) is the BINDING cap on column left — settle it NOW. Symmetric on the other side."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 6
+          },
+          "highlightLine": 2,
+          "state": {
+            "left": 0,
+            "right": 6,
+            "leftMax": 0,
+            "rightMax": 0,
+            "total": 0
+          },
+          "narration": "Init: left = 0, right = n − 1, leftMax = 0, rightMax = 0, total = 0."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 6
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 0,
+            "right": 6,
+            "h[left]": 2,
+            "h[right]": 1,
+            "leftMax": 0,
+            "rightMax": 0,
+            "total": 0
+          },
+          "narration": "Iter 1: h[left=0] = 2, h[right=6] = 1. 2 ≥ 1 → settle the RIGHT side."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 6
+          },
+          "highlightLine": 10,
+          "state": {
+            "right": 6,
+            "h[right]": 1,
+            "rightMax": 1,
+            "total": 0
+          },
+          "narration": "h[right] = 1 ≥ rightMax = 0. This column IS the new right wall. rightMax ← 1. (Blue line lifts.)"
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 5
+          },
+          "highlightLine": 12,
+          "state": {
+            "left": 0,
+            "right": 5,
+            "rightMax": 1,
+            "total": 0
+          },
+          "narration": "right−− → 5. The blue wall now extends through column 6."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 0,
+            "right": 5,
+            "h[left]": 2,
+            "h[right]": 3,
+            "leftMax": 0,
+            "rightMax": 1,
+            "total": 0
+          },
+          "narration": "Iter 2: h[left=0] = 2, h[right=5] = 3. 2 < 3 → settle the LEFT side."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "left": 0,
+            "h[left]": 2,
+            "leftMax": 2,
+            "total": 0
+          },
+          "narration": "h[left] = 2 ≥ leftMax = 0. This column IS the new left wall — no water sits on it. leftMax ← 2. (Red line lifts.)"
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "left": 1,
+            "right": 5,
+            "leftMax": 2,
+            "total": 0
+          },
+          "narration": "left++ → 1. The red wall now extends through column 0."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 1,
+            "right": 5,
+            "h[left]": 0,
+            "h[right]": 3,
+            "leftMax": 2,
+            "rightMax": 1,
+            "total": 0
+          },
+          "narration": "Iter 3: h[left=1] = 0, h[right=5] = 3. 0 < 3 → settle the LEFT side."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 5
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 1,
+            "h[left]": 0,
+            "leftMax": 2,
+            "water[left]": 2,
+            "total": 2
+          },
+          "narration": "h[left] = 0 < leftMax = 2. Water settles above column 1: leftMax − h[left] = 2 − 0 = 2. total = 2."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "left": 2,
+            "right": 5,
+            "leftMax": 2,
+            "total": 2
+          },
+          "narration": "left++ → 2. The red wall now extends through column 1."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 2,
+            "right": 5,
+            "h[left]": 4,
+            "h[right]": 3,
+            "leftMax": 2,
+            "rightMax": 1,
+            "total": 2
+          },
+          "narration": "Iter 4: h[left=2] = 4, h[right=5] = 3. 4 ≥ 3 → settle the RIGHT side."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 5
+          },
+          "highlightLine": 10,
+          "state": {
+            "right": 5,
+            "h[right]": 3,
+            "rightMax": 3,
+            "total": 2
+          },
+          "narration": "h[right] = 3 ≥ rightMax = 1. This column IS the new right wall. rightMax ← 3. (Blue line lifts.)"
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 4
+          },
+          "highlightLine": 12,
+          "state": {
+            "left": 2,
+            "right": 4,
+            "rightMax": 3,
+            "total": 2
+          },
+          "narration": "right−− → 4. The blue wall now extends through column 5."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 2,
+            "right": 4,
+            "h[left]": 4,
+            "h[right]": 0,
+            "leftMax": 2,
+            "rightMax": 3,
+            "total": 2
+          },
+          "narration": "Iter 5: h[left=2] = 4, h[right=4] = 0. 4 ≥ 0 → settle the RIGHT side."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 4
+          },
+          "highlightLine": 11,
+          "state": {
+            "right": 4,
+            "h[right]": 0,
+            "rightMax": 3,
+            "water[right]": 3,
+            "total": 5
+          },
+          "narration": "h[right] = 0 < rightMax = 3. Water settles above column 4: 3 − 0 = 3. total = 5."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 3
+          },
+          "highlightLine": 12,
+          "state": {
+            "left": 2,
+            "right": 3,
+            "rightMax": 3,
+            "total": 5
+          },
+          "narration": "right−− → 3. The blue wall now extends through column 4."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "left": 2,
+            "right": 3,
+            "h[left]": 4,
+            "h[right]": 1,
+            "leftMax": 2,
+            "rightMax": 3,
+            "total": 5
+          },
+          "narration": "Iter 6: h[left=2] = 4, h[right=3] = 1. 4 ≥ 1 → settle the RIGHT side."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 3
+          },
+          "highlightLine": 11,
+          "state": {
+            "right": 3,
+            "h[right]": 1,
+            "rightMax": 3,
+            "water[right]": 2,
+            "total": 7
+          },
+          "narration": "h[right] = 1 < rightMax = 3. Water settles above column 3: 3 − 1 = 2. total = 7."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 2
+          },
+          "highlightLine": 12,
+          "state": {
+            "left": 2,
+            "right": 2,
+            "rightMax": 3,
+            "total": 7
+          },
+          "narration": "right−− → 2. The blue wall now extends through column 3."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 13,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)",
+            "total": 7
+          },
+          "narration": "left met right. One pass, each step advanced one pointer → O(n) time, O(1) extra space. Total water = 7. Each side settled the moment IT was the shorter one — we never needed to know the global max on the other side."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 42,
+    "url": "https://leetcode.com/problems/trapping-rain-water",
+    "difficulty": "Hard"
+  },
+  "companies": [
+    "Amazon",
+    "Google",
+    "Goldman Sachs"
+  ]
+}

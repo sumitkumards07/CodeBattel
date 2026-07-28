@@ -1,0 +1,85 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: 587d78aa367417b2b2512aed.md
+Original Title: Declare the Doctype of an HTML Document
+Challenge ID: 587d78aa367417b2b2512aed
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: 587d78aa367417b2b2512aed
+ORIGINAL TITLE: Declare the Doctype of an HTML Document
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+The challenges so far have covered specific HTML elements and their uses. However, there are a few elements that give overall structure to your page, and should be included in every HTML document.
+
+At the top of your document, you need to tell the browser which version of HTML your page is using. HTML is an evolving language, and is updated regularly. Most major browsers support the latest specification, which is HTML5. However, older web pages may use previous versions of the language.
+
+You tell the browser this information by adding the `<!DOCTYPE ...>` tag on the first line, where the `...` part is the version of HTML. For HTML5, you use `<!DOCTYPE html>`.
+
+The `!` and uppercase `DOCTYPE` is important, especially for older browsers. The `html` is not case sensitive.
+
+Next, the rest of your HTML code needs to be wrapped in `html` tags. The opening `<html>` goes directly below the `<!DOCTYPE html>` line, and the closing `</html>` goes at the end of the page.
+
+Here's an example of the page structure. Your HTML code would go in the space between the two `html` tags.
+
+```html
+<!DOCTYPE html>
+<html>
+
+</html>
+```
+
+INSTRUCTIONS:
+Add a `DOCTYPE` tag for HTML5 to the top of the blank HTML document in the code editor. Under it, add opening and closing `html` tags, which wrap around an `h1` element. The heading can include any text.
+
+TEST HINTS:
+Your code should include a `<!DOCTYPE html>` tag.
+There should be one `html` element.
+The `html` tags should wrap around one `h1` element.
+
+STARTER CODE:
+
+
+SOLUTION:
+<!DOCTYPE html>
+<html>
+  <h1> Hello world </h1>
+</html>
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===

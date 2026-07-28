@@ -12,36 +12,7 @@ interface BattleLayoutProps {
 
 export default function BattleLayout({ leftPanel, centerPanel, rightPanel }: BattleLayoutProps) {
     return (
-        <div className="h-screen bg-[#050505] text-white flex flex-col font-mono overflow-hidden pt-16">
-
-            {/* Top Bar */}
-            <header className="h-10 border-b border-white/10 flex items-center justify-between px-4 bg-[#080808] z-30 relative">
-                <div className="flex items-center gap-4">
-                    <Link href="/" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-                        <ArrowLeft className="w-5 h-5" />
-                        <span className="sr-only">Back</span>
-                    </Link>
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-red-500/10 border border-red-500/50 flex items-center justify-center">
-                            <Zap className="w-4 h-4 text-red-500" />
-                        </div>
-                        <span className="font-['VT323'] text-2xl uppercase tracking-wider text-white">
-                            Mission Control
-                        </span>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                        <Trophy className="w-4 h-4 text-yellow-500" />
-                        <span className="font-['VT323'] text-xl text-yellow-500">Rank: 001</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-blue-500" />
-                        <span className="font-['VT323'] text-xl text-blue-500">Streak: 7</span>
-                    </div>
-                </div>
-            </header>
+        <div className="h-screen bg-[#050505] text-white flex flex-col font-mono overflow-hidden pt-24">
 
             {/* Main Grid */}
             <main className="flex-1 grid grid-cols-12 min-h-0">

@@ -1,0 +1,506 @@
+{
+  "slug": "valid-triangle-number",
+  "category": "two-pointers",
+  "title": "Valid Triangle Number",
+  "oneLiner": "Count triples that form a triangle",
+  "problemStatement": "Given an array of non-negative integers representing side lengths, count how many triplets can form a valid triangle.",
+  "sequence": [
+    2,
+    3,
+    4,
+    4,
+    5
+  ],
+  "phases": [
+    {
+      "label": "Brute force",
+      "complexity": {
+        "time": "O(n³)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "sort arr",
+        "count ← 0",
+        "for i ← 0 to n − 3:",
+        "    for j ← i + 1 to n − 2:",
+        "        for k ← j + 1 to n − 1:",
+        "            if arr[i] + arr[j] > arr[k]:",
+        "                count++",
+        "return count"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 5
+          },
+          "narration": "Count triples (i, j, k) with i < j < k that form a valid triangle."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "sorted": "[2, 3, 4, 4, 5]"
+          },
+          "narration": "Trick: if we sort first, arr[k] is always the largest side. Then only one inequality matters: arr[i] + arr[j] > arr[k]."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "count": 0
+          },
+          "narration": "count ← 0"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 1,
+            "k": 2
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "j": 1,
+            "k": 2,
+            "arr[i]+arr[j]": 5,
+            "arr[k]": 4,
+            "count": 1
+          },
+          "narration": "(0, 1, 2): 2 + 3 = 5 > 4 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 1,
+            "k": 3
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "j": 1,
+            "k": 3,
+            "arr[i]+arr[j]": 5,
+            "arr[k]": 4,
+            "count": 2
+          },
+          "narration": "(0, 1, 3): 2 + 3 = 5 > 4 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 1,
+            "k": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 1,
+            "k": 4,
+            "arr[i]+arr[j]": 5,
+            "arr[k]": 5,
+            "count": 2
+          },
+          "narration": "(0, 1, 4): 2 + 3 = 5, not > 5 ✗"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 2,
+            "k": 3
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "j": 2,
+            "k": 3,
+            "arr[i]+arr[j]": 6,
+            "arr[k]": 4,
+            "count": 3
+          },
+          "narration": "(0, 2, 3): 2 + 4 = 6 > 4 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 2,
+            "k": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "j": 2,
+            "k": 4,
+            "arr[i]+arr[j]": 6,
+            "arr[k]": 5,
+            "count": 4
+          },
+          "narration": "(0, 2, 4): 2 + 4 = 6 > 5 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 3,
+            "k": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 0,
+            "j": 3,
+            "k": 4,
+            "arr[i]+arr[j]": 6,
+            "arr[k]": 5,
+            "count": 5
+          },
+          "narration": "(0, 3, 4): 2 + 4 = 6 > 5 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 2,
+            "k": 3
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 1,
+            "j": 2,
+            "k": 3,
+            "arr[i]+arr[j]": 7,
+            "arr[k]": 4,
+            "count": 6
+          },
+          "narration": "(1, 2, 3): 3 + 4 = 7 > 4 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 2,
+            "k": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 1,
+            "j": 2,
+            "k": 4,
+            "arr[i]+arr[j]": 7,
+            "arr[k]": 5,
+            "count": 7
+          },
+          "narration": "(1, 2, 4): 3 + 4 = 7 > 5 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 3,
+            "k": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 1,
+            "j": 3,
+            "k": 4,
+            "arr[i]+arr[j]": 7,
+            "arr[k]": 5,
+            "count": 8
+          },
+          "narration": "(1, 3, 4): 3 + 4 = 7 > 5 ✓  → count++"
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 3,
+            "k": 4
+          },
+          "highlightLine": 7,
+          "state": {
+            "i": 2,
+            "j": 3,
+            "k": 4,
+            "arr[i]+arr[j]": 8,
+            "arr[k]": 5,
+            "count": 9
+          },
+          "narration": "(2, 3, 4): 4 + 4 = 8 > 5 ✓  → count++"
+        },
+        {
+          "pointers": {},
+          "highlightLine": 8,
+          "state": {
+            "time": "O(n³)",
+            "space": "O(1)",
+            "count": 9
+          },
+          "narration": "Done. Three nested loops on n elements → O(n³). We checked 10 triples to land on count = 9."
+        }
+      ]
+    },
+    {
+      "label": "Optimized · fix k + two pointers",
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "sort arr",
+        "count ← 0",
+        "for k ← n − 1 down to 2:",
+        "    left ← 0; right ← k − 1",
+        "    while left < right:",
+        "        if arr[left] + arr[right] > arr[k]:",
+        "            count += right − left",
+        "            right−−",
+        "        else:",
+        "            left++",
+        "return count"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "sorted": "[2, 3, 4, 4, 5]"
+          },
+          "narration": "Sort first. Fix arr[k] as the largest side. Look for pairs (left, right) with left < right < k and arr[left] + arr[right] > arr[k]."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "count": 0
+          },
+          "narration": "count ← 0"
+        },
+        {
+          "pointers": {
+            "k": 4
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 4,
+            "arr[k]": 5,
+            "count": 0
+          },
+          "narration": "Fix k = 4. arr[k] = 5 is the largest side."
+        },
+        {
+          "pointers": {
+            "k": 4,
+            "left": 0,
+            "right": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "k": 4,
+            "left": 0,
+            "right": 3,
+            "count": 0
+          },
+          "narration": "left ← 0, right ← k − 1."
+        },
+        {
+          "pointers": {
+            "k": 4,
+            "left": 0,
+            "right": 3
+          },
+          "highlightLine": 7,
+          "state": {
+            "k": 4,
+            "left": 0,
+            "right": 3,
+            "sum": 6,
+            "count": 3
+          },
+          "narration": "arr[0] + arr[3] = 2 + 4 = 6 > 5 ✓. Every value in [left, right] is ≥ arr[left], so all 3 pairs (l', right) with l < l' ≤ right also work. count += 3."
+        },
+        {
+          "pointers": {
+            "k": 4,
+            "left": 0,
+            "right": 2
+          },
+          "highlightLine": 7,
+          "state": {
+            "k": 4,
+            "left": 0,
+            "right": 2,
+            "sum": 6,
+            "count": 5
+          },
+          "narration": "arr[0] + arr[2] = 2 + 4 = 6 > 5 ✓. Every value in [left, right] is ≥ arr[left], so all 2 pairs (l', right) with l < l' ≤ right also work. count += 2."
+        },
+        {
+          "pointers": {
+            "k": 4,
+            "left": 0,
+            "right": 1
+          },
+          "highlightLine": 10,
+          "state": {
+            "k": 4,
+            "left": 0,
+            "right": 1,
+            "sum": 5,
+            "count": 5
+          },
+          "narration": "arr[0] + arr[1] = 5, not > 5. With this left, the pair is too small; only growing left can help. left++."
+        },
+        {
+          "pointers": {
+            "k": 4
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 4,
+            "count": 5
+          },
+          "narration": "Inner loop done for k = 4. Running count = 5."
+        },
+        {
+          "pointers": {
+            "k": 3
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 3,
+            "arr[k]": 4,
+            "count": 5
+          },
+          "narration": "Fix k = 3. arr[k] = 4 is the largest side."
+        },
+        {
+          "pointers": {
+            "k": 3,
+            "left": 0,
+            "right": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "k": 3,
+            "left": 0,
+            "right": 2,
+            "count": 5
+          },
+          "narration": "left ← 0, right ← k − 1."
+        },
+        {
+          "pointers": {
+            "k": 3,
+            "left": 0,
+            "right": 2
+          },
+          "highlightLine": 7,
+          "state": {
+            "k": 3,
+            "left": 0,
+            "right": 2,
+            "sum": 6,
+            "count": 7
+          },
+          "narration": "arr[0] + arr[2] = 2 + 4 = 6 > 4 ✓. Every value in [left, right] is ≥ arr[left], so all 2 pairs (l', right) with l < l' ≤ right also work. count += 2."
+        },
+        {
+          "pointers": {
+            "k": 3,
+            "left": 0,
+            "right": 1
+          },
+          "highlightLine": 7,
+          "state": {
+            "k": 3,
+            "left": 0,
+            "right": 1,
+            "sum": 5,
+            "count": 8
+          },
+          "narration": "arr[0] + arr[1] = 2 + 3 = 5 > 4 ✓. Every value in [left, right] is ≥ arr[left], so all 1 pairs (l', right) with l < l' ≤ right also work. count += 1."
+        },
+        {
+          "pointers": {
+            "k": 3
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 3,
+            "count": 8
+          },
+          "narration": "Inner loop done for k = 3. Running count = 8."
+        },
+        {
+          "pointers": {
+            "k": 2
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 2,
+            "arr[k]": 4,
+            "count": 8
+          },
+          "narration": "Fix k = 2. arr[k] = 4 is the largest side."
+        },
+        {
+          "pointers": {
+            "k": 2,
+            "left": 0,
+            "right": 1
+          },
+          "highlightLine": 4,
+          "state": {
+            "k": 2,
+            "left": 0,
+            "right": 1,
+            "count": 8
+          },
+          "narration": "left ← 0, right ← k − 1."
+        },
+        {
+          "pointers": {
+            "k": 2,
+            "left": 0,
+            "right": 1
+          },
+          "highlightLine": 7,
+          "state": {
+            "k": 2,
+            "left": 0,
+            "right": 1,
+            "sum": 5,
+            "count": 9
+          },
+          "narration": "arr[0] + arr[1] = 2 + 3 = 5 > 4 ✓. Every value in [left, right] is ≥ arr[left], so all 1 pairs (l', right) with l < l' ≤ right also work. count += 1."
+        },
+        {
+          "pointers": {
+            "k": 2
+          },
+          "highlightLine": 3,
+          "state": {
+            "k": 2,
+            "count": 9
+          },
+          "narration": "Inner loop done for k = 2. Running count = 9."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 11,
+          "state": {
+            "time": "O(n²)",
+            "space": "O(1)",
+            "count": 9
+          },
+          "narration": "One outer loop × one two-pointer sweep = O(n²) time, O(1) extra space. Final count = 9."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 611,
+    "url": "https://leetcode.com/problems/valid-triangle-number",
+    "difficulty": "Medium"
+  },
+  "companies": [
+    "Amazon",
+    "Google"
+  ]
+}

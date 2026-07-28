@@ -1,0 +1,443 @@
+{
+  "slug": "move-zeroes",
+  "category": "two-pointers",
+  "title": "Move Zeroes",
+  "oneLiner": "In-place · keep non-zeros in order",
+  "problemStatement": "Given an integer array, move all zeros to the end in place while keeping the relative order of the non-zero elements.",
+  "sequence": [
+    0,
+    1,
+    0,
+    3,
+    12
+  ],
+  "phases": [
+    {
+      "label": "Brute force · extra array",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "pseudocode": [
+        "given arr (n elements)",
+        "aux ← new array of size n filled with 0",
+        "write ← 0",
+        "for i ← 0 to n − 1:",
+        "    if arr[i] ≠ 0:",
+        "        aux[write++] = arr[i]",
+        "copy aux back into arr"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 5,
+            "goal": "[1, 3, 12, 0, 0]"
+          },
+          "narration": "Move every zero to the end of arr while keeping the relative order of the non-zero elements."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "n": 5
+          },
+          "narration": "Baseline idea: allocate an auxiliary array of size n, pre-filled with zeros. We will copy the non-zeros into it, in order. The trailing slots stay zero."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 3,
+          "state": {
+            "write": 0
+          },
+          "narration": "write ← 0. This pointer tracks the next slot in aux to fill with a non-zero value."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 0,
+            "write": 0
+          },
+          "narration": "Scan position i = 0. Enter the loop body."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 0,
+            "arr[i]": 0,
+            "write": 0
+          },
+          "narration": "arr[i] = 0 → skip. We will let the trailing zeros already sitting in aux do the work."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 1,
+            "write": 0
+          },
+          "narration": "Scan position i = 1. Enter the loop body."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "arr[i]": 1,
+            "write": 1
+          },
+          "narration": "arr[i] = 1 ≠ 0 → write it into aux[0], then write++."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 2,
+            "write": 1
+          },
+          "narration": "Scan position i = 2. Enter the loop body."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "arr[i]": 0,
+            "write": 1
+          },
+          "narration": "arr[i] = 0 → skip. We will let the trailing zeros already sitting in aux do the work."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 3,
+            "write": 1
+          },
+          "narration": "Scan position i = 3. Enter the loop body."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 3,
+            "arr[i]": 3,
+            "write": 2
+          },
+          "narration": "arr[i] = 3 ≠ 0 → write it into aux[1], then write++."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "i": 4,
+            "write": 2
+          },
+          "narration": "Scan position i = 4. Enter the loop body."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 4,
+            "arr[i]": 12,
+            "write": 3
+          },
+          "narration": "arr[i] = 12 ≠ 0 → write it into aux[2], then write++."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 7,
+          "state": {
+            "write": 3
+          },
+          "narration": "Pass 1 done. aux holds the non-zeros in order, padded with zeros. Now copy aux back into arr."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 7,
+          "state": {
+            "time": "O(n)",
+            "space": "O(n)"
+          },
+          "narration": "Two passes over the array and an extra array of size n. O(n) time but O(n) space. Can we do it in place?"
+        }
+      ]
+    },
+    {
+      "label": "Optimized · same-direction two pointers",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given arr",
+        "slow ← 0",
+        "for fast ← 0 to n − 1:",
+        "    if arr[fast] ≠ 0:",
+        "        swap(arr[slow], arr[fast])",
+        "        slow++"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 5
+          },
+          "narration": "Same-direction two pointers this time — both start at 0 and move forward. We mutate THIS array in place; no extra array anywhere."
+        },
+        {
+          "pointers": {
+            "slow": 0
+          },
+          "highlightLine": 2,
+          "state": {
+            "slow": 0
+          },
+          "narration": "slow ← 0. Everything strictly left of slow is already a correctly placed non-zero."
+        },
+        {
+          "pointers": {
+            "slow": 0,
+            "fast": 0
+          },
+          "highlightLine": 3,
+          "state": {
+            "slow": 0,
+            "fast": 0
+          },
+          "narration": "fast = 0. fast scans every element; it's always one step ahead of (or equal to) slow."
+        },
+        {
+          "pointers": {
+            "slow": 0,
+            "fast": 0
+          },
+          "highlightLine": 4,
+          "state": {
+            "slow": 0,
+            "fast": 0
+          },
+          "narration": "arr[fast] = 0 → do nothing. slow stays put; fast keeps moving. The zero is left in place to be overwritten by a later swap."
+        },
+        {
+          "pointers": {
+            "slow": 0,
+            "fast": 1
+          },
+          "highlightLine": 3,
+          "state": {
+            "slow": 0,
+            "fast": 1
+          },
+          "narration": "fast = 1. fast scans every element; it's always one step ahead of (or equal to) slow."
+        },
+        {
+          "pointers": {
+            "slow": 0,
+            "fast": 1
+          },
+          "highlightLine": 4,
+          "state": {
+            "slow": 0,
+            "fast": 1,
+            "arr[slow]": 0,
+            "arr[fast]": 1
+          },
+          "narration": "arr[fast] = 1 ≠ 0 → it belongs at slot slow = 0. Swap arr[slow] with arr[fast]."
+        },
+        {
+          "pointers": {
+            "slow": 0,
+            "fast": 1
+          },
+          "highlightLine": 5,
+          "state": {
+            "slow": 0,
+            "fast": 1
+          },
+          "narration": "Swap done. The zero that was at slow moves to fast, and the non-zero moves to slow."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 1
+          },
+          "highlightLine": 6,
+          "state": {
+            "slow": 1,
+            "fast": 1
+          },
+          "narration": "slow++ → slow = 1. Indices 0..0 are now finalized non-zeros."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 2
+          },
+          "highlightLine": 3,
+          "state": {
+            "slow": 1,
+            "fast": 2
+          },
+          "narration": "fast = 2. fast scans every element; it's always one step ahead of (or equal to) slow."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "slow": 1,
+            "fast": 2
+          },
+          "narration": "arr[fast] = 0 → do nothing. slow stays put; fast keeps moving. The zero is left in place to be overwritten by a later swap."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 3
+          },
+          "highlightLine": 3,
+          "state": {
+            "slow": 1,
+            "fast": 3
+          },
+          "narration": "fast = 3. fast scans every element; it's always one step ahead of (or equal to) slow."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "slow": 1,
+            "fast": 3,
+            "arr[slow]": 0,
+            "arr[fast]": 3
+          },
+          "narration": "arr[fast] = 3 ≠ 0 → it belongs at slot slow = 1. Swap arr[slow] with arr[fast]."
+        },
+        {
+          "pointers": {
+            "slow": 1,
+            "fast": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "slow": 1,
+            "fast": 3
+          },
+          "narration": "Swap done. The zero that was at slow moves to fast, and the non-zero moves to slow."
+        },
+        {
+          "pointers": {
+            "slow": 2,
+            "fast": 3
+          },
+          "highlightLine": 6,
+          "state": {
+            "slow": 2,
+            "fast": 3
+          },
+          "narration": "slow++ → slow = 2. Indices 0..1 are now finalized non-zeros."
+        },
+        {
+          "pointers": {
+            "slow": 2,
+            "fast": 4
+          },
+          "highlightLine": 3,
+          "state": {
+            "slow": 2,
+            "fast": 4
+          },
+          "narration": "fast = 4. fast scans every element; it's always one step ahead of (or equal to) slow."
+        },
+        {
+          "pointers": {
+            "slow": 2,
+            "fast": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "slow": 2,
+            "fast": 4,
+            "arr[slow]": 0,
+            "arr[fast]": 12
+          },
+          "narration": "arr[fast] = 12 ≠ 0 → it belongs at slot slow = 2. Swap arr[slow] with arr[fast]."
+        },
+        {
+          "pointers": {
+            "slow": 2,
+            "fast": 4
+          },
+          "highlightLine": 5,
+          "state": {
+            "slow": 2,
+            "fast": 4
+          },
+          "narration": "Swap done. The zero that was at slow moves to fast, and the non-zero moves to slow."
+        },
+        {
+          "pointers": {
+            "slow": 3,
+            "fast": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "slow": 3,
+            "fast": 4
+          },
+          "narration": "slow++ → slow = 3. Indices 0..2 are now finalized non-zeros."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 6,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)"
+          },
+          "narration": "Done. fast made one pass; slow only advanced on non-zeros. O(n) time, O(1) extra space — fully in place."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 283,
+    "url": "https://leetcode.com/problems/move-zeroes",
+    "difficulty": "Easy"
+  },
+  "companies": [
+    "Meta",
+    "Amazon",
+    "Microsoft"
+  ]
+}

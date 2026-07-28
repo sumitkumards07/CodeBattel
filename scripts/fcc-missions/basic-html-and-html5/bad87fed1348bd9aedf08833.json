@@ -1,0 +1,27 @@
+{
+  "mission_id": "bad87fed1348bd9aedf08833",
+  "mission_title": "System Cleanup: H1 Protocol",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Our interface is cluttered with legacy data. We need to streamline the display for optimal mobile recon. Every byte counts in the sprawl, recruit.",
+  "objective": "Initiate the H1 purge protocol to declutter the display.",
+  "starting_code": "<h1>Hello World</h1>\n\n<h2>CatPhotoApp</h2>\n\n<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+  "solution_code": "<h2>CatPhotoApp</h2><p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>",
+  "test_assertions": [
+    "Verify H1 element is purged from the system.",
+    "Confirm H2 element remains operational.",
+    "Ensure P element data stream is intact."
+  ],
+  "hints": [
+    "Identify the specific tag marked for deletion.",
+    "Eradicate only the target H1 element."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "deletion"
+  ],
+  "original_fcc_title": "Delete HTML Elements",
+  "block": "basic-html-and-html5"
+}

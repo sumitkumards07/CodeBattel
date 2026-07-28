@@ -1,0 +1,30 @@
+{
+  "mission_id": "bad87fee1348bd9aedf08804",
+  "mission_title": "Silence the Signal: Comment Protocol",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "In the digital warzone, not all code needs to be active. HTML comments are your stealth cloak, rendering data inert without deletion. Master this protocol to control what the system displays without removing it from the mainframe.",
+  "objective": "Deploy comment protocols to silence specific data streams while keeping others active.",
+  "starting_code": "<!--\n<h1>Hello World</h1>\n\n<h2>CatPhotoApp</h2>\n\n<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>\n-->",
+  "solution_code": "<!--<h1>Hello World</h1>-->\n<h2>CatPhotoApp</h2> \n<!--<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p> -->",
+  "test_assertions": [
+    "Verify `h1` element is cloaked, rendering it invisible to the system display.",
+    "Confirm `h2` element is active and broadcasting to the system display.",
+    "Ensure `p` element is under stealth protocol, hidden from public view.",
+    "All comment protocols must be properly terminated with `-->`.",
+    "Maintain the original sequence of `h1`, `h2`, and `p` elements; do not reorder."
+  ],
+  "hints": [
+    "Remember: `<!--` initiates the stealth protocol, `-->` terminates it.",
+    "The target `h2` must break free from the main comment block to be visible.",
+    "Each element needing to be silenced requires its own distinct comment wrapper."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "comments"
+  ],
+  "original_fcc_title": "Comment out HTML",
+  "block": "basic-html-and-html5"
+}

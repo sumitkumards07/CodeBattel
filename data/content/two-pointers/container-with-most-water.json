@@ -1,0 +1,904 @@
+{
+  "slug": "container-with-most-water",
+  "category": "two-pointers",
+  "title": "Container With Most Water",
+  "oneLiner": "Pick two lines that hold the most water",
+  "problemStatement": "Given heights representing vertical lines, pick two lines that together with the x-axis form a container holding the most water, and return that maximum area.",
+  "sequence": [
+    1,
+    8,
+    6,
+    2,
+    5,
+    4,
+    8,
+    3,
+    7
+  ],
+  "phases": [
+    {
+      "label": "Brute force",
+      "complexity": {
+        "time": "O(n²)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given heights[]",
+        "max ← 0",
+        "for i ← 0 to n − 2:",
+        "    for j ← i + 1 to n − 1:",
+        "        area = (j − i) × min(h[i], h[j])",
+        "        if area > max: max ← area",
+        "return max"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 9
+          },
+          "narration": "We want two lines that, with the x-axis, hold the most water. area = (j − i) × min(h[i], h[j])."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "max": 0
+          },
+          "narration": "Track running max. Start at 0."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 1
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 1,
+            "h_min": 1,
+            "area": 1,
+            "max": 1
+          },
+          "narration": "(0, 1): area = 1 × 1 = 1. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 2
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 2,
+            "h_min": 1,
+            "area": 2,
+            "max": 2
+          },
+          "narration": "(0, 2): area = 2 × 1 = 2. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 3
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 3,
+            "h_min": 1,
+            "area": 3,
+            "max": 3
+          },
+          "narration": "(0, 3): area = 3 × 1 = 3. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 4,
+            "h_min": 1,
+            "area": 4,
+            "max": 4
+          },
+          "narration": "(0, 4): area = 4 × 1 = 4. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 5,
+            "h_min": 1,
+            "area": 5,
+            "max": 5
+          },
+          "narration": "(0, 5): area = 5 × 1 = 5. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 6
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 6,
+            "h_min": 1,
+            "area": 6,
+            "max": 6
+          },
+          "narration": "(0, 6): area = 6 × 1 = 6. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 7
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 7,
+            "h_min": 1,
+            "area": 7,
+            "max": 7
+          },
+          "narration": "(0, 7): area = 7 × 1 = 7. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 0,
+            "j": 8
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 0,
+            "j": 8,
+            "h_min": 1,
+            "area": 8,
+            "max": 8
+          },
+          "narration": "(0, 8): area = 8 × 1 = 8. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 2
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 1,
+            "j": 2,
+            "h_min": 6,
+            "area": 6,
+            "max": 8
+          },
+          "narration": "(1, 2): area = 1 × 6 = 6."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 1,
+            "j": 3,
+            "h_min": 2,
+            "area": 4,
+            "max": 8
+          },
+          "narration": "(1, 3): area = 2 × 2 = 4."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 4
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "j": 4,
+            "h_min": 5,
+            "area": 15,
+            "max": 15
+          },
+          "narration": "(1, 4): area = 3 × 5 = 15. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "j": 5,
+            "h_min": 4,
+            "area": 16,
+            "max": 16
+          },
+          "narration": "(1, 5): area = 4 × 4 = 16. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 6
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "j": 6,
+            "h_min": 8,
+            "area": 40,
+            "max": 40
+          },
+          "narration": "(1, 6): area = 5 × 8 = 40. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 1,
+            "j": 7,
+            "h_min": 3,
+            "area": 18,
+            "max": 40
+          },
+          "narration": "(1, 7): area = 6 × 3 = 18."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 8
+          },
+          "highlightLine": 6,
+          "state": {
+            "i": 1,
+            "j": 8,
+            "h_min": 7,
+            "area": 49,
+            "max": 49
+          },
+          "narration": "(1, 8): area = 7 × 7 = 49. ★ new max."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 3,
+            "h_min": 2,
+            "area": 2,
+            "max": 49
+          },
+          "narration": "(2, 3): area = 1 × 2 = 2."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 4
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 4,
+            "h_min": 5,
+            "area": 10,
+            "max": 49
+          },
+          "narration": "(2, 4): area = 2 × 5 = 10."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 5,
+            "h_min": 4,
+            "area": 12,
+            "max": 49
+          },
+          "narration": "(2, 5): area = 3 × 4 = 12."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 6,
+            "h_min": 6,
+            "area": 24,
+            "max": 49
+          },
+          "narration": "(2, 6): area = 4 × 6 = 24."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 7,
+            "h_min": 3,
+            "area": 15,
+            "max": 49
+          },
+          "narration": "(2, 7): area = 5 × 3 = 15."
+        },
+        {
+          "pointers": {
+            "i": 2,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 2,
+            "j": 8,
+            "h_min": 6,
+            "area": 36,
+            "max": 49
+          },
+          "narration": "(2, 8): area = 6 × 6 = 36."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "j": 4
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "j": 4,
+            "h_min": 2,
+            "area": 2,
+            "max": 49
+          },
+          "narration": "(3, 4): area = 1 × 2 = 2."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "j": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "j": 5,
+            "h_min": 2,
+            "area": 4,
+            "max": 49
+          },
+          "narration": "(3, 5): area = 2 × 2 = 4."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "j": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "j": 6,
+            "h_min": 2,
+            "area": 6,
+            "max": 49
+          },
+          "narration": "(3, 6): area = 3 × 2 = 6."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "j": 7,
+            "h_min": 2,
+            "area": 8,
+            "max": 49
+          },
+          "narration": "(3, 7): area = 4 × 2 = 8."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 3,
+            "j": 8,
+            "h_min": 2,
+            "area": 10,
+            "max": 49
+          },
+          "narration": "(3, 8): area = 5 × 2 = 10."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "j": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "j": 5,
+            "h_min": 4,
+            "area": 4,
+            "max": 49
+          },
+          "narration": "(4, 5): area = 1 × 4 = 4."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "j": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "j": 6,
+            "h_min": 5,
+            "area": 10,
+            "max": 49
+          },
+          "narration": "(4, 6): area = 2 × 5 = 10."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "j": 7,
+            "h_min": 3,
+            "area": 9,
+            "max": 49
+          },
+          "narration": "(4, 7): area = 3 × 3 = 9."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 4,
+            "j": 8,
+            "h_min": 5,
+            "area": 20,
+            "max": 49
+          },
+          "narration": "(4, 8): area = 4 × 5 = 20."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "j": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 5,
+            "j": 6,
+            "h_min": 4,
+            "area": 4,
+            "max": 49
+          },
+          "narration": "(5, 6): area = 1 × 4 = 4."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 5,
+            "j": 7,
+            "h_min": 3,
+            "area": 6,
+            "max": 49
+          },
+          "narration": "(5, 7): area = 2 × 3 = 6."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 5,
+            "j": 8,
+            "h_min": 4,
+            "area": 12,
+            "max": 49
+          },
+          "narration": "(5, 8): area = 3 × 4 = 12."
+        },
+        {
+          "pointers": {
+            "i": 6,
+            "j": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 6,
+            "j": 7,
+            "h_min": 3,
+            "area": 3,
+            "max": 49
+          },
+          "narration": "(6, 7): area = 1 × 3 = 3."
+        },
+        {
+          "pointers": {
+            "i": 6,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 6,
+            "j": 8,
+            "h_min": 7,
+            "area": 14,
+            "max": 49
+          },
+          "narration": "(6, 8): area = 2 × 7 = 14."
+        },
+        {
+          "pointers": {
+            "i": 7,
+            "j": 8
+          },
+          "highlightLine": 5,
+          "state": {
+            "i": 7,
+            "j": 8,
+            "h_min": 3,
+            "area": 3,
+            "max": 49
+          },
+          "narration": "(7, 8): area = 1 × 3 = 3."
+        },
+        {
+          "pointers": {
+            "i": 1,
+            "j": 8
+          },
+          "highlightLine": 7,
+          "state": {
+            "time": "O(n²)",
+            "space": "O(1)",
+            "max": 49
+          },
+          "narration": "Done. We tried all 36 pairs → O(n²). Max area = 49 at (1, 8). Can we avoid most of those pairs?"
+        }
+      ]
+    },
+    {
+      "label": "Optimized · two pointers",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given heights[]",
+        "left  ← 0",
+        "right ← n − 1; max ← 0",
+        "while left < right:",
+        "    area = (right − left) × min(h[left], h[right])",
+        "    max ← max(max, area)",
+        "    if h[left] ≤ h[right] → left++",
+        "    else                  → right−−",
+        "return max"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "max": 0
+          },
+          "narration": "Key insight: width starts at maximum (ends of the array). Any move inward shrinks width — so it only helps if it can grow height. The shorter side caps height, so move it."
+        },
+        {
+          "pointers": {
+            "left": 0
+          },
+          "highlightLine": 2,
+          "state": {
+            "left": 0
+          },
+          "narration": "left ← 0"
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 8
+          },
+          "highlightLine": 3,
+          "state": {
+            "left": 0,
+            "right": 8
+          },
+          "narration": "right ← n − 1"
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 8
+          },
+          "highlightLine": 6,
+          "state": {
+            "left": 0,
+            "right": 8,
+            "h_min": 1,
+            "area": 8,
+            "max": 8
+          },
+          "narration": "area = 8 × min(1, 7) = 8. ★ new max."
+        },
+        {
+          "pointers": {
+            "left": 0,
+            "right": 8
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 0,
+            "right": 8,
+            "max": 8
+          },
+          "narration": "h[left] = 1 ≤ h[right] = 7 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 8
+          },
+          "highlightLine": 6,
+          "state": {
+            "left": 1,
+            "right": 8,
+            "h_min": 7,
+            "area": 49,
+            "max": 49
+          },
+          "narration": "area = 7 × min(8, 7) = 49. ★ new max."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 8
+          },
+          "highlightLine": 8,
+          "state": {
+            "left": 1,
+            "right": 8,
+            "max": 49
+          },
+          "narration": "h[right] = 7 < h[left] = 8 → right is the shorter side. Move right−−."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 1,
+            "right": 7,
+            "h_min": 3,
+            "area": 18,
+            "max": 49
+          },
+          "narration": "area = 6 × min(8, 3) = 18."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 7
+          },
+          "highlightLine": 8,
+          "state": {
+            "left": 1,
+            "right": 7,
+            "max": 49
+          },
+          "narration": "h[right] = 3 < h[left] = 8 → right is the shorter side. Move right−−."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 1,
+            "right": 6,
+            "h_min": 8,
+            "area": 40,
+            "max": 49
+          },
+          "narration": "area = 5 × min(8, 8) = 40."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 1,
+            "right": 6,
+            "max": 49
+          },
+          "narration": "h[left] = 8 ≤ h[right] = 8 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 2,
+            "right": 6,
+            "h_min": 6,
+            "area": 24,
+            "max": 49
+          },
+          "narration": "area = 4 × min(6, 8) = 24."
+        },
+        {
+          "pointers": {
+            "left": 2,
+            "right": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 2,
+            "right": 6,
+            "max": 49
+          },
+          "narration": "h[left] = 6 ≤ h[right] = 8 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 3,
+            "right": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 3,
+            "right": 6,
+            "h_min": 2,
+            "area": 6,
+            "max": 49
+          },
+          "narration": "area = 3 × min(2, 8) = 6."
+        },
+        {
+          "pointers": {
+            "left": 3,
+            "right": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 3,
+            "right": 6,
+            "max": 49
+          },
+          "narration": "h[left] = 2 ≤ h[right] = 8 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 4,
+            "right": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 4,
+            "right": 6,
+            "h_min": 5,
+            "area": 10,
+            "max": 49
+          },
+          "narration": "area = 2 × min(5, 8) = 10."
+        },
+        {
+          "pointers": {
+            "left": 4,
+            "right": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 4,
+            "right": 6,
+            "max": 49
+          },
+          "narration": "h[left] = 5 ≤ h[right] = 8 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 5,
+            "right": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "left": 5,
+            "right": 6,
+            "h_min": 4,
+            "area": 4,
+            "max": 49
+          },
+          "narration": "area = 1 × min(4, 8) = 4."
+        },
+        {
+          "pointers": {
+            "left": 5,
+            "right": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "left": 5,
+            "right": 6,
+            "max": 49
+          },
+          "narration": "h[left] = 4 ≤ h[right] = 8 → left is the shorter side. Move left++. Any pair using this left can only be worse: narrower width, same-or-lower height cap."
+        },
+        {
+          "pointers": {
+            "left": 1,
+            "right": 8
+          },
+          "highlightLine": 9,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)",
+            "max": 49
+          },
+          "narration": "left meets right. Each step discarded one index → 9 − 1 sweeps total. O(n) time, O(1) space. Max area = 49 at (1, 8)."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 11,
+    "url": "https://leetcode.com/problems/container-with-most-water",
+    "difficulty": "Medium"
+  },
+  "companies": [
+    "Amazon",
+    "Google",
+    "Meta"
+  ]
+}

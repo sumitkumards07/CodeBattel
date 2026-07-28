@@ -1,0 +1,1056 @@
+{
+  "slug": "sort-colors",
+  "category": "two-pointers",
+  "title": "Sort Colors",
+  "oneLiner": "Dutch National Flag · in-place · three pointers",
+  "problemStatement": "Given an array of objects colored 0, 1, or 2, sort them in place so equal colors are grouped in that order, ideally in a single pass.",
+  "sequence": [
+    2,
+    0,
+    1,
+    0,
+    1,
+    2,
+    0
+  ],
+  "phases": [
+    {
+      "label": "Brute force · counting sort (two passes)",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given arr",
+        "count ← [0, 0, 0]",
+        "for v in arr: count[v]++",
+        "write count[0] zeros, then count[1] ones, then count[2] twos",
+        "return arr"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7
+          },
+          "narration": "Sort an array of 0 (red), 1 (white), 2 (blue) — in place. Value-set is tiny, so first idea: counting sort."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "phase": "pass 1: count"
+          },
+          "narration": "count[] of size 3 — count[v] = how many times value v appears."
+        },
+        {
+          "pointers": {
+            "i": 0
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 0,
+            "arr[i]": 2
+          },
+          "narration": "Pass 1, i = 0: arr[i] = 2. count[2]++ → 1."
+        },
+        {
+          "pointers": {
+            "i": 1
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 1,
+            "arr[i]": 0
+          },
+          "narration": "Pass 1, i = 1: arr[i] = 0. count[0]++ → 1."
+        },
+        {
+          "pointers": {
+            "i": 2
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 2,
+            "arr[i]": 1
+          },
+          "narration": "Pass 1, i = 2: arr[i] = 1. count[1]++ → 1."
+        },
+        {
+          "pointers": {
+            "i": 3
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 3,
+            "arr[i]": 0
+          },
+          "narration": "Pass 1, i = 3: arr[i] = 0. count[0]++ → 2."
+        },
+        {
+          "pointers": {
+            "i": 4
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 4,
+            "arr[i]": 1
+          },
+          "narration": "Pass 1, i = 4: arr[i] = 1. count[1]++ → 2."
+        },
+        {
+          "pointers": {
+            "i": 5
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 5,
+            "arr[i]": 2
+          },
+          "narration": "Pass 1, i = 5: arr[i] = 2. count[2]++ → 2."
+        },
+        {
+          "pointers": {
+            "i": 6
+          },
+          "highlightLine": 3,
+          "state": {
+            "i": 6,
+            "arr[i]": 0
+          },
+          "narration": "Pass 1, i = 6: arr[i] = 0. count[0]++ → 3."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 3,
+          "state": {
+            "phase": "pass 1 → 2"
+          },
+          "narration": "Pass 1 done. 3 reds, 2 whites, 2 blues."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 4,
+          "state": {
+            "phase": "pass 2: paint"
+          },
+          "narration": "Pass 2: paint the array in place — first count[0] reds, then count[1] whites, then count[2] blues. Left-to-right."
+        },
+        {
+          "pointers": {
+            "write": 1
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 0,
+            "value": 0
+          },
+          "narration": "Paint red at index 0  (1 of 3)."
+        },
+        {
+          "pointers": {
+            "write": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 1,
+            "value": 0
+          },
+          "narration": "Paint red at index 1  (2 of 3)."
+        },
+        {
+          "pointers": {
+            "write": 3
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 2,
+            "value": 0
+          },
+          "narration": "Paint red at index 2  (3 of 3)."
+        },
+        {
+          "pointers": {
+            "write": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 3,
+            "value": 1
+          },
+          "narration": "Paint white at index 3  (1 of 2)."
+        },
+        {
+          "pointers": {
+            "write": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 4,
+            "value": 1
+          },
+          "narration": "Paint white at index 4  (2 of 2)."
+        },
+        {
+          "pointers": {
+            "write": 6
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 5,
+            "value": 2
+          },
+          "narration": "Paint blue at index 5  (1 of 2)."
+        },
+        {
+          "pointers": {
+            "write": 6
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 6,
+            "value": 2
+          },
+          "narration": "Paint blue at index 6  (2 of 2)."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 5,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)",
+            "passes": 2
+          },
+          "narration": "Done. O(n) time, O(1) space — but it took TWO passes and rewrote every cell. Can we do it in ONE pass with only swaps?"
+        }
+      ]
+    },
+    {
+      "label": "Better · two-pass swap partition (in place)",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "given arr",
+        "write ← 0                            // pass 1: 0s → front",
+        "for i ← 0 to n − 1:",
+        "    if arr[i] == 0:",
+        "        swap(arr[write], arr[i]); write++",
+        "// 0s settled at [0, write)",
+        "back ← n − 1;  i ← write             // pass 2: 2s → back",
+        "while i ≤ back:",
+        "    if arr[i] == 2:",
+        "        swap(arr[i], arr[back]); back−−",
+        "    else:                              // arr[i] == 1",
+        "        i++",
+        "return arr"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7,
+            "plan": "2 passes, in place"
+          },
+          "narration": "Better idea: same-direction two pointers (the Move Zeroes trick), applied TWICE. Pass 1 sweeps every 0 to the front. Pass 2 sweeps every 2 to the back. The 1s settle into the middle for free. All swaps, no extra memory."
+        },
+        {
+          "pointers": {
+            "write": 0
+          },
+          "highlightLine": 2,
+          "state": {
+            "phase": "pass 1: 0s → front",
+            "write": 0
+          },
+          "narration": "Pass 1: write ← 0. The slot `write` is where the next 0 we discover will go. Everything strictly left of `write` is already a settled 0."
+        },
+        {
+          "pointers": {
+            "write": 0,
+            "i": 0
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 0,
+            "i": 0
+          },
+          "narration": "Pass 1: i = 0. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 0,
+            "i": 0
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 0,
+            "i": 0,
+            "arr[i]": 2
+          },
+          "narration": "arr[i] = 2 (blue) — not a 0, so the if fails. Leave it alone, i continues."
+        },
+        {
+          "pointers": {
+            "write": 0,
+            "i": 1
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 0,
+            "i": 1
+          },
+          "narration": "Pass 1: i = 1. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 0,
+            "i": 1
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 0,
+            "i": 1
+          },
+          "narration": "arr[i] = 0 (red) → swap arr[write] ↔ arr[i]. The red 0 slides left to slot write; whatever non-zero was sitting at write slides right to position i (we don't care about its order yet — pass 2 will fix it)."
+        },
+        {
+          "pointers": {
+            "write": 1,
+            "i": 1
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 1,
+            "i": 1
+          },
+          "narration": "Swap done — the red and the non-zero slid past each other. write++ → 1. The 0-region grew by one red on the left."
+        },
+        {
+          "pointers": {
+            "write": 1,
+            "i": 2
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 1,
+            "i": 2
+          },
+          "narration": "Pass 1: i = 2. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 1,
+            "i": 2
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 1,
+            "i": 2,
+            "arr[i]": 1
+          },
+          "narration": "arr[i] = 1 (white) — not a 0, so the if fails. Leave it alone, i continues."
+        },
+        {
+          "pointers": {
+            "write": 1,
+            "i": 3
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 1,
+            "i": 3
+          },
+          "narration": "Pass 1: i = 3. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 1,
+            "i": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 1,
+            "i": 3
+          },
+          "narration": "arr[i] = 0 (red) → swap arr[write] ↔ arr[i]. The red 0 slides left to slot write; whatever non-zero was sitting at write slides right to position i (we don't care about its order yet — pass 2 will fix it)."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 3
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 2,
+            "i": 3
+          },
+          "narration": "Swap done — the red and the non-zero slid past each other. write++ → 2. The 0-region grew by one red on the left."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 4
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 2,
+            "i": 4
+          },
+          "narration": "Pass 1: i = 4. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 2,
+            "i": 4,
+            "arr[i]": 1
+          },
+          "narration": "arr[i] = 1 (white) — not a 0, so the if fails. Leave it alone, i continues."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 5
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 2,
+            "i": 5
+          },
+          "narration": "Pass 1: i = 5. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "write": 2,
+            "i": 5,
+            "arr[i]": 2
+          },
+          "narration": "arr[i] = 2 (blue) — not a 0, so the if fails. Leave it alone, i continues."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 6
+          },
+          "highlightLine": 3,
+          "state": {
+            "write": 2,
+            "i": 6
+          },
+          "narration": "Pass 1: i = 6. Start the loop body."
+        },
+        {
+          "pointers": {
+            "write": 2,
+            "i": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 2,
+            "i": 6
+          },
+          "narration": "arr[i] = 0 (red) → swap arr[write] ↔ arr[i]. The red 0 slides left to slot write; whatever non-zero was sitting at write slides right to position i (we don't care about its order yet — pass 2 will fix it)."
+        },
+        {
+          "pointers": {
+            "write": 3,
+            "i": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "write": 3,
+            "i": 6
+          },
+          "narration": "Swap done — the red and the non-zero slid past each other. write++ → 3. The 0-region grew by one red on the left."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 6,
+          "state": {
+            "phase": "pass 1 → 2",
+            "write (final)": 3
+          },
+          "narration": "Pass 1 done. The first 3 cells are settled 0s. The remaining 4 cells contain only 1s and 2s, in some order — pass 2 will sort them."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "phase": "pass 2: 2s → back",
+            "i": 3,
+            "back": 6
+          },
+          "narration": "Pass 2: same trick for 2s, but mirrored. i ← 3 (where the 0s end); back ← n − 1 = 6. Now we walk inward — when we see a 2, swap it with arr[back] and shrink back."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 6
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 3,
+            "back": 6
+          },
+          "narration": "i (3) ≤ back (6) — pass 2 loop continues."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 6
+          },
+          "highlightLine": 10,
+          "state": {
+            "i": 3,
+            "back": 6
+          },
+          "narration": "arr[i] = 2 (blue) → swap arr[i] ↔ arr[back]. The blue slides right; an unknown cell from arr[back] slides to i. i stays — we must re-examine the cell that just arrived (same gotcha as Dutch flag)."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 5
+          },
+          "highlightLine": 10,
+          "state": {
+            "i": 3,
+            "back": 5
+          },
+          "narration": "Swap done. back−− → 5. The 2-region grew by one blue on the right; an unknown value waits at i = 3 (currently 1 = white) — examine it next."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 3,
+            "back": 5
+          },
+          "narration": "i (3) ≤ back (5) — pass 2 loop continues."
+        },
+        {
+          "pointers": {
+            "i": 3,
+            "back": 5
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 3,
+            "back": 5
+          },
+          "narration": "arr[i] = 1 (white) — already in the 1-region. Just advance i."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "back": 5
+          },
+          "highlightLine": 12,
+          "state": {
+            "i": 4,
+            "back": 5
+          },
+          "narration": "i++ → 4. The 1-region is now [3 … 4)."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "back": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 4,
+            "back": 5
+          },
+          "narration": "i (4) ≤ back (5) — pass 2 loop continues."
+        },
+        {
+          "pointers": {
+            "i": 4,
+            "back": 5
+          },
+          "highlightLine": 11,
+          "state": {
+            "i": 4,
+            "back": 5
+          },
+          "narration": "arr[i] = 1 (white) — already in the 1-region. Just advance i."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "back": 5
+          },
+          "highlightLine": 12,
+          "state": {
+            "i": 5,
+            "back": 5
+          },
+          "narration": "i++ → 5. The 1-region is now [3 … 5)."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "back": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 5,
+            "back": 5
+          },
+          "narration": "i (5) ≤ back (5) — pass 2 loop continues."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "back": 5
+          },
+          "highlightLine": 10,
+          "state": {
+            "i": 5,
+            "back": 5
+          },
+          "narration": "arr[i] = 2 (blue) → swap arr[i] ↔ arr[back]. i == back, so swap with self — no-op — but back will still contract, settling this blue. Loop will exit right after."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "back": 4
+          },
+          "highlightLine": 10,
+          "state": {
+            "i": 5,
+            "back": 4
+          },
+          "narration": "Fold-in done. back−− → 4. The 2-region grew by one blue."
+        },
+        {
+          "pointers": {
+            "i": 5,
+            "back": 4
+          },
+          "highlightLine": 8,
+          "state": {
+            "i": 5,
+            "back": 4
+          },
+          "narration": "i (5) > back (4) — pass 2 done."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 13,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)",
+            "passes": 2
+          },
+          "narration": "Done — reds, whites, blues, all sorted. O(n) time, O(1) space, no extra memory. But we walked the array TWICE: pass 1 partitioned 0s vs non-0s, pass 2 partitioned 1s vs 2s. The two passes are doing similar work at opposite ends. Could we run BOTH partitions in a single walk?"
+        }
+      ]
+    },
+    {
+      "label": "Optimized · Dutch National Flag (in place, one pass)",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "low ← 0; mid ← 0; high ← n − 1",
+        "while mid ≤ high:",
+        "    if arr[mid] == 0:",
+        "        swap(arr[low], arr[mid]); low++; mid++",
+        "    else if arr[mid] == 1:",
+        "        mid++",
+        "    else:                          // arr[mid] == 2",
+        "        swap(arr[mid], arr[high]); high−−",
+        "return arr"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "n": 7
+          },
+          "narration": "Dutch National Flag — fuse BOTH passes from the previous approach into a single walk. Use THREE pointers: low (where 0s end, like pass 1's `write`), mid (the scanner), high (where 2s begin, like pass 2's `back`). One walk, in place."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {},
+          "narration": "Invariant we maintain every step: cells STRICTLY LEFT of `low` are all 0s · between [low … mid) are all 1s · between [mid … high] is unprocessed (mid scans this) · STRICTLY RIGHT of `high` are all 2s."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 6
+          },
+          "highlightLine": 1,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 6
+          },
+          "narration": "Initialize low ← 0, mid ← 0, high ← n − 1. All settled regions on the left and right are empty; the entire array is unprocessed."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 6
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 6
+          },
+          "narration": "Iter 1: mid (0) ≤ high (6) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 6
+          },
+          "highlightLine": 7,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 6,
+            "arr[mid]": 2,
+            "arr[high]": 0
+          },
+          "narration": "arr[mid] = 2 (blue) → belongs at the right end. Swap arr[mid] ↔ arr[high], then high−−. CRUCIAL: mid does NOT advance. The cell sliding in from arr[high] is from the UNPROCESSED window — we have no idea what color it is. We must re-examine arr[mid] next step."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 5
+          },
+          "highlightLine": 8,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 5
+          },
+          "narration": "Swap done — the blue slid right, an unknown cell slid left. high−− → 5. mid stays at 0; the value now waiting there is arr[0] = 0 (red) — classify it next."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 5
+          },
+          "narration": "Iter 2: mid (0) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 0,
+            "mid": 0,
+            "high": 5
+          },
+          "highlightLine": 3,
+          "state": {
+            "low": 0,
+            "mid": 0,
+            "high": 5,
+            "arr[low]": 0,
+            "arr[mid]": 0
+          },
+          "narration": "arr[mid] = 0 (red) → belongs in the 0-region. Swap arr[low] ↔ arr[mid]. Here low == mid, so this is swapping a cell with itself — a no-op. We just fold this red cell into the growing 0-region."
+        },
+        {
+          "pointers": {
+            "low": 1,
+            "mid": 1,
+            "high": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "low": 1,
+            "mid": 1,
+            "high": 5
+          },
+          "narration": "Fold-in done. low++ → 1, mid++ → 1. The 0-region grew by one red cell on the left."
+        },
+        {
+          "pointers": {
+            "low": 1,
+            "mid": 1,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 1,
+            "mid": 1,
+            "high": 5
+          },
+          "narration": "Iter 3: mid (1) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 1,
+            "mid": 1,
+            "high": 5
+          },
+          "highlightLine": 3,
+          "state": {
+            "low": 1,
+            "mid": 1,
+            "high": 5,
+            "arr[low]": 0,
+            "arr[mid]": 0
+          },
+          "narration": "arr[mid] = 0 (red) → belongs in the 0-region. Swap arr[low] ↔ arr[mid]. Here low == mid, so this is swapping a cell with itself — a no-op. We just fold this red cell into the growing 0-region."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "narration": "Fold-in done. low++ → 2, mid++ → 2. The 0-region grew by one red cell on the left."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "narration": "Iter 4: mid (2) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "low": 2,
+            "mid": 2,
+            "high": 5
+          },
+          "narration": "arr[mid] = 1 (white) → it is ALREADY in the right place. The 1-region is [low … mid); advancing mid extends that boundary to swallow this white cell. No swap needed."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 3,
+            "high": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "low": 2,
+            "mid": 3,
+            "high": 5
+          },
+          "narration": "mid++ → 3. The 1-region is now [2 … 3)."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 3,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 2,
+            "mid": 3,
+            "high": 5
+          },
+          "narration": "Iter 5: mid (3) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 2,
+            "mid": 3,
+            "high": 5
+          },
+          "highlightLine": 3,
+          "state": {
+            "low": 2,
+            "mid": 3,
+            "high": 5,
+            "arr[low]": 1,
+            "arr[mid]": 0
+          },
+          "narration": "arr[mid] = 0 (red) → belongs in the 0-region. Swap arr[low] ↔ arr[mid]. Why this is safe: arr[low] sits inside the 1-region [low … mid), so it MUST be a white 1. The swap drops the red 0 at low and pushes the displaced white 1 to mid — watch the cells slide."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "highlightLine": 4,
+          "state": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "narration": "Swap done — the red and white cells slid past each other. low++ → 3, mid++ → 4. The 0-region grew by one red on the left; the 1-region also slid right, keeping its size."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "narration": "Iter 6: mid (4) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "low": 3,
+            "mid": 4,
+            "high": 5
+          },
+          "narration": "arr[mid] = 1 (white) → it is ALREADY in the right place. The 1-region is [low … mid); advancing mid extends that boundary to swallow this white cell. No swap needed."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 5,
+            "high": 5
+          },
+          "highlightLine": 6,
+          "state": {
+            "low": 3,
+            "mid": 5,
+            "high": 5
+          },
+          "narration": "mid++ → 5. The 1-region is now [3 … 5)."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 5,
+            "high": 5
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 3,
+            "mid": 5,
+            "high": 5
+          },
+          "narration": "Iter 7: mid (5) ≤ high (5) — the unprocessed window is non-empty, enter the loop body."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 5,
+            "high": 5
+          },
+          "highlightLine": 7,
+          "state": {
+            "low": 3,
+            "mid": 5,
+            "high": 5,
+            "arr[mid]": 2,
+            "arr[high]": 2
+          },
+          "narration": "arr[mid] = 2 (blue) → belongs in the 2-region. Swap arr[mid] ↔ arr[high]. Here mid == high — swap with self is a no-op, but high will still contract, settling this blue. The loop will exit right after."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 5,
+            "high": 4
+          },
+          "highlightLine": 8,
+          "state": {
+            "low": 3,
+            "mid": 5,
+            "high": 4
+          },
+          "narration": "Fold-in done. high−− → 4. The 2-region grew by one blue."
+        },
+        {
+          "pointers": {
+            "low": 3,
+            "mid": 5,
+            "high": 4
+          },
+          "highlightLine": 2,
+          "state": {
+            "low": 3,
+            "mid": 5,
+            "high": 4
+          },
+          "narration": "mid (5) > high (4) — the unprocessed window is empty. Loop exits."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 9,
+          "state": {
+            "time": "O(n)",
+            "space": "O(1)",
+            "passes": 1
+          },
+          "narration": "Done. Every cell sits in its correct region — reds, whites, blues, left to right. ONE pass through the array. O(n) time, O(1) extra space."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 75,
+    "url": "https://leetcode.com/problems/sort-colors",
+    "difficulty": "Medium"
+  },
+  "companies": [
+    "Microsoft",
+    "Amazon",
+    "Meta"
+  ]
+}

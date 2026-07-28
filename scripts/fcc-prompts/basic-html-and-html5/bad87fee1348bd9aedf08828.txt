@@ -1,0 +1,126 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: bad87fee1348bd9aedf08828.md
+Original Title: Create an Ordered List
+Challenge ID: bad87fee1348bd9aedf08828
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: bad87fee1348bd9aedf08828
+ORIGINAL TITLE: Create an Ordered List
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+HTML has another special element for creating <dfn>ordered lists</dfn>, or numbered lists.
+
+Ordered lists start with an opening `<ol>` element, followed by any number of `<li>` elements. Finally, ordered lists are closed with the `</ol>` tag.
+
+For example:
+
+```html
+<ol>
+  <li>Garfield</li>
+  <li>Sylvester</li>
+</ol>
+```
+
+would create a numbered list of `Garfield` and `Sylvester`.
+
+INSTRUCTIONS:
+Create an ordered list of the top 3 things cats hate the most.
+
+TEST HINTS:
+You should have an ordered list for `Top 3 things cats hate:`
+const previousElement = document.querySelector('ol').previousElementSibling;
+You should have an unordered list for `Things cats love:`
+const previousElement = document.querySelector('ul').previousElementSibling;
+You should have only one `ul` element.
+You should have only one `ol` element.
+You should have three `li` elements within your `ul` element.
+You should have three `li` elements within your `ol` element.
+Your `ul` element should have a closing tag.
+Your `ol` element should have a closing tag.
+Your `li` element should have a closing tag.
+The `li` elements in your unordered list should not be empty.
+[...document.querySelectorAll('ul li')].forEach((val) =>
+assert.isNotEmpty(__helpers.removeWhiteSpace(val.textContent))
+);
+The `li` elements in your ordered list should not be empty.
+[...document.querySelectorAll('ol li')].forEach((val) =>
+assert.isNotEmpty(__helpers.removeWhiteSpace(val.textContent))
+);
+
+STARTER CODE:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+
+</main>
+
+SOLUTION:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>hate 1</li>
+    <li>hate 2</li>
+    <li>hate 3</li>
+  </ol>
+</main>
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===

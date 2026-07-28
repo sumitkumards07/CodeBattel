@@ -16,35 +16,44 @@ export default function JavaChallenge() {
     ]);
     const [validationStatus, setValidationStatus] = useState<'idle' | 'running' | 'success' | 'minimized'>('idle');
 
-    const runCode = () => {
+    const runCode = async () => {
         setValidationStatus('running');
         setOutput([
             "user@coderush:~$ javac Main.java && java Main",
         ]);
 
-        setTimeout(() => {
+        try {
+            const res = await fetch('/api/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ source_code: code, language_id: 62 })
+            });
+            const data = await res.json();
+            
             const newOutput: string[] = [];
             let isSuccess = false;
 
-            // Mock Parser for Java
-            // We look for System.out.println("...")
-            const lines = code.split('\n');
-            lines.forEach(line => {
-                const trimmed = line.trim();
-                if (trimmed.startsWith("System.out.println")) {
-                    // Extract content between quotes
-                    const match = trimmed.match(/"([^"]+)"/);
-                    if (match) {
-                        newOutput.push(match[1]);
-                        if (match[1].includes("Java")) isSuccess = true;
+            if (data.error) {
+                newOutput.push(`Error: ${data.error}`);
+                if (data.details) newOutput.push(data.details);
+            } else {
+                if (data.compile_output) {
+                    newOutput.push(...data.compile_output.trim().split('\\n'));
+                }
+                if (data.stderr) {
+                    newOutput.push(...data.stderr.trim().split('\\n'));
+                }
+                if (data.stdout) {
+                    newOutput.push(...data.stdout.trim().split('\\n'));
+                    // Check if they successfully printed Hello Java for the challenge
+                    if (data.stdout.includes("Hello Java")) {
+                        isSuccess = true;
                     }
                 }
-            });
-
-            if (newOutput.length === 0) {
-                // Fallback error if no prints found but code ran
-                // Or maybe syntax error simulation?
-                // For now, let's just say nothing printed.
+                
+                if (data.status && data.status.id !== 3 && data.status.description) {
+                   newOutput.push(`Status: ${data.status.description}`);
+                }
             }
 
             setOutput(prev => [
@@ -57,7 +66,13 @@ export default function JavaChallenge() {
             } else {
                 setValidationStatus('idle');
             }
-        }, 1200); // Java is slower (joke)
+        } catch (err: any) {
+             setOutput(prev => [
+                ...prev,
+                `Network Error: ${err.message}`
+            ]);
+            setValidationStatus('idle');
+        }
     };
 
     return (

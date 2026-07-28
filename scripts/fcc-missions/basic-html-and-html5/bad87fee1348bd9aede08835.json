@@ -1,0 +1,28 @@
+{
+  "mission_id": "bad87fee1348bd9aede08835",
+  "mission_title": "Container Protocol: Consolidate Data Blocks",
+  "xp_reward": 100,
+  "difficulty": "recruit",
+  "briefing": "Listen up, recruit! The `div` element is your primary containment unit in the digital battlefield. Think of it as a secure data block, a general-purpose wrapper to organize and control your intel. Deploy `<div>` to open a container and `</div>` to seal it.",
+  "objective": "Your mission: consolidate the 'Things cats love' and 'Top 3 things cats hate' data streams into a single, impenetrable `div` container.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>\n\n  <a href=\"#\"><img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>\n\n  <p>Things cats love:</p>\n  <ul>\n    <li>catnip</li>\n    <li>laser pointers</li>\n    <li>lasagna</li>\n  </ul>\n  <p>Top 3 things cats hate:</p>\n  <ol>\n    <li>flea treatment</li>\n    <li>thunder</li>\n    <li>other cats</li>\n  </ol>\n\n  <form action=\"https://www.freecatphotoapp.com/submit-cat-photo\">\n    <label for=\"indoor\"><input id=\"indoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"indoor\" checked> Indoor</label>\n    <label for=\"outdoor\"><input id=\"outdoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"outdoor\"> Outdoor</label><br>\n    <label for=\"loving\"><input id=\"loving\" type=\"checkbox\" name=\"personality\" value=\"loving\" checked> Loving</label>\n    <label for=\"lazy\"><input id=\"lazy\" type=\"checkbox\" name=\"personality\" value=\"lazy\"> Lazy</label>\n    <label for=\"energetic\"><input id=\"energetic\" type=\"checkbox\" name=\"personality\" value=\"energetic\"> Energetic</label><br>\n    <input type=\"text\" placeholder=\"cat photo URL\" required>\n    <button type=\"submit\">Submit</button>\n  </form>\n</main>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>\n  \n  <a href=\"#\"><img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>\n  <div>\n    <p>Things cats love:</p>\n    <ul>\n      <li>catnip</li>\n      <li>laser pointers</li>\n      <li>lasagna</li>\n    </ul>\n    <p>Top 3 things cats hate:</p>\n    <ol>\n      <li>flea treatment</li>\n      <li>thunder</li>\n      <li>other cats</li>\n    </ol>\n  </div>\n  <form action=\"https://www.freecatphotoapp.com/submit-cat-photo\">\n    <label for=\"indoor\"><input id=\"indoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"indoor\" checked> Indoor</label>\n    <label for=\"outdoor\"><input id=\"outdoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"outdoor\"> Outdoor</label><br>\n    <label for=\"loving\"><input id=\"loving\" type=\"checkbox\" name=\"personality\" value=\"loving\" checked> Loving</label>\n    <label for=\"lazy\"><input id=\"lazy\" type=\"checkbox\" name=\"personality\" value=\"lazy\"> Lazy</label>\n    <label for=\"energetic\"><input id=\"energetic\" type=\"checkbox\" name=\"personality\" value=\"energetic\"> Energetic</label><br>\n    <input type=\"text\" placeholder=\"cat photo URL\" required>\n    <button type=\"submit\">Submit</button>\n  </form>\n</main>",
+  "test_assertions": [
+    "Verify: All `p` elements are secured within the `div` container.",
+    "Verify: The `ul` data block is properly nested within the `div`.",
+    "Verify: The `ol` data block is properly nested within the `div`.",
+    "Verify: The `div` container is properly sealed with its closing tag."
+  ],
+  "hints": [
+    "Deploy your `<div>` before the 'Things cats love' header.",
+    "Seal the `div` container after the final `ol` element. Ensure all target lists are within its perimeter."
+  ],
+  "tags": [
+    "html",
+    "beginner",
+    "elements",
+    "div"
+  ],
+  "original_fcc_title": "Nest Many Elements within a Single div Element",
+  "block": "basic-html-and-html5"
+}

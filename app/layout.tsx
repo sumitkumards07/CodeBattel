@@ -44,6 +44,7 @@ export const metadata: Metadata = {
 };
 
 import Navigation from "@/components/landing/Navigation";
+import NavigationWrapper from "@/components/landing/NavigationWrapper";
 
 
 
@@ -57,7 +58,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${silkscreen.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} ${vt323.variable} ${pressStart2P.variable} antialiased bg-background-dark text-white`}
       >
-        <Navigation />
+        <NavigationWrapper />
         {children}
       </body>
     </html>

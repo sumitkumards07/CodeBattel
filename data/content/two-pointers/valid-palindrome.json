@@ -1,0 +1,152 @@
+{
+  "slug": "valid-palindrome",
+  "category": "two-pointers",
+  "title": "Valid Palindrome",
+  "oneLiner": "Converging pointers · skip non-alphanumerics",
+  "problemStatement": "Given a string, return true if it is a palindrome considering only alphanumeric characters and ignoring case.",
+  "sequence": [
+    "R",
+    "a",
+    "c",
+    "e",
+    " ",
+    "c",
+    "a",
+    "r"
+  ],
+  "phases": [
+    {
+      "label": "Brute · clean + reverse",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(n)"
+      },
+      "pseudocode": [
+        "clean ← lowercased alphanumerics of s",
+        "return clean == reverse(clean)"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": {
+            "cleaned": "\"racecar\""
+          },
+          "narration": "A string is a palindrome if it reads the same forwards and backwards, ignoring case and non-alphanumeric characters. Easiest idea: strip those out, lowercase, and compare to the reverse."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 2,
+          "state": {
+            "cleaned": "\"racecar\"",
+            "reversed": "\"racecar\"",
+            "equal?": "true",
+            "space": "O(n)"
+          },
+          "narration": "cleaned = \"racecar\", reverse = \"racecar\". They’re equal → palindrome. Correct, but it builds two extra strings → O(n) extra space."
+        }
+      ]
+    },
+    {
+      "label": "Optimized · two pointers",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "l ← 0;  r ← n − 1",
+        "while l < r:",
+        "    if not alnum(s[l]): l++; continue",
+        "    if not alnum(s[r]): r−−; continue",
+        "    if lower(s[l]) != lower(s[r]): return false",
+        "    l++; r−−",
+        "return true"
+      ],
+      "steps": [
+        {
+          "pointers": {
+            "l": 0,
+            "r": 7
+          },
+          "highlightLine": 1,
+          "state": {
+            "l": 0,
+            "r": 7
+          },
+          "narration": "Better: two pointers, left at the start and right at the end, walking toward each other. No extra string — O(1) space."
+        },
+        {
+          "pointers": {
+            "l": 0,
+            "r": 7
+          },
+          "highlightLine": 5,
+          "state": {
+            "l": 0,
+            "r": 7,
+            "\"R\" = \"r\"?": "yes"
+          },
+          "narration": "Compare s[0]=\"R\" vs s[7]=\"r\" (case-insensitive) → match ✓, move both inward."
+        },
+        {
+          "pointers": {
+            "l": 1,
+            "r": 6
+          },
+          "highlightLine": 5,
+          "state": {
+            "l": 1,
+            "r": 6,
+            "\"a\" = \"a\"?": "yes"
+          },
+          "narration": "Compare s[1]=\"a\" vs s[6]=\"a\" (case-insensitive) → match ✓, move both inward."
+        },
+        {
+          "pointers": {
+            "l": 2,
+            "r": 5
+          },
+          "highlightLine": 5,
+          "state": {
+            "l": 2,
+            "r": 5,
+            "\"c\" = \"c\"?": "yes"
+          },
+          "narration": "Compare s[2]=\"c\" vs s[5]=\"c\" (case-insensitive) → match ✓, move both inward."
+        },
+        {
+          "pointers": {
+            "l": 3,
+            "r": 4
+          },
+          "highlightLine": 4,
+          "state": {
+            "r": 4,
+            "skip": "\" \""
+          },
+          "narration": "s[4] = \" \" is not alphanumeric → skip it, r−−."
+        },
+        {
+          "pointers": {},
+          "highlightLine": 7,
+          "state": {
+            "result": "true",
+            "time": "O(n)",
+            "space": "O(1)"
+          },
+          "narration": "The pointers met without a mismatch → it IS a palindrome. Each character visited once → O(n) time, O(1) space."
+        }
+      ]
+    }
+  ],
+  "leetcode": {
+    "number": 125,
+    "url": "https://leetcode.com/problems/valid-palindrome",
+    "difficulty": "Easy"
+  },
+  "companies": [
+    "Meta",
+    "Amazon",
+    "Microsoft"
+  ]
+}

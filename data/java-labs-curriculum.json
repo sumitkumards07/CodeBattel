@@ -1,0 +1,709 @@
+{
+  "lessons": [
+    {
+      "id": "employeebadge",
+      "title": "TechCorp Employee Badge Printer",
+      "description": "Practice variables concepts in Java.",
+      "tags": [
+        "Java",
+        "variables"
+      ],
+      "order": 1,
+      "files": {
+        "/EmployeeBadge.java": "package com.chaicode.variables;\n\nimport com.chaicode.variables.model.EmployeeProfile;\n\n/**\n * TechCorp Employee Badge Printer\n *\n * <p>HR needs a badge formatter for the new hire orientation. Given an employee profile,\n * build the badge text printed on their lanyard.\n *\n * <p>Format (exactly):\n * <pre>\n * [ID-00042] Priya Sharma | Engineering | MANAGER\n * </pre>\n *\n * <p>Rules:\n * <ul>\n *   <li>ID is zero-padded to 5 digits (e.g. employeeId 42 → \"00042\")</li>\n *   <li>If isManager is true, suffix is \"MANAGER\"; otherwise \"STAFF\"</li>\n *   <li>department is used as-is (already validated)</li>\n * </ul>\n *\n * @param profile the employee profile\n * @return formatted badge string\n */\npublic final class EmployeeBadge {\n\n    private EmployeeBadge() {}\n\n    public static String formatBadge(EmployeeProfile profile) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "variables",
+      "instructions": "## TechCorp Employee Badge Printer\n\nTechCorp Employee Badge Printer\n\nHR needs a badge formatter for the new hire orientation. Given an employee profile,\n\nbuild the badge text printed on their lanyard.\n\nFormat (exactly):\n\n```\n\n[ID-00042] Priya Sharma | Engineering | MANAGER\n\n```\n\nRules:\n\n\n\n- ID is zero-padded to 5 digits (e.g. employeeId 42 → \"00042\")\n\n- If isManager is true, suffix is \"MANAGER\"; otherwise \"STAFF\"\n\n- department is used as-is (already validated)\n\n\n\n@param profile the employee profile\n\n@return formatted badge string"
+    },
+    {
+      "id": "fitnessprofile",
+      "title": "FitTrack Health Dashboard",
+      "description": "Practice variables concepts in Java.",
+      "tags": [
+        "Java",
+        "variables"
+      ],
+      "order": 2,
+      "files": {
+        "/FitnessProfile.java": "package com.chaicode.variables;\n\n/**\n * FitTrack Health Dashboard\n *\n * <p>A fitness app shows each user's BMI (Body Mass Index) on their profile.\n *\n * <p>Formula: BMI = weightKg / (heightM × heightM) where heightM = heightCm / 100.0\n *\n * <p>Rules:\n * <ul>\n *   <li>Return BMI rounded to 1 decimal place using Math.round(bmi * 10.0) / 10.0</li>\n *   <li>If heightCm or weightKg is zero or negative, return -1.0</li>\n * </ul>\n *\n * @param weightKg weight in kilograms\n * @param heightCm height in centimeters\n * @return BMI rounded to 1 decimal, or -1.0 for invalid input\n */\npublic final class FitnessProfile {\n\n    private FitnessProfile() {}\n\n    public static double calculateBmi(double weightKg, int heightCm) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "variables",
+      "instructions": "## FitTrack Health Dashboard\n\nFitTrack Health Dashboard\n\nA fitness app shows each user's BMI (Body Mass Index) on their profile.\n\nFormula: BMI = weightKg / (heightM × heightM) where heightM = heightCm / 100.0\n\nRules:\n\n\n\n- Return BMI rounded to 1 decimal place using Math.round(bmi * 10.0) / 10.0\n\n- If heightCm or weightKg is zero or negative, return -1.0\n\n\n\n@param weightKg weight in kilograms\n\n@param heightCm height in centimeters\n\n@return BMI rounded to 1 decimal, or -1.0 for invalid input"
+    },
+    {
+      "id": "productlisting",
+      "title": "GreenBasket Grocery Listings",
+      "description": "Practice variables concepts in Java.",
+      "tags": [
+        "Java",
+        "variables"
+      ],
+      "order": 3,
+      "files": {
+        "/ProductListing.java": "package com.chaicode.variables;\n\nimport com.chaicode.variables.model.ProductItem;\n\n/**\n * GreenBasket Grocery Listings\n *\n * <p>You're building product cards for an online grocery app. Each card shows the item name,\n * stock quantity, line total, and whether it's organic.\n *\n * <p>Format (exactly):\n * <pre>\n * Organic Tomatoes x3 = $4.50\n * Regular Milk x2 = $6.00\n * </pre>\n *\n * <p>Rules:\n * <ul>\n *   <li>Line total = quantity × unitPrice, shown with 2 decimal places</li>\n *   <li>Prefix \"Organic \" when isOrganic is true; otherwise \"Regular \"</li>\n *   <li>Use String.format for the price part: \"%.2f\"</li>\n * </ul>\n *\n * @param item the product item\n * @return formatted listing line\n */\npublic final class ProductListing {\n\n    private ProductListing() {}\n\n    public static String formatListing(ProductItem item) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "variables",
+      "instructions": "## GreenBasket Grocery Listings\n\nGreenBasket Grocery Listings\n\nYou're building product cards for an online grocery app. Each card shows the item name,\n\nstock quantity, line total, and whether it's organic.\n\nFormat (exactly):\n\n```\n\nOrganic Tomatoes x3 = $4.50\n\nRegular Milk x2 = $6.00\n\n```\n\nRules:\n\n\n\n- Line total = quantity × unitPrice, shown with 2 decimal places\n\n- Prefix \"Organic \" when isOrganic is true; otherwise \"Regular \"\n\n- Use String.format for the price part: \"%.2f\"\n\n\n\n@param item the product item\n\n@return formatted listing line"
+    },
+    {
+      "id": "gamescorecomparer",
+      "title": "Arena Clash Scoreboard",
+      "description": "Practice operators concepts in Java.",
+      "tags": [
+        "Java",
+        "operators"
+      ],
+      "order": 4,
+      "files": {
+        "/GameScoreComparer.java": "package com.chaicode.operators;\n\n/**\n * Arena Clash Scoreboard\n *\n * <p>Two players compete in an online game. Each has a base score and a bonus multiplier.\n * Effective score = baseScore + (baseScore * bonusPercent / 100) using integer arithmetic\n * (bonus added as whole points: baseScore * bonusPercent / 100).\n *\n * <p>Return:\n * <ul>\n *   <li>\"Player 1 wins\" if player1 effective score is higher</li>\n *   <li>\"Player 2 wins\" if player 2 is higher</li>\n *   <li>\"Tie\" if equal</li>\n * </ul>\n *\n * <p>If any base score is negative or bonus percent is not 0–100, return \"Invalid\".\n *\n * @param p1Base player 1 base score\n * @param p1Bonus player 1 bonus percent\n * @param p2Base player 2 base score\n * @param p2Bonus player 2 bonus percent\n * @return match result string\n */\npublic final class GameScoreComparer {\n\n    private GameScoreComparer() {}\n\n    public static String compareScores(int p1Base, int p1Bonus, int p2Base, int p2Bonus) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "operators",
+      "instructions": "## Arena Clash Scoreboard\n\nArena Clash Scoreboard\n\nTwo players compete in an online game. Each has a base score and a bonus multiplier.\n\nEffective score = baseScore + (baseScore * bonusPercent / 100) using integer arithmetic\n\n(bonus added as whole points: baseScore * bonusPercent / 100).\n\nReturn:\n\n\n\n- \"Player 1 wins\" if player1 effective score is higher\n\n- \"Player 2 wins\" if player 2 is higher\n\n- \"Tie\" if equal\n\n\n\nIf any base score is negative or bonus percent is not 0–100, return \"Invalid\".\n\n@param p1Base player 1 base score\n\n@param p1Bonus player 1 bonus percent\n\n@param p2Base player 2 base score\n\n@param p2Bonus player 2 bonus percent\n\n@return match result string"
+    },
+    {
+      "id": "restaurantbill",
+      "title": "Bistro 42 Bill Calculator",
+      "description": "Practice operators concepts in Java.",
+      "tags": [
+        "Java",
+        "operators"
+      ],
+      "order": 5,
+      "files": {
+        "/RestaurantBill.java": "package com.chaicode.operators;\n\n/**\n * Bistro 42 Bill Calculator\n *\n * <p>Waitstaff use this to print the final bill. Given the food subtotal, apply tax and tip.\n *\n * <p>Rules:\n * <ul>\n *   <li>Tax rate is 8% of subtotal</li>\n *   <li>Tip is 15% of (subtotal + tax)</li>\n *   <li>Final total = subtotal + tax + tip, rounded to nearest cent using Math.round(total * 100) / 100.0</li>\n *   <li>If subtotal is negative, return -1.0</li>\n * </ul>\n *\n * @param subtotal food subtotal in dollars\n * @return final bill total, or -1.0 for invalid input\n */\npublic final class RestaurantBill {\n\n    private RestaurantBill() {}\n\n    public static double calculateTotal(double subtotal) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "operators",
+      "instructions": "## Bistro 42 Bill Calculator\n\nBistro 42 Bill Calculator\n\nWaitstaff use this to print the final bill. Given the food subtotal, apply tax and tip.\n\nRules:\n\n\n\n- Tax rate is 8% of subtotal\n\n- Tip is 15% of (subtotal + tax)\n\n- Final total = subtotal + tax + tip, rounded to nearest cent using Math.round(total * 100) / 100.0\n\n- If subtotal is negative, return -1.0\n\n\n\n@param subtotal food subtotal in dollars\n\n@return final bill total, or -1.0 for invalid input"
+    },
+    {
+      "id": "salediscount",
+      "title": "FlashSale Discount Engine",
+      "description": "Practice operators concepts in Java.",
+      "tags": [
+        "Java",
+        "operators"
+      ],
+      "order": 6,
+      "files": {
+        "/SaleDiscount.java": "package com.chaicode.operators;\n\n/**\n * FlashSale Discount Engine\n *\n * <p>An e-commerce site runs flash sales. Given the original price and discount percentage,\n * return the sale price.\n *\n * <p>Rules:\n * <ul>\n *   <li>salePrice = originalPrice × (1 - discountPercent / 100.0)</li>\n *   <li>Round to 2 decimal places: Math.round(price * 100) / 100.0</li>\n *   <li>If originalPrice is negative or discountPercent is not between 0 and 100 inclusive, return -1.0</li>\n * </ul>\n *\n * @param originalPrice original price in dollars\n * @param discountPercent discount percentage (0–100)\n * @return sale price, or -1.0 for invalid input\n */\npublic final class SaleDiscount {\n\n    private SaleDiscount() {}\n\n    public static double applyDiscount(double originalPrice, int discountPercent) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "operators",
+      "instructions": "## FlashSale Discount Engine\n\nFlashSale Discount Engine\n\nAn e-commerce site runs flash sales. Given the original price and discount percentage,\n\nreturn the sale price.\n\nRules:\n\n\n\n- salePrice = originalPrice × (1 - discountPercent / 100.0)\n\n- Round to 2 decimal places: Math.round(price * 100) / 100.0\n\n- If originalPrice is negative or discountPercent is not between 0 and 100 inclusive, return -1.0\n\n\n\n@param originalPrice original price in dollars\n\n@param discountPercent discount percentage (0–100)\n\n@return sale price, or -1.0 for invalid input"
+    },
+    {
+      "id": "timebreakdown",
+      "title": "StreamTime Video Duration Parser",
+      "description": "Practice operators concepts in Java.",
+      "tags": [
+        "Java",
+        "operators"
+      ],
+      "order": 7,
+      "files": {
+        "/TimeBreakdown.java": "package com.chaicode.operators;\n\nimport com.chaicode.operators.model.TimeParts;\n\n/**\n * StreamTime Video Duration Parser\n *\n * <p>A video platform stores clip length in total seconds. Convert to hours, minutes, and seconds\n * for the UI player.\n *\n * <p>Rules:\n * <ul>\n *   <li>hours = totalSeconds / 3600</li>\n *   <li>minutes = (totalSeconds % 3600) / 60</li>\n *   <li>seconds = totalSeconds % 60</li>\n *   <li>If totalSeconds is negative, return null</li>\n * </ul>\n *\n * @param totalSeconds total duration in seconds\n * @return TimeParts record, or null for invalid input\n */\npublic final class TimeBreakdown {\n\n    private TimeBreakdown() {}\n\n    public static TimeParts toTimeParts(int totalSeconds) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "operators",
+      "instructions": "## StreamTime Video Duration Parser\n\nStreamTime Video Duration Parser\n\nA video platform stores clip length in total seconds. Convert to hours, minutes, and seconds\n\nfor the UI player.\n\nRules:\n\n\n\n- hours = totalSeconds / 3600\n\n- minutes = (totalSeconds % 3600) / 60\n\n- seconds = totalSeconds % 60\n\n- If totalSeconds is negative, return null\n\n\n\n@param totalSeconds total duration in seconds\n\n@return TimeParts record, or null for invalid input"
+    },
+    {
+      "id": "coffeeshop",
+      "title": "Bean &amp; Brew Cafe",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 8,
+      "files": {
+        "/CoffeeShop.java": "package com.chaicode.conditionals;\n\nimport com.chaicode.conditionals.model.CoffeeExtras;\n\n/**\n * Bean &amp; Brew Cafe\n *\n * <p>Bean &amp; Brew, the cozy neighborhood cafe, wants to go digital! They\n * need a system that calculates the total price of a coffee order.\n * Here's their menu:\n *\n * <p>Base price by size:\n * <ul>\n *   <li>\"small\"  → $3.00</li>\n *   <li>\"medium\" → $4.00</li>\n *   <li>\"large\"  → $5.00</li>\n * </ul>\n *\n * <p>Add-on for coffee type:\n * <ul>\n *   <li>\"regular\"    → +$0.00</li>\n *   <li>\"latte\"      → +$1.00</li>\n *   <li>\"cappuccino\" → +$1.50</li>\n *   <li>\"mocha\"      → +$2.00</li>\n * </ul>\n *\n * <p>Optional extras:\n * <ul>\n *   <li>whippedCream → +$0.50 (if true)</li>\n *   <li>extraShot    → +$0.75 (if true)</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>If size is not \"small\", \"medium\", or \"large\", return -1</li>\n *   <li>If type is not \"regular\", \"latte\", \"cappuccino\", or \"mocha\", return -1</li>\n *   <li>Return the total price rounded to 2 decimal places</li>\n * </ul>\n *\n * @param size \"small\", \"medium\", or \"large\"\n * @param type \"regular\", \"latte\", \"cappuccino\", or \"mocha\"\n * @param extras optional extras\n * @return total price or -1 for invalid input\n */\npublic final class CoffeeShop {\n\n    private CoffeeShop() {}\n\n    public static double calculateCoffeePrice(String size, String type) {\n        return calculateCoffeePrice(size, type, new CoffeeExtras());\n    }\n\n    public static double calculateCoffeePrice(String size, String type, CoffeeExtras extras) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## Bean &amp; Brew Cafe\n\nBean &amp; Brew Cafe\n\nBean &amp; Brew, the cozy neighborhood cafe, wants to go digital! They\n\nneed a system that calculates the total price of a coffee order.\n\nHere's their menu:\n\nBase price by size:\n\n\n\n- \"small\"  → $3.00\n\n- \"medium\" → $4.00\n\n- \"large\"  → $5.00\n\n\n\nAdd-on for coffee type:\n\n\n\n- \"regular\"    → +$0.00\n\n- \"latte\"      → +$1.00\n\n- \"cappuccino\" → +$1.50\n\n- \"mocha\"      → +$2.00\n\n\n\nOptional extras:\n\n\n\n- whippedCream → +$0.50 (if true)\n\n- extraShot    → +$0.75 (if true)\n\n\n\nRules:\n\n\n\n- If size is not \"small\", \"medium\", or \"large\", return -1\n\n- If type is not \"regular\", \"latte\", \"cappuccino\", or \"mocha\", return -1\n\n- Return the total price rounded to 2 decimal places\n\n\n\n@param size \"small\", \"medium\", or \"large\"\n\n@param type \"regular\", \"latte\", \"cappuccino\", or \"mocha\"\n\n@param extras optional extras\n\n@return total price or -1 for invalid input"
+    },
+    {
+      "id": "gradecalculator",
+      "title": "Ms. Parker's Report Cards",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 9,
+      "files": {
+        "/GradeCalculator.java": "package com.chaicode.conditionals;\n\n/**\n * Ms. Parker's Report Cards\n *\n * <p>Ms. Parker teaches 8th-grade science and needs help converting\n * percentage scores into letter grades for report cards. She also\n * rewards students who earned extra credit by adding 5 bonus points\n * to their score — but the final score can never go above 100.\n *\n * <p>Grading Scale:\n * <ul>\n *   <li>90–100 → \"A\"</li>\n *   <li>80–89  → \"B\"</li>\n *   <li>70–79  → \"C\"</li>\n *   <li>60–69  → \"D\"</li>\n *   <li>0–59   → \"F\"</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>Check validity FIRST: if the original score is less than 0\n *       or greater than 100, return \"INVALID\"</li>\n *   <li>If hasExtraCredit is true, add 5 points AFTER validation\n *       (cap the result at 100)</li>\n *   <li>Then determine the letter grade from the adjusted score</li>\n * </ul>\n *\n * @param score the student's percentage score (0-100)\n * @param hasExtraCredit whether the student has extra credit\n * @return the letter grade or \"INVALID\"\n */\npublic final class GradeCalculator {\n\n    private GradeCalculator() {}\n\n    public static String calculateGrade(int score, boolean hasExtraCredit) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## Ms. Parker's Report Cards\n\nMs. Parker's Report Cards\n\nMs. Parker teaches 8th-grade science and needs help converting\n\npercentage scores into letter grades for report cards. She also\n\nrewards students who earned extra credit by adding 5 bonus points\n\nto their score — but the final score can never go above 100.\n\nGrading Scale:\n\n\n\n- 90–100 → \"A\"\n\n- 80–89  → \"B\"\n\n- 70–79  → \"C\"\n\n- 60–69  → \"D\"\n\n- 0–59   → \"F\"\n\n\n\nRules:\n\n\n\n- Check validity FIRST: if the original score is less than 0\n\nor greater than 100, return \"INVALID\"\n\n- If hasExtraCredit is true, add 5 points AFTER validation\n\n(cap the result at 100)\n\n- Then determine the letter grade from the adjusted score\n\n\n\n@param score the student's percentage score (0-100)\n\n@param hasExtraCredit whether the student has extra credit\n\n@return the letter grade or \"INVALID\""
+    },
+    {
+      "id": "librarycard",
+      "title": "Maple Town Library",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 10,
+      "files": {
+        "/LibraryCard.java": "package com.chaicode.conditionals;\n\nimport com.chaicode.conditionals.model.BorrowResult;\n\n/**\n * Maple Town Library\n *\n * <p>The librarian at Maple Town Public Library is tired of manually checking\n * whether members can borrow books. She asks you to automate it!\n *\n * <p>A member can borrow books ONLY if ALL of these are true:\n * <ol>\n *   <li>They are at least 6 years old</li>\n *   <li>They have a valid library card (hasValidCard is true)</li>\n *   <li>They have zero overdue books</li>\n * </ol>\n *\n * <p>Return a {@link BorrowResult} with two properties:\n * <ul>\n *   <li>allowed: true if they can borrow, false otherwise</li>\n *   <li>message: a descriptive message</li>\n * </ul>\n *\n * <p>Check conditions in this order and return the FIRST failure:\n * <ul>\n *   <li>Age &lt; 6:\n *     { allowed: false, message: \"Too young - must be at least 6 years old\" }</li>\n *   <li>No valid card:\n *     { allowed: false, message: \"Invalid library card - please renew at the front desk\" }</li>\n *   <li>Has overdue books:\n *     { allowed: false, message: \"Please return your X overdue book(s) first\" }\n *     (replace X with the actual number of overdue books)</li>\n *   <li>All conditions met:\n *     { allowed: true, message: \"You may borrow up to 3 books\" }</li>\n * </ul>\n *\n * @param memberAge the member's age\n * @param hasValidCard whether they have a valid library card\n * @param overdueBooks number of overdue books\n * @return the borrowing eligibility result\n */\npublic final class LibraryCard {\n\n    private LibraryCard() {}\n\n    public static BorrowResult canBorrowBook(int memberAge, boolean hasValidCard, int overdueBooks) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## Maple Town Library\n\nMaple Town Library\n\nThe librarian at Maple Town Public Library is tired of manually checking\n\nwhether members can borrow books. She asks you to automate it!\n\nA member can borrow books ONLY if ALL of these are true:\n\n<ol>\n\n- They are at least 6 years old\n\n- They have a valid library card (hasValidCard is true)\n\n- They have zero overdue books\n\n</ol>\n\nReturn a {@link BorrowResult} with two properties:\n\n\n\n- allowed: true if they can borrow, false otherwise\n\n- message: a descriptive message\n\n\n\nCheck conditions in this order and return the FIRST failure:\n\n\n\n- Age &lt; 6:\n\n{ allowed: false, message: \"Too young - must be at least 6 years old\" }\n\n- No valid card:\n\n{ allowed: false, message: \"Invalid library card - please renew at the front desk\" }\n\n- Has overdue books:\n\n{ allowed: false, message: \"Please return your X overdue book(s) first\" }\n\n(replace X with the actual number of overdue books)\n\n- All conditions met:\n\n{ allowed: true, message: \"You may borrow up to 3 books\" }\n\n\n\n@param memberAge the member's age\n\n@param hasValidCard whether they have a valid library card\n\n@param overdueBooks number of overdue books\n\n@return the borrowing eligibility result"
+    },
+    {
+      "id": "parkingfee",
+      "title": "City Central Parking",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 11,
+      "files": {
+        "/ParkingFee.java": "package com.chaicode.conditionals;\n\n/**\n * City Central Parking\n *\n * <p>City Central Parking garage is the busiest in downtown. They need an\n * automated system to calculate parking fees. Different vehicle types\n * have different rates, and there's a daily maximum so customers\n * aren't overcharged.\n *\n * <p>Rates (first hour / each additional hour):\n * <ul>\n *   <li>\"car\":        $5 first hour, then $3/hour</li>\n *   <li>\"motorcycle\": $3 first hour, then $2/hour</li>\n *   <li>\"bus\":        $10 first hour, then $7/hour</li>\n * </ul>\n *\n * <p>Daily Maximum (fee can never exceed this):\n * <ul>\n *   <li>\"car\":        $30</li>\n *   <li>\"motorcycle\": $18</li>\n *   <li>\"bus\":        $60</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>Partial hours are rounded UP (e.g., 1.5 hours → 2 hours)</li>\n *   <li>The fee should never exceed the daily maximum</li>\n *   <li>If hours is 0 or negative, return -1</li>\n *   <li>If vehicleType is not \"car\", \"motorcycle\", or \"bus\", return -1</li>\n * </ul>\n *\n * <p>Examples:\n * <ul>\n *   <li>car, 1 hour     → $5</li>\n *   <li>car, 3 hours    → $5 + $3 + $3 = $11</li>\n *   <li>car, 0.5 hours  → rounds up to 1 hour → $5</li>\n *   <li>car, 24 hours   → $5 + 23×$3 = $74 → capped at $30</li>\n * </ul>\n *\n * @param hours number of hours parked\n * @param vehicleType \"car\", \"motorcycle\", or \"bus\"\n * @return parking fee or -1 for invalid input\n */\npublic final class ParkingFee {\n\n    private ParkingFee() {}\n\n    public static int calculateParkingFee(double hours, String vehicleType) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## City Central Parking\n\nCity Central Parking\n\nCity Central Parking garage is the busiest in downtown. They need an\n\nautomated system to calculate parking fees. Different vehicle types\n\nhave different rates, and there's a daily maximum so customers\n\naren't overcharged.\n\nRates (first hour / each additional hour):\n\n\n\n- \"car\":        $5 first hour, then $3/hour\n\n- \"motorcycle\": $3 first hour, then $2/hour\n\n- \"bus\":        $10 first hour, then $7/hour\n\n\n\nDaily Maximum (fee can never exceed this):\n\n\n\n- \"car\":        $30\n\n- \"motorcycle\": $18\n\n- \"bus\":        $60\n\n\n\nRules:\n\n\n\n- Partial hours are rounded UP (e.g., 1.5 hours → 2 hours)\n\n- The fee should never exceed the daily maximum\n\n- If hours is 0 or negative, return -1\n\n- If vehicleType is not \"car\", \"motorcycle\", or \"bus\", return -1\n\n\n\nExamples:\n\n\n\n- car, 1 hour     → $5\n\n- car, 3 hours    → $5 + $3 + $3 = $11\n\n- car, 0.5 hours  → rounds up to 1 hour → $5\n\n- car, 24 hours   → $5 + 23×$3 = $74 → capped at $30\n\n\n\n@param hours number of hours parked\n\n@param vehicleType \"car\", \"motorcycle\", or \"bus\"\n\n@return parking fee or -1 for invalid input"
+    },
+    {
+      "id": "passwordstrength",
+      "title": "SecureApp Password Checker",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 12,
+      "files": {
+        "/PasswordStrength.java": "package com.chaicode.conditionals;\n\n/**\n * SecureApp Password Checker\n *\n * <p>You're building the signup page for SecureApp, a new productivity tool.\n * The product manager wants a password strength meter that gives users\n * real-time feedback as they type their password.\n *\n * <p>The checker evaluates 5 criteria:\n * <ol>\n *   <li>At least 8 characters long</li>\n *   <li>Contains at least one uppercase letter (A-Z)</li>\n *   <li>Contains at least one lowercase letter (a-z)</li>\n *   <li>Contains at least one number (0-9)</li>\n *   <li>Contains at least one special character (!@#$%^&amp;*()_+-=[]{}|;:,.&lt;&gt;?)</li>\n * </ol>\n *\n * <p>Strength levels based on how many criteria are met:\n * <ul>\n *   <li>0–1 criteria → \"weak\"</li>\n *   <li>2–3 criteria → \"medium\"</li>\n *   <li>4 criteria   → \"strong\"</li>\n *   <li>All 5        → \"very strong\"</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>Empty string or null → \"weak\"</li>\n * </ul>\n *\n * @param password the password to evaluate\n * @return \"weak\", \"medium\", \"strong\", or \"very strong\"\n */\npublic final class PasswordStrength {\n\n    private PasswordStrength() {}\n\n    public static String checkPasswordStrength(String password) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## SecureApp Password Checker\n\nSecureApp Password Checker\n\nYou're building the signup page for SecureApp, a new productivity tool.\n\nThe product manager wants a password strength meter that gives users\n\nreal-time feedback as they type their password.\n\nThe checker evaluates 5 criteria:\n\n<ol>\n\n- At least 8 characters long\n\n- Contains at least one uppercase letter (A-Z)\n\n- Contains at least one lowercase letter (a-z)\n\n- Contains at least one number (0-9)\n\n- Contains at least one special character (!@#$%^&amp;*()_+-=[]{}|;:,.&lt;&gt;?)\n\n</ol>\n\nStrength levels based on how many criteria are met:\n\n\n\n- 0–1 criteria → \"weak\"\n\n- 2–3 criteria → \"medium\"\n\n- 4 criteria   → \"strong\"\n\n- All 5        → \"very strong\"\n\n\n\nRules:\n\n\n\n- Empty string or null → \"weak\"\n\n\n\n@param password the password to evaluate\n\n@return \"weak\", \"medium\", \"strong\", or \"very strong\""
+    },
+    {
+      "id": "seasonactivity",
+      "title": "WanderLust Travel Planner",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 13,
+      "files": {
+        "/SeasonActivity.java": "package com.chaicode.conditionals;\n\nimport com.chaicode.conditionals.model.SeasonActivityResult;\n\n/**\n * WanderLust Travel Planner\n *\n * <p>WanderLust is a travel planning app that suggests fun activities\n * based on the month and the current temperature. Users enter the\n * month number and temperature, and the app recommends what to do!\n *\n * <p>Step 1 — Determine the season from the month:\n * <ul>\n *   <li>December, January, February  (12, 1, 2)   → \"Winter\"</li>\n *   <li>March, April, May            (3, 4, 5)     → \"Spring\"</li>\n *   <li>June, July, August           (6, 7, 8)     → \"Summer\"</li>\n *   <li>September, October, November (9, 10, 11)   → \"Autumn\"</li>\n * </ul>\n *\n * <p>Step 2 — Suggest an activity based on season AND temperature (°C):\n * <ul>\n *   <li>Winter + temp &lt; 0     → \"skiing\"</li>\n *   <li>Winter + temp &gt;= 0    → \"ice skating\"</li>\n *   <li>Spring + temp &gt; 20    → \"hiking\"</li>\n *   <li>Spring + temp &lt;= 20   → \"museum visit\"</li>\n *   <li>Summer + temp &gt; 35    → \"swimming\"</li>\n *   <li>Summer + temp &lt;= 35   → \"cycling\"</li>\n *   <li>Autumn + temp &gt; 15    → \"nature walk\"</li>\n *   <li>Autumn + temp &lt;= 15   → \"reading at a cafe\"</li>\n * </ul>\n *\n * <p>Return a {@link SeasonActivityResult}: { season, activity }\n *\n * <p>Rules:\n * <ul>\n *   <li>If month is not 1–12, return null</li>\n * </ul>\n *\n * @param month month of the year (1-12)\n * @param temperature current temperature in Celsius\n * @return season and activity, or null for invalid month\n */\npublic final class SeasonActivity {\n\n    private SeasonActivity() {}\n\n    public static SeasonActivityResult getSeasonActivity(int month, int temperature) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## WanderLust Travel Planner\n\nWanderLust Travel Planner\n\nWanderLust is a travel planning app that suggests fun activities\n\nbased on the month and the current temperature. Users enter the\n\nmonth number and temperature, and the app recommends what to do!\n\nStep 1 — Determine the season from the month:\n\n\n\n- December, January, February  (12, 1, 2)   → \"Winter\"\n\n- March, April, May            (3, 4, 5)     → \"Spring\"\n\n- June, July, August           (6, 7, 8)     → \"Summer\"\n\n- September, October, November (9, 10, 11)   → \"Autumn\"\n\n\n\nStep 2 — Suggest an activity based on season AND temperature (°C):\n\n\n\n- Winter + temp &lt; 0     → \"skiing\"\n\n- Winter + temp &gt;= 0    → \"ice skating\"\n\n- Spring + temp &gt; 20    → \"hiking\"\n\n- Spring + temp &lt;= 20   → \"museum visit\"\n\n- Summer + temp &gt; 35    → \"swimming\"\n\n- Summer + temp &lt;= 35   → \"cycling\"\n\n- Autumn + temp &gt; 15    → \"nature walk\"\n\n- Autumn + temp &lt;= 15   → \"reading at a cafe\"\n\n\n\nReturn a {@link SeasonActivityResult}: { season, activity }\n\nRules:\n\n\n\n- If month is not 1–12, return null\n\n\n\n@param month month of the year (1-12)\n\n@param temperature current temperature in Celsius\n\n@return season and activity, or null for invalid month"
+    },
+    {
+      "id": "shippingcalculator",
+      "title": "ShopSwift Shipping Calculator",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 14,
+      "files": {
+        "/ShippingCalculator.java": "package com.chaicode.conditionals;\n\n/**\n * ShopSwift Shipping Calculator\n *\n * <p>ShopSwift is a growing online store. They've hired you to build their\n * shipping cost calculator. The cost depends on the package weight,\n * where it's going, and the order total.\n *\n * <p>Domestic Shipping (country equals \"US\"):\n * <ul>\n *   <li>Weight up to 1 kg:   $5</li>\n *   <li>Weight up to 5 kg:   $10</li>\n *   <li>Weight over 5 kg:    $15</li>\n * </ul>\n *\n * <p>International Shipping (any other country):\n * <ul>\n *   <li>Weight up to 1 kg:   $15</li>\n *   <li>Weight up to 5 kg:   $25</li>\n *   <li>Weight over 5 kg:    $40</li>\n * </ul>\n *\n * <p>Free Shipping:\n * <ul>\n *   <li>Domestic orders over $50 get FREE shipping (return 0)</li>\n *   <li>International orders over $100 get FREE shipping (return 0)</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>If weight is 0 or negative, return -1</li>\n *   <li>If orderTotal is negative, return -1</li>\n * </ul>\n *\n * @param weight package weight in kilograms\n * @param country destination country code (e.g., \"US\", \"UK\", \"IN\")\n * @param orderTotal total order amount in dollars\n * @return shipping cost, 0 for free shipping, or -1 for invalid input\n */\npublic final class ShippingCalculator {\n\n    private ShippingCalculator() {}\n\n    public static int calculateShipping(double weight, String country, double orderTotal) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## ShopSwift Shipping Calculator\n\nShopSwift Shipping Calculator\n\nShopSwift is a growing online store. They've hired you to build their\n\nshipping cost calculator. The cost depends on the package weight,\n\nwhere it's going, and the order total.\n\nDomestic Shipping (country equals \"US\"):\n\n\n\n- Weight up to 1 kg:   $5\n\n- Weight up to 5 kg:   $10\n\n- Weight over 5 kg:    $15\n\n\n\nInternational Shipping (any other country):\n\n\n\n- Weight up to 1 kg:   $15\n\n- Weight up to 5 kg:   $25\n\n- Weight over 5 kg:    $40\n\n\n\nFree Shipping:\n\n\n\n- Domestic orders over $50 get FREE shipping (return 0)\n\n- International orders over $100 get FREE shipping (return 0)\n\n\n\nRules:\n\n\n\n- If weight is 0 or negative, return -1\n\n- If orderTotal is negative, return -1\n\n\n\n@param weight package weight in kilograms\n\n@param country destination country code (e.g., \"US\", \"UK\", \"IN\")\n\n@param orderTotal total order amount in dollars\n\n@return shipping cost, 0 for free shipping, or -1 for invalid input"
+    },
+    {
+      "id": "taxcalculator",
+      "title": "Sam's Tax Calculator",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 15,
+      "files": {
+        "/TaxCalculator.java": "package com.chaicode.conditionals;\n\n/**\n * Sam's Tax Calculator\n *\n * <p>Sam is a freelance graphic designer who dreads tax season every year.\n * Help Sam by building a tax calculator that uses progressive tax brackets.\n *\n * <p>How progressive tax works:\n * You don't pay the same rate on ALL your income. Each \"slice\" of income\n * is taxed at its own rate:\n *\n * <ul>\n *   <li>Bracket 1: $0 – $10,000        → 0%  (tax-free!)</li>\n *   <li>Bracket 2: $10,001 – $30,000   → 10% (only on the amount ABOVE $10,000)</li>\n *   <li>Bracket 3: $30,001 – $70,000   → 20% (only on the amount ABOVE $30,000)</li>\n *   <li>Bracket 4: Over $70,000        → 30% (only on the amount ABOVE $70,000)</li>\n * </ul>\n *\n * <p>Examples:\n * <ul>\n *   <li>Income $8,000   → Tax = $0 (all in bracket 1)</li>\n *   <li>Income $20,000  → Tax = 10% of ($20,000 - $10,000) = $1,000</li>\n *   <li>Income $50,000  → Tax = $2,000 + 20% of ($50,000 - $30,000) = $6,000</li>\n *   <li>Income $100,000 → Tax = $2,000 + $8,000 + 30% of ($100,000 - $70,000) = $19,000</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>If income is 0 or negative, return 0</li>\n * </ul>\n *\n * @param income annual income in dollars\n * @return total tax amount owed\n */\npublic final class TaxCalculator {\n\n    private TaxCalculator() {}\n\n    public static double calculateTax(double income) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## Sam's Tax Calculator\n\nSam's Tax Calculator\n\nSam is a freelance graphic designer who dreads tax season every year.\n\nHelp Sam by building a tax calculator that uses progressive tax brackets.\n\nHow progressive tax works:\n\nYou don't pay the same rate on ALL your income. Each \"slice\" of income\n\nis taxed at its own rate:\n\n\n\n- Bracket 1: $0 – $10,000        → 0%  (tax-free!)\n\n- Bracket 2: $10,001 – $30,000   → 10% (only on the amount ABOVE $10,000)\n\n- Bracket 3: $30,001 – $70,000   → 20% (only on the amount ABOVE $30,000)\n\n- Bracket 4: Over $70,000        → 30% (only on the amount ABOVE $70,000)\n\n\n\nExamples:\n\n\n\n- Income $8,000   → Tax = $0 (all in bracket 1)\n\n- Income $20,000  → Tax = 10% of ($20,000 - $10,000) = $1,000\n\n- Income $50,000  → Tax = $2,000 + 20% of ($50,000 - $30,000) = $6,000\n\n- Income $100,000 → Tax = $2,000 + $8,000 + 30% of ($100,000 - $70,000) = $19,000\n\n\n\nRules:\n\n\n\n- If income is 0 or negative, return 0\n\n\n\n@param income annual income in dollars\n\n@return total tax amount owed"
+    },
+    {
+      "id": "ticketpricing",
+      "title": "The Starlight Cinema",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 16,
+      "files": {
+        "/TicketPricing.java": "package com.chaicode.conditionals;\n\n/**\n * The Starlight Cinema\n *\n * <p>You've just been hired at Starlight Cinema! Your first task is to build\n * the automated ticket pricing system. The manager hands you a sticky note\n * with the pricing rules scribbled on it:\n *\n * <p>Age Groups:\n * <ul>\n *   <li>Children (0–12): $8</li>\n *   <li>Teens (13–17): $12</li>\n *   <li>Adults (18–59): $15</li>\n *   <li>Seniors (60+): $10</li>\n * </ul>\n *\n * <p>Weekend Surcharge:\n * <ul>\n *   <li>Add $3 on weekends (when isWeekend is true)</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>If age is negative, return -1</li>\n *   <li>isWeekend is a boolean</li>\n * </ul>\n *\n * @param age the customer's age\n * @param isWeekend whether it's a weekend\n * @return the ticket price, or -1 for invalid input\n */\npublic final class TicketPricing {\n\n    private TicketPricing() {}\n\n    public static int getTicketPrice(int age, boolean isWeekend) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## The Starlight Cinema\n\nThe Starlight Cinema\n\nYou've just been hired at Starlight Cinema! Your first task is to build\n\nthe automated ticket pricing system. The manager hands you a sticky note\n\nwith the pricing rules scribbled on it:\n\nAge Groups:\n\n\n\n- Children (0–12): $8\n\n- Teens (13–17): $12\n\n- Adults (18–59): $15\n\n- Seniors (60+): $10\n\n\n\nWeekend Surcharge:\n\n\n\n- Add $3 on weekends (when isWeekend is true)\n\n\n\nRules:\n\n\n\n- If age is negative, return -1\n\n- isWeekend is a boolean\n\n\n\n@param age the customer's age\n\n@param isWeekend whether it's a weekend\n\n@return the ticket price, or -1 for invalid input"
+    },
+    {
+      "id": "tipcalculator",
+      "title": "TipEasy - Restaurant Tip Calculator",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 17,
+      "files": {
+        "/TipCalculator.java": "package com.chaicode.conditionals;\n\nimport com.chaicode.conditionals.model.TipResult;\n\n/**\n * TipEasy - Restaurant Tip Calculator\n *\n * <p>You're building TipEasy, an app that helps diners calculate the right\n * tip based on how they'd rate their dining experience. No more awkward\n * mental math at the table!\n *\n * <p>Service Rating → Tip Percentage:\n * <ul>\n *   <li>1 (terrible)  → 5%</li>\n *   <li>2 (poor)      → 10%</li>\n *   <li>3 (okay)      → 15%</li>\n *   <li>4 (good)      → 20%</li>\n *   <li>5 (excellent) → 25%</li>\n * </ul>\n *\n * <p>Return a {@link TipResult} with:\n * <ul>\n *   <li>tipPercentage: the percentage as a number (e.g., 15)</li>\n *   <li>tipAmount: the calculated tip rounded to 2 decimal places</li>\n *   <li>totalAmount: bill + tip rounded to 2 decimal places</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>If billAmount is 0 or negative, return null</li>\n *   <li>If serviceRating is not an integer from 1 to 5, return null</li>\n * </ul>\n *\n * <p>Example:\n * {@code calculateTip(50, 4) → { tipPercentage: 20, tipAmount: 10.00, totalAmount: 60.00 }}\n *\n * @param billAmount the bill amount in dollars\n * @param serviceRating service rating from 1 to 5 (must be a whole number)\n * @return tip breakdown or null for invalid input\n */\npublic final class TipCalculator {\n\n    private TipCalculator() {}\n\n    public static TipResult calculateTip(double billAmount, double serviceRating) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## TipEasy - Restaurant Tip Calculator\n\nTipEasy - Restaurant Tip Calculator\n\nYou're building TipEasy, an app that helps diners calculate the right\n\ntip based on how they'd rate their dining experience. No more awkward\n\nmental math at the table!\n\nService Rating → Tip Percentage:\n\n\n\n- 1 (terrible)  → 5%\n\n- 2 (poor)      → 10%\n\n- 3 (okay)      → 15%\n\n- 4 (good)      → 20%\n\n- 5 (excellent) → 25%\n\n\n\nReturn a {@link TipResult} with:\n\n\n\n- tipPercentage: the percentage as a number (e.g., 15)\n\n- tipAmount: the calculated tip rounded to 2 decimal places\n\n- totalAmount: bill + tip rounded to 2 decimal places\n\n\n\nRules:\n\n\n\n- If billAmount is 0 or negative, return null\n\n- If serviceRating is not an integer from 1 to 5, return null\n\n\n\nExample:\n\n{@code calculateTip(50, 4) → { tipPercentage: 20, tipAmount: 10.00, totalAmount: 60.00 }}\n\n@param billAmount the bill amount in dollars\n\n@param serviceRating service rating from 1 to 5 (must be a whole number)\n\n@return tip breakdown or null for invalid input"
+    },
+    {
+      "id": "trafficlight",
+      "title": "The Driving Simulator",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 18,
+      "files": {
+        "/TrafficLight.java": "package com.chaicode.conditionals;\n\n/**\n * The Driving Simulator\n *\n * <p>SafeDrive Driving School is building a simulator for new students.\n * You need to write the logic that tells student drivers what to do\n * when they encounter different traffic light signals.\n *\n * <p>Signal → Action:\n * <ul>\n *   <li>\"green\"        → \"GO\"</li>\n *   <li>\"yellow\"       → \"SLOW DOWN\"</li>\n *   <li>\"red\"          → \"STOP\"</li>\n *   <li>\"flashing red\" → \"STOP AND PROCEED WITH CAUTION\"</li>\n *   <li>anything else  → \"INVALID SIGNAL\"</li>\n * </ul>\n *\n * <p>Rules:\n * <ul>\n *   <li>The function should be case-insensitive\n *       (e.g., \"GREEN\", \"Green\", \"green\" should all return \"GO\")</li>\n * </ul>\n *\n * <p>Hint: Use a switch statement!\n *\n * @param color the traffic light signal\n * @return the driving action to take\n */\npublic final class TrafficLight {\n\n    private TrafficLight() {}\n\n    public static String getTrafficAction(String color) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## The Driving Simulator\n\nThe Driving Simulator\n\nSafeDrive Driving School is building a simulator for new students.\n\nYou need to write the logic that tells student drivers what to do\n\nwhen they encounter different traffic light signals.\n\nSignal → Action:\n\n\n\n- \"green\"        → \"GO\"\n\n- \"yellow\"       → \"SLOW DOWN\"\n\n- \"red\"          → \"STOP\"\n\n- \"flashing red\" → \"STOP AND PROCEED WITH CAUTION\"\n\n- anything else  → \"INVALID SIGNAL\"\n\n\n\nRules:\n\n\n\n- The function should be case-insensitive\n\n(e.g., \"GREEN\", \"Green\", \"green\" should all return \"GO\")\n\n\n\nHint: Use a switch statement!\n\n@param color the traffic light signal\n\n@return the driving action to take"
+    },
+    {
+      "id": "weatheradvice",
+      "title": "TrailBuddy - The Hiking Weather App",
+      "description": "Practice conditionals concepts in Java.",
+      "tags": [
+        "Java",
+        "conditionals"
+      ],
+      "order": 19,
+      "files": {
+        "/WeatherAdvice.java": "package com.chaicode.conditionals;\n\n/**\n * TrailBuddy - The Hiking Weather App\n *\n * <p>You're building a weather advisory feature for TrailBuddy, a popular\n * hiking app used by thousands of outdoor enthusiasts. Based on the\n * temperature (in Celsius) and whether it's raining, the app should\n * display helpful advice to hikers.\n *\n * <p>Advisory Rules (check in this exact order):\n * <ul>\n *   <li>temp &gt;= 35              → \"Too hot for hiking - stay indoors and hydrate\"</li>\n *   <li>temp &gt;= 25 and no rain  → \"Great weather for hiking - don't forget sunscreen\"</li>\n *   <li>temp &gt;= 25 and raining  → \"Warm but rainy - consider indoor activities\"</li>\n *   <li>temp &gt;= 15 and no rain  → \"Perfect hiking weather - enjoy the trails\"</li>\n *   <li>temp &gt;= 15 and raining  → \"Cool and rainy - bring waterproof gear if hiking\"</li>\n *   <li>temp &gt;= 5 and no rain   → \"Chilly - wear layers for your hike\"</li>\n *   <li>temp &gt;= 5 and raining   → \"Cold and wet - best to stay indoors\"</li>\n *   <li>temp &lt; 5                → \"Too cold - stay warm indoors\"</li>\n * </ul>\n *\n * @param temperature temperature in Celsius\n * @param isRaining whether it's currently raining\n * @return the weather advisory message\n */\npublic final class WeatherAdvice {\n\n    private WeatherAdvice() {}\n\n    public static String getWeatherAdvice(int temperature, boolean isRaining) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "conditionals",
+      "instructions": "## TrailBuddy - The Hiking Weather App\n\nTrailBuddy - The Hiking Weather App\n\nYou're building a weather advisory feature for TrailBuddy, a popular\n\nhiking app used by thousands of outdoor enthusiasts. Based on the\n\ntemperature (in Celsius) and whether it's raining, the app should\n\ndisplay helpful advice to hikers.\n\nAdvisory Rules (check in this exact order):\n\n\n\n- temp &gt;= 35              → \"Too hot for hiking - stay indoors and hydrate\"\n\n- temp &gt;= 25 and no rain  → \"Great weather for hiking - don't forget sunscreen\"\n\n- temp &gt;= 25 and raining  → \"Warm but rainy - consider indoor activities\"\n\n- temp &gt;= 15 and no rain  → \"Perfect hiking weather - enjoy the trails\"\n\n- temp &gt;= 15 and raining  → \"Cool and rainy - bring waterproof gear if hiking\"\n\n- temp &gt;= 5 and no rain   → \"Chilly - wear layers for your hike\"\n\n- temp &gt;= 5 and raining   → \"Cold and wet - best to stay indoors\"\n\n- temp &lt; 5                → \"Too cold - stay warm indoors\"\n\n\n\n@param temperature temperature in Celsius\n\n@param isRaining whether it's currently raining\n\n@return the weather advisory message"
+    },
+    {
+      "id": "factorialcalculator",
+      "title": "MathLab Factorial Machine",
+      "description": "Practice forloop concepts in Java.",
+      "tags": [
+        "Java",
+        "forloop"
+      ],
+      "order": 20,
+      "files": {
+        "/FactorialCalculator.java": "package com.chaicode.forloop;\n\n/**\n * MathLab Factorial Machine\n *\n * <p>Compute n! (n factorial) using a for loop.\n *\n * <p>Rules:\n * <ul>\n *   <li>0! = 1</li>\n *   <li>If n is negative, return -1</li>\n *   <li>If result overflows int range, return -1 (stop if product would exceed Integer.MAX_VALUE)</li>\n * </ul>\n *\n * @param n non-negative integer\n * @return factorial, or -1 for invalid input or overflow\n */\npublic final class FactorialCalculator {\n\n    private FactorialCalculator() {}\n\n    public static int factorial(int n) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "forloop",
+      "instructions": "## MathLab Factorial Machine\n\nMathLab Factorial Machine\n\nCompute n! (n factorial) using a for loop.\n\nRules:\n\n\n\n- 0! = 1\n\n- If n is negative, return -1\n\n- If result overflows int range, return -1 (stop if product would exceed Integer.MAX_VALUE)\n\n\n\n@param n non-negative integer\n\n@return factorial, or -1 for invalid input or overflow"
+    },
+    {
+      "id": "fizzbuzzcounter",
+      "title": "CodeCamp FizzBuzz Tally",
+      "description": "Practice forloop concepts in Java.",
+      "tags": [
+        "Java",
+        "forloop"
+      ],
+      "order": 21,
+      "files": {
+        "/FizzBuzzCounter.java": "package com.chaicode.forloop;\n\n/**\n * CodeCamp FizzBuzz Tally\n *\n * <p>Count how many numbers from 1 to n (inclusive) are divisible by 3, by 5, and by both.\n *\n * <p>Return a int[3] where:\n * <ul>\n *   <li>index 0 = count of \"Fizz\" only (div by 3, not 5)</li>\n *   <li>index 1 = count of \"Buzz\" only (div by 5, not 3)</li>\n *   <li>index 2 = count of \"FizzBuzz\" (div by both 3 and 5)</li>\n * </ul>\n *\n * <p>If n is less than 1, return null.\n *\n * @param n upper bound\n * @return counts array or null\n */\npublic final class FizzBuzzCounter {\n\n    private FizzBuzzCounter() {}\n\n    public static int[] countFizzBuzz(int n) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "forloop",
+      "instructions": "## CodeCamp FizzBuzz Tally\n\nCodeCamp FizzBuzz Tally\n\nCount how many numbers from 1 to n (inclusive) are divisible by 3, by 5, and by both.\n\nReturn a int[3] where:\n\n\n\n- index 0 = count of \"Fizz\" only (div by 3, not 5)\n\n- index 1 = count of \"Buzz\" only (div by 5, not 3)\n\n- index 2 = count of \"FizzBuzz\" (div by both 3 and 5)\n\n\n\nIf n is less than 1, return null.\n\n@param n upper bound\n\n@return counts array or null"
+    },
+    {
+      "id": "primechecker",
+      "title": "CryptoCheck Prime Validator",
+      "description": "Practice forloop concepts in Java.",
+      "tags": [
+        "Java",
+        "forloop"
+      ],
+      "order": 22,
+      "files": {
+        "/PrimeChecker.java": "package com.chaicode.forloop;\n\n/**\n * CryptoCheck Prime Validator\n *\n * <p>A security tool checks whether a number is prime using a for loop.\n *\n * <p>Rules:\n * <ul>\n *   <li>Numbers less than 2 are not prime</li>\n *   <li>2 is prime</li>\n *   <li>Check divisibility from 2 to sqrt(n) inclusive</li>\n * </ul>\n *\n * @param n the number to check\n * @return true if prime, false otherwise\n */\npublic final class PrimeChecker {\n\n    private PrimeChecker() {}\n\n    public static boolean isPrime(int n) {\n        // Your code here\n        return false;\n    }\n}\n"
+      },
+      "category": "forloop",
+      "instructions": "## CryptoCheck Prime Validator\n\nCryptoCheck Prime Validator\n\nA security tool checks whether a number is prime using a for loop.\n\nRules:\n\n\n\n- Numbers less than 2 are not prime\n\n- 2 is prime\n\n- Check divisibility from 2 to sqrt(n) inclusive\n\n\n\n@param n the number to check\n\n@return true if prime, false otherwise"
+    },
+    {
+      "id": "shoppingcarttotal",
+      "title": "QuickCart Checkout Total",
+      "description": "Practice forloop concepts in Java.",
+      "tags": [
+        "Java",
+        "forloop"
+      ],
+      "order": 23,
+      "files": {
+        "/ShoppingCartTotal.java": "package com.chaicode.forloop;\n\n/**\n * QuickCart Checkout Total\n *\n * <p>Sum all item prices in a shopping cart using a for loop.\n *\n * <p>Rules:\n * <ul>\n *   <li>Return sum of all prices in the array</li>\n *   <li>If prices is null or empty, return 0.0</li>\n *   <li>Ignore any negative prices (treat as 0)</li>\n * </ul>\n *\n * @param prices array of item prices\n * @return cart total\n */\npublic final class ShoppingCartTotal {\n\n    private ShoppingCartTotal() {}\n\n    public static double calculateTotal(double[] prices) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "forloop",
+      "instructions": "## QuickCart Checkout Total\n\nQuickCart Checkout Total\n\nSum all item prices in a shopping cart using a for loop.\n\nRules:\n\n\n\n- Return sum of all prices in the array\n\n- If prices is null or empty, return 0.0\n\n- Ignore any negative prices (treat as 0)\n\n\n\n@param prices array of item prices\n\n@return cart total"
+    },
+    {
+      "id": "atmwithdrawal",
+      "title": "CityBank ATM Withdrawal",
+      "description": "Practice whileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "whileloop"
+      ],
+      "order": 24,
+      "files": {
+        "/ATMWithdrawal.java": "package com.chaicode.whileloop;\n\n/**\n * CityBank ATM Withdrawal\n *\n * <p>An ATM dispenses $20 bills only. Given the account balance and requested amount,\n * return how many $20 bills can actually be dispensed.\n *\n * <p>Rules:\n * <ul>\n *   <li>Repeatedly subtract 20 while balance allows and requested amount still needs bills</li>\n *   <li>If requested amount is not a multiple of 20, return -1</li>\n *   <li>If balance or requested amount is negative, return -1</li>\n *   <li>Account must keep at least $20 after each bill is dispensed</li>\n * </ul>\n *\n * @param balance account balance in dollars\n * @param requested amount requested in dollars\n * @return number of $20 bills dispensed, or -1 for invalid request\n */\npublic final class ATMWithdrawal {\n\n    private ATMWithdrawal() {}\n\n    public static int dispenseBills(int balance, int requested) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "whileloop",
+      "instructions": "## CityBank ATM Withdrawal\n\nCityBank ATM Withdrawal\n\nAn ATM dispenses $20 bills only. Given the account balance and requested amount,\n\nreturn how many $20 bills can actually be dispensed.\n\nRules:\n\n\n\n- Repeatedly subtract 20 while balance allows and requested amount still needs bills\n\n- If requested amount is not a multiple of 20, return -1\n\n- If balance or requested amount is negative, return -1\n\n- Account must keep at least $20 after each bill is dispensed\n\n\n\n@param balance account balance in dollars\n\n@param requested amount requested in dollars\n\n@return number of $20 bills dispensed, or -1 for invalid request"
+    },
+    {
+      "id": "digitsum",
+      "title": "Digit Detective",
+      "description": "Practice whileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "whileloop"
+      ],
+      "order": 25,
+      "files": {
+        "/DigitSum.java": "package com.chaicode.whileloop;\n\n/**\n * Digit Detective\n *\n * <p>Sum all digits of a non-negative integer using a while loop.\n *\n * <p>Examples: 123 → 6, 905 → 14, 0 → 0\n *\n * <p>If n is negative, return -1.\n *\n * @param n the number\n * @return digit sum, or -1 for negative input\n */\npublic final class DigitSum {\n\n    private DigitSum() {}\n\n    public static int sumDigits(int n) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "whileloop",
+      "instructions": "## Digit Detective\n\nDigit Detective\n\nSum all digits of a non-negative integer using a while loop.\n\nExamples: 123 → 6, 905 → 14, 0 → 0\n\nIf n is negative, return -1.\n\n@param n the number\n\n@return digit sum, or -1 for negative input"
+    },
+    {
+      "id": "reversedigits",
+      "title": "Mirror Number Generator",
+      "description": "Practice whileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "whileloop"
+      ],
+      "order": 26,
+      "files": {
+        "/ReverseDigits.java": "package com.chaicode.whileloop;\n\n/**\n * Mirror Number Generator\n *\n * <p>Reverse the digits of a non-negative integer using a while loop.\n *\n * <p>Examples: 123 → 321, 1000 → 1, 0 → 0\n *\n * <p>If n is negative, return -1.\n *\n * @param n the number\n * @return reversed number, or -1 for negative input\n */\npublic final class ReverseDigits {\n\n    private ReverseDigits() {}\n\n    public static int reverse(int n) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "whileloop",
+      "instructions": "## Mirror Number Generator\n\nMirror Number Generator\n\nReverse the digits of a non-negative integer using a while loop.\n\nExamples: 123 → 321, 1000 → 1, 0 → 0\n\nIf n is negative, return -1.\n\n@param n the number\n\n@return reversed number, or -1 for negative input"
+    },
+    {
+      "id": "savingsplanner",
+      "title": "DreamSaver Goal Planner",
+      "description": "Practice whileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "whileloop"
+      ],
+      "order": 27,
+      "files": {
+        "/SavingsPlanner.java": "package com.chaicode.whileloop;\n\n/**\n * DreamSaver Goal Planner\n *\n * <p>A savings app tells users how many months until they reach a goal if they deposit\n * the same amount every month (starting from current savings).\n *\n * <p>Rules:\n * <ul>\n *   <li>Each month add monthlyDeposit to savings until savings >= goal</li>\n *   <li>If monthlyDeposit is 0 or negative, or goal is negative, or currentSavings is negative, return -1</li>\n *   <li>If already at or above goal, return 0</li>\n * </ul>\n *\n * @param currentSavings starting savings\n * @param monthlyDeposit amount saved each month\n * @param goal target amount\n * @return months needed, or -1 for invalid input\n */\npublic final class SavingsPlanner {\n\n    private SavingsPlanner() {}\n\n    public static int monthsToGoal(int currentSavings, int monthlyDeposit, int goal) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "whileloop",
+      "instructions": "## DreamSaver Goal Planner\n\nDreamSaver Goal Planner\n\nA savings app tells users how many months until they reach a goal if they deposit\n\nthe same amount every month (starting from current savings).\n\nRules:\n\n\n\n- Each month add monthlyDeposit to savings until savings >= goal\n\n- If monthlyDeposit is 0 or negative, or goal is negative, or currentSavings is negative, return -1\n\n- If already at or above goal, return 0\n\n\n\n@param currentSavings starting savings\n\n@param monthlyDeposit amount saved each month\n\n@param goal target amount\n\n@return months needed, or -1 for invalid input"
+    },
+    {
+      "id": "pinvalidator",
+      "title": "SecureDoor PIN Entry",
+      "description": "Practice dowhileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "dowhileloop"
+      ],
+      "order": 28,
+      "files": {
+        "/PinValidator.java": "package com.chaicode.dowhileloop;\n\n/**\n * SecureDoor PIN Entry\n *\n * <p>A smart lock allows up to 3 PIN attempts. Given an array of attempted PINs and the correct PIN,\n * return whether access was granted.\n *\n * <p>Rules:\n * <ul>\n *   <li>Check attempts in order using a do-while loop (at least one attempt if array non-empty)</li>\n *   <li>Stop on first correct PIN and return true</li>\n *   <li>After 3 attempts (or array exhausted), return false</li>\n *   <li>If attempts array is null or empty, return false</li>\n * </ul>\n *\n * @param attempts PIN attempts in order\n * @param correctPin the correct PIN\n * @return true if unlocked, false otherwise\n */\npublic final class PinValidator {\n\n    private PinValidator() {}\n\n    public static boolean validatePin(int[] attempts, int correctPin) {\n        // Your code here\n        return false;\n    }\n}\n"
+      },
+      "category": "dowhileloop",
+      "instructions": "## SecureDoor PIN Entry\n\nSecureDoor PIN Entry\n\nA smart lock allows up to 3 PIN attempts. Given an array of attempted PINs and the correct PIN,\n\nreturn whether access was granted.\n\nRules:\n\n\n\n- Check attempts in order using a do-while loop (at least one attempt if array non-empty)\n\n- Stop on first correct PIN and return true\n\n- After 3 attempts (or array exhausted), return false\n\n- If attempts array is null or empty, return false\n\n\n\n@param attempts PIN attempts in order\n\n@param correctPin the correct PIN\n\n@return true if unlocked, false otherwise"
+    },
+    {
+      "id": "pizzaorders",
+      "title": "SliceHouse Pizza Orders",
+      "description": "Practice dowhileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "dowhileloop"
+      ],
+      "order": 29,
+      "files": {
+        "/PizzaOrders.java": "package com.chaicode.dowhileloop;\n\n/**\n * SliceHouse Pizza Orders\n *\n * <p>Count how many pizzas were ordered from a list of order codes until \"DONE\" appears.\n * Uses a do-while loop to process at least one entry when the array is non-empty.\n *\n * <p>Rules:\n * <ul>\n *   <li>Count non-null, non-empty, non-\"DONE\" entries until \"DONE\" is seen</li>\n *   <li>\"DONE\" itself is not counted</li>\n *   <li>If orders is null or empty, return 0</li>\n * </ul>\n *\n * @param orders array of order codes, ending with \"DONE\"\n * @return number of pizzas ordered\n */\npublic final class PizzaOrders {\n\n    private PizzaOrders() {}\n\n    public static int countOrders(String[] orders) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "dowhileloop",
+      "instructions": "## SliceHouse Pizza Orders\n\nSliceHouse Pizza Orders\n\nCount how many pizzas were ordered from a list of order codes until \"DONE\" appears.\n\nUses a do-while loop to process at least one entry when the array is non-empty.\n\nRules:\n\n\n\n- Count non-null, non-empty, non-\"DONE\" entries until \"DONE\" is seen\n\n- \"DONE\" itself is not counted\n\n- If orders is null or empty, return 0\n\n\n\n@param orders array of order codes, ending with \"DONE\"\n\n@return number of pizzas ordered"
+    },
+    {
+      "id": "surveyaverage",
+      "title": "CafeFeedback Survey",
+      "description": "Practice dowhileloop concepts in Java.",
+      "tags": [
+        "Java",
+        "dowhileloop"
+      ],
+      "order": 30,
+      "files": {
+        "/SurveyAverage.java": "package com.chaicode.dowhileloop;\n\n/**\n * CafeFeedback Survey\n *\n * <p>A coffee shop tablet collects 1–5 star ratings until the customer enters -1 to finish.\n * Process ratings from an array (simulating repeated input) and return the average.\n *\n * <p>Rules:\n * <ul>\n *   <li>Read ratings from start of array until -1 is encountered (or array ends)</li>\n *   <li>Ignore ratings outside 1–5</li>\n *   <li>If no valid ratings before -1, return -1.0</li>\n *   <li>Average rounded to 1 decimal: Math.round(avg * 10.0) / 10.0</li>\n *   <li>Use a do-while loop: process at least one element if array is non-empty</li>\n * </ul>\n *\n * @param ratings input stream of ratings, terminated by -1\n * @return average rating, or -1.0 if no valid ratings\n */\npublic final class SurveyAverage {\n\n    private SurveyAverage() {}\n\n    public static double averageUntilSentinel(int[] ratings) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "dowhileloop",
+      "instructions": "## CafeFeedback Survey\n\nCafeFeedback Survey\n\nA coffee shop tablet collects 1–5 star ratings until the customer enters -1 to finish.\n\nProcess ratings from an array (simulating repeated input) and return the average.\n\nRules:\n\n\n\n- Read ratings from start of array until -1 is encountered (or array ends)\n\n- Ignore ratings outside 1–5\n\n- If no valid ratings before -1, return -1.0\n\n- Average rounded to 1 decimal: Math.round(avg * 10.0) / 10.0\n\n- Use a do-while loop: process at least one element if array is non-empty\n\n\n\n@param ratings input stream of ratings, terminated by -1\n\n@return average rating, or -1.0 if no valid ratings"
+    },
+    {
+      "id": "cafeorder",
+      "title": "BeanStreet Cafe Order Terminal",
+      "description": "Practice scanner concepts in Java.",
+      "tags": [
+        "Java",
+        "scanner"
+      ],
+      "order": 31,
+      "files": {
+        "/CafeOrder.java": "package com.chaicode.scanner;\n\nimport java.util.Scanner;\n\n/**\n * BeanStreet Cafe Order Terminal\n *\n * <p>Read line items from a Scanner until a line \"DONE\" is entered. Each line before DONE\n * is a price (double). Return the order total.\n *\n * <p>Example input:\n * <pre>\n * 4.50\n * 3.25\n * 2.00\n * DONE\n * </pre>\n * Total = 9.75\n *\n * <p>Rules:\n * <ul>\n *   <li>Skip blank lines</li>\n *   <li>Ignore negative prices</li>\n *   <li>If scanner is null, return 0.0</li>\n * </ul>\n *\n * @param scanner input source\n * @return order total\n */\npublic final class CafeOrder {\n\n    private CafeOrder() {}\n\n    public static double readOrderTotal(Scanner scanner) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "scanner",
+      "instructions": "## BeanStreet Cafe Order Terminal\n\nBeanStreet Cafe Order Terminal\n\nRead line items from a Scanner until a line \"DONE\" is entered. Each line before DONE\n\nis a price (double). Return the order total.\n\nExample input:\n\n```\n\n4.50\n\n3.25\n\n2.00\n\nDONE\n\n```\n\nTotal = 9.75\n\nRules:\n\n\n\n- Skip blank lines\n\n- Ignore negative prices\n\n- If scanner is null, return 0.0\n\n\n\n@param scanner input source\n\n@return order total"
+    },
+    {
+      "id": "simplecalculator",
+      "title": "PocketCalc REPL",
+      "description": "Practice scanner concepts in Java.",
+      "tags": [
+        "Java",
+        "scanner"
+      ],
+      "order": 32,
+      "files": {
+        "/SimpleCalculator.java": "package com.chaicode.scanner;\n\nimport java.util.Scanner;\n\n/**\n * PocketCalc REPL\n *\n * <p>Read two numbers and an operator from a Scanner and return the result.\n * Input order: first number (double), operator (+, -, *, /), second number (double).\n *\n * <p>Rules:\n * <ul>\n *   <li>Division by zero returns Double.NaN</li>\n *   <li>Unknown operator returns Double.NaN</li>\n *   <li>If scanner is null, return Double.NaN</li>\n * </ul>\n *\n * @param scanner input source\n * @return calculation result\n */\npublic final class SimpleCalculator {\n\n    private SimpleCalculator() {}\n\n    public static double calculate(Scanner scanner) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "scanner",
+      "instructions": "## PocketCalc REPL\n\nPocketCalc REPL\n\nRead two numbers and an operator from a Scanner and return the result.\n\nInput order: first number (double), operator (+, -, *, /), second number (double).\n\nRules:\n\n\n\n- Division by zero returns Double.NaN\n\n- Unknown operator returns Double.NaN\n\n- If scanner is null, return Double.NaN\n\n\n\n@param scanner input source\n\n@return calculation result"
+    },
+    {
+      "id": "studentregistration",
+      "title": "CampusConnect Registration Desk",
+      "description": "Practice scanner concepts in Java.",
+      "tags": [
+        "Java",
+        "scanner"
+      ],
+      "order": 33,
+      "files": {
+        "/StudentRegistration.java": "package com.chaicode.scanner;\n\nimport com.chaicode.scanner.model.StudentInfo;\n\nimport java.util.Scanner;\n\n/**\n * CampusConnect Registration Desk\n *\n * <p>Read student registration from a Scanner in this order:\n * <ol>\n *   <li>Full name (line)</li>\n *   <li>Age (int)</li>\n *   <li>Course code (line)</li>\n * </ol>\n *\n * <p>Rules:\n * <ul>\n *   <li>Trim whitespace from name and course</li>\n *   <li>If age is not between 16 and 100 inclusive, return null</li>\n *   <li>If name or course is empty after trim, return null</li>\n *   <li>If scanner is null, return null</li>\n * </ul>\n *\n * @param scanner input source\n * @return StudentInfo or null for invalid input\n */\npublic final class StudentRegistration {\n\n    private StudentRegistration() {}\n\n    public static StudentInfo readRegistration(Scanner scanner) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "scanner",
+      "instructions": "## CampusConnect Registration Desk\n\nCampusConnect Registration Desk\n\nRead student registration from a Scanner in this order:\n\n<ol>\n\n- Full name (line)\n\n- Age (int)\n\n- Course code (line)\n\n</ol>\n\nRules:\n\n\n\n- Trim whitespace from name and course\n\n- If age is not between 16 and 100 inclusive, return null\n\n- If name or course is empty after trim, return null\n\n- If scanner is null, return null\n\n\n\n@param scanner input source\n\n@return StudentInfo or null for invalid input"
+    },
+    {
+      "id": "geometryareas",
+      "title": "BuildRight Geometry Toolkit",
+      "description": "Practice methods concepts in Java.",
+      "tags": [
+        "Java",
+        "methods"
+      ],
+      "order": 34,
+      "files": {
+        "/GeometryAreas.java": "package com.chaicode.methods;\n\n/**\n * BuildRight Geometry Toolkit\n *\n * <p>Area calculators for common shapes used in a construction estimator app.\n *\n * <p>Rules:\n * <ul>\n *   <li>circleArea(radius) = π × r², return -1 if radius &lt; 0</li>\n *   <li>rectangleArea(width, height) = w × h, return -1 if either dimension &lt; 0</li>\n *   <li>triangleArea(base, height) = 0.5 × base × height, return -1 if either &lt; 0</li>\n *   <li>Use Math.PI for π</li>\n *   <li>Round each result to 2 decimals: Math.round(value * 100) / 100.0</li>\n * </ul>\n */\npublic final class GeometryAreas {\n\n    private GeometryAreas() {}\n\n    public static double circleArea(double radius) {\n        // Your code here\n        return 0.0;\n    }\n\n    public static double rectangleArea(double width, double height) {\n        // Your code here\n        return 0.0;\n    }\n\n    public static double triangleArea(double base, double height) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "methods",
+      "instructions": "## BuildRight Geometry Toolkit\n\nBuildRight Geometry Toolkit\n\nArea calculators for common shapes used in a construction estimator app.\n\nRules:\n\n\n\n- circleArea(radius) = π × r², return -1 if radius &lt; 0\n\n- rectangleArea(width, height) = w × h, return -1 if either dimension &lt; 0\n\n- triangleArea(base, height) = 0.5 × base × height, return -1 if either &lt; 0\n\n- Use Math.PI for π\n\n- Round each result to 2 decimals: Math.round(value * 100) / 100.0\n\n"
+    },
+    {
+      "id": "greetinggenerator",
+      "title": "WelcomeBot Greeting Generator",
+      "description": "Practice methods concepts in Java.",
+      "tags": [
+        "Java",
+        "methods"
+      ],
+      "order": 35,
+      "files": {
+        "/GreetingGenerator.java": "package com.chaicode.methods;\n\n/**\n * WelcomeBot Greeting Generator\n *\n * <p>A chatbot greets users based on the hour of day (24-hour format).\n *\n * <p>Rules:\n * <ul>\n *   <li>5–11 → \"Good morning, {name}!\"</li>\n *   <li>12–16 → \"Good afternoon, {name}!\"</li>\n *   <li>17–21 → \"Good evening, {name}!\"</li>\n *   <li>Otherwise → \"Good night, {name}!\"</li>\n *   <li>If name is null or blank after trim, return \"Hello, guest!\"</li>\n *   <li>If hour is not 0–23, return \"Invalid hour\"</li>\n * </ul>\n *\n * @param name user's name\n * @param hour hour of day (0–23)\n * @return greeting message\n */\npublic final class GreetingGenerator {\n\n    private GreetingGenerator() {}\n\n    public static String greet(String name, int hour) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "methods",
+      "instructions": "## WelcomeBot Greeting Generator\n\nWelcomeBot Greeting Generator\n\nA chatbot greets users based on the hour of day (24-hour format).\n\nRules:\n\n\n\n- 5–11 → \"Good morning, {name}!\"\n\n- 12–16 → \"Good afternoon, {name}!\"\n\n- 17–21 → \"Good evening, {name}!\"\n\n- Otherwise → \"Good night, {name}!\"\n\n- If name is null or blank after trim, return \"Hello, guest!\"\n\n- If hour is not 0–23, return \"Invalid hour\"\n\n\n\n@param name user's name\n\n@param hour hour of day (0–23)\n\n@return greeting message"
+    },
+    {
+      "id": "loanemi",
+      "title": "HomeLoan EMI Calculator",
+      "description": "Practice methods concepts in Java.",
+      "tags": [
+        "Java",
+        "methods"
+      ],
+      "order": 36,
+      "files": {
+        "/LoanEMI.java": "package com.chaicode.methods;\n\n/**\n * HomeLoan EMI Calculator\n *\n * <p>Calculate monthly EMI (Equated Monthly Installment) for a home loan.\n *\n * <p>Formula: EMI = P × r × (1+r)^n / ((1+r)^n - 1)\n * where P = principal, r = monthly interest rate (annualRate/12/100), n = tenureMonths\n *\n * <p>Rules:\n * <ul>\n *   <li>Round EMI to 2 decimal places</li>\n *   <li>If principal, annualRate, or tenureMonths is zero or negative, return -1.0</li>\n *   <li>If annualRate is 0, EMI = principal / tenureMonths</li>\n * </ul>\n *\n * @param principal loan amount\n * @param annualRate annual interest rate percent (e.g. 8.5 for 8.5%)\n * @param tenureMonths loan tenure in months\n * @return monthly EMI, or -1.0 for invalid input\n */\npublic final class LoanEMI {\n\n    private LoanEMI() {}\n\n    public static double calculateEmi(double principal, double annualRate, int tenureMonths) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "methods",
+      "instructions": "## HomeLoan EMI Calculator\n\nHomeLoan EMI Calculator\n\nCalculate monthly EMI (Equated Monthly Installment) for a home loan.\n\nFormula: EMI = P × r × (1+r)^n / ((1+r)^n - 1)\n\nwhere P = principal, r = monthly interest rate (annualRate/12/100), n = tenureMonths\n\nRules:\n\n\n\n- Round EMI to 2 decimal places\n\n- If principal, annualRate, or tenureMonths is zero or negative, return -1.0\n\n- If annualRate is 0, EMI = principal / tenureMonths\n\n\n\n@param principal loan amount\n\n@param annualRate annual interest rate percent (e.g. 8.5 for 8.5%)\n\n@param tenureMonths loan tenure in months\n\n@return monthly EMI, or -1.0 for invalid input"
+    },
+    {
+      "id": "temperatureconverter",
+      "title": "WeatherWise Temperature Converter",
+      "description": "Practice methods concepts in Java.",
+      "tags": [
+        "Java",
+        "methods"
+      ],
+      "order": 37,
+      "files": {
+        "/TemperatureConverter.java": "package com.chaicode.methods;\n\n/**\n * WeatherWise Temperature Converter\n *\n * <p>Convert between Celsius and Fahrenheit for a travel weather app.\n *\n * <p>Formulas:\n * <ul>\n *   <li>F = C × 9/5 + 32</li>\n *   <li>C = (F - 32) × 5/9</li>\n * </ul>\n *\n * <p>Round results to 1 decimal: Math.round(value * 10.0) / 10.0\n */\npublic final class TemperatureConverter {\n\n    private TemperatureConverter() {}\n\n    public static double celsiusToFahrenheit(double celsius) {\n        // Your code here\n        return 0.0;\n    }\n\n    public static double fahrenheitToCelsius(double fahrenheit) {\n        // Your code here\n        return 0.0;\n    }\n}\n"
+      },
+      "category": "methods",
+      "instructions": "## WeatherWise Temperature Converter\n\nWeatherWise Temperature Converter\n\nConvert between Celsius and Fahrenheit for a travel weather app.\n\nFormulas:\n\n\n\n- F = C × 9/5 + 32\n\n- C = (F - 32) × 5/9\n\n\n\nRound results to 1 decimal: Math.round(value * 10.0) / 10.0"
+    },
+    {
+      "id": "cinemaseats",
+      "title": "StarCinema Seat Map",
+      "description": "Practice arrays concepts in Java.",
+      "tags": [
+        "Java",
+        "arrays"
+      ],
+      "order": 38,
+      "files": {
+        "/CinemaSeats.java": "package com.chaicode.arrays;\n\n/**\n * StarCinema Seat Map\n *\n * <p>A 2D seating grid where 0 = available and 1 = booked. Count available seats.\n *\n * <p>Rules:\n * <ul>\n *   <li>Return count of cells equal to 0</li>\n *   <li>If seats is null, empty, or any row is null, return -1</li>\n * </ul>\n *\n * @param seats 2D seating grid\n * @return available seat count, or -1 for invalid grid\n */\npublic final class CinemaSeats {\n\n    private CinemaSeats() {}\n\n    public static int countAvailable(int[][] seats) {\n        // Your code here\n        return 0;\n    }\n}\n"
+      },
+      "category": "arrays",
+      "instructions": "## StarCinema Seat Map\n\nStarCinema Seat Map\n\nA 2D seating grid where 0 = available and 1 = booked. Count available seats.\n\nRules:\n\n\n\n- Return count of cells equal to 0\n\n- If seats is null, empty, or any row is null, return -1\n\n\n\n@param seats 2D seating grid\n\n@return available seat count, or -1 for invalid grid"
+    },
+    {
+      "id": "classroomstats",
+      "title": "EduScore Classroom Analytics",
+      "description": "Practice arrays concepts in Java.",
+      "tags": [
+        "Java",
+        "arrays"
+      ],
+      "order": 39,
+      "files": {
+        "/ClassroomStats.java": "package com.chaicode.arrays;\n\nimport com.chaicode.arrays.model.ClassroomStatsResult;\n\n/**\n * EduScore Classroom Analytics\n *\n * <p>Given an array of exam scores (0–100), compute class statistics.\n *\n * <p>Rules:\n * <ul>\n *   <li>average: mean of all scores, rounded to 1 decimal</li>\n *   <li>highest: maximum score</li>\n *   <li>passingCount: scores &gt;= 40</li>\n *   <li>If scores is null or empty, return null</li>\n * </ul>\n *\n * @param scores array of exam scores\n * @return stats result or null\n */\npublic final class ClassroomStats {\n\n    private ClassroomStats() {}\n\n    public static ClassroomStatsResult analyze(int[] scores) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "arrays",
+      "instructions": "## EduScore Classroom Analytics\n\nEduScore Classroom Analytics\n\nGiven an array of exam scores (0–100), compute class statistics.\n\nRules:\n\n\n\n- average: mean of all scores, rounded to 1 decimal\n\n- highest: maximum score\n\n- passingCount: scores &gt;= 40\n\n- If scores is null or empty, return null\n\n\n\n@param scores array of exam scores\n\n@return stats result or null"
+    },
+    {
+      "id": "gradebookaverage",
+      "title": "SchoolPortal Gradebook",
+      "description": "Practice arrays concepts in Java.",
+      "tags": [
+        "Java",
+        "arrays"
+      ],
+      "order": 40,
+      "files": {
+        "/GradebookAverage.java": "package com.chaicode.arrays;\n\n/**\n * SchoolPortal Gradebook\n *\n * <p>Given a 2D array where each row is a student's scores across subjects,\n * return an array of each student's average (rounded to 1 decimal as double).\n *\n * <p>Rules:\n * <ul>\n *   <li>If grades is null, empty, or any row is null or empty, return null</li>\n *   <li>All rows must have the same length</li>\n * </ul>\n *\n * @param grades 2D score array [student][subject]\n * @return array of student averages\n */\npublic final class GradebookAverage {\n\n    private GradebookAverage() {}\n\n    public static double[] studentAverages(int[][] grades) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "arrays",
+      "instructions": "## SchoolPortal Gradebook\n\nSchoolPortal Gradebook\n\nGiven a 2D array where each row is a student's scores across subjects,\n\nreturn an array of each student's average (rounded to 1 decimal as double).\n\nRules:\n\n\n\n- If grades is null, empty, or any row is null or empty, return null\n\n- All rows must have the same length\n\n\n\n@param grades 2D score array [student][subject]\n\n@return array of student averages"
+    },
+    {
+      "id": "inventorysearch",
+      "title": "WareHouse SKU Finder",
+      "description": "Practice arrays concepts in Java.",
+      "tags": [
+        "Java",
+        "arrays"
+      ],
+      "order": 41,
+      "files": {
+        "/InventorySearch.java": "package com.chaicode.arrays;\n\n/**\n * WareHouse SKU Finder\n *\n * <p>Linear search for a product SKU in the warehouse inventory array.\n *\n * <p>Rules:\n * <ul>\n *   <li>Return index of first match (case-sensitive)</li>\n *   <li>Return -1 if not found</li>\n *   <li>If inventory or sku is null, return -1</li>\n * </ul>\n *\n * @param inventory array of SKU strings\n * @param sku SKU to find\n * @return index or -1\n */\npublic final class InventorySearch {\n\n    private InventorySearch() {}\n\n    public static int findSkuIndex(String[] inventory, String sku) {\n        // Your code here\n        return -1;\n    }\n}\n"
+      },
+      "category": "arrays",
+      "instructions": "## WareHouse SKU Finder\n\nWareHouse SKU Finder\n\nLinear search for a product SKU in the warehouse inventory array.\n\nRules:\n\n\n\n- Return index of first match (case-sensitive)\n\n- Return -1 if not found\n\n- If inventory or sku is null, return -1\n\n\n\n@param inventory array of SKU strings\n\n@param sku SKU to find\n\n@return index or -1"
+    },
+    {
+      "id": "matrixaddition",
+      "title": "MatrixLab Addition",
+      "description": "Practice arrays concepts in Java.",
+      "tags": [
+        "Java",
+        "arrays"
+      ],
+      "order": 42,
+      "files": {
+        "/MatrixAddition.java": "package com.chaicode.arrays;\n\n/**\n * MatrixLab Addition\n *\n * <p>Add two 2D matrices of the same dimensions element-wise.\n *\n * <p>Rules:\n * <ul>\n *   <li>Return new matrix with sums</li>\n *   <li>If either matrix is null, or dimensions differ, or any row is null, return null</li>\n * </ul>\n *\n * @param a first matrix\n * @param b second matrix\n * @return sum matrix or null\n */\npublic final class MatrixAddition {\n\n    private MatrixAddition() {}\n\n    public static int[][] add(int[][] a, int[][] b) {\n        // Your code here\n        return null;\n    }\n}\n"
+      },
+      "category": "arrays",
+      "instructions": "## MatrixLab Addition\n\nMatrixLab Addition\n\nAdd two 2D matrices of the same dimensions element-wise.\n\nRules:\n\n\n\n- Return new matrix with sums\n\n- If either matrix is null, or dimensions differ, or any row is null, return null\n\n\n\n@param a first matrix\n\n@param b second matrix\n\n@return sum matrix or null"
+    },
+    {
+      "id": "creditcardmask",
+      "title": "PayShield Card Masker",
+      "description": "Practice strings concepts in Java.",
+      "tags": [
+        "Java",
+        "strings"
+      ],
+      "order": 43,
+      "files": {
+        "/CreditCardMask.java": "package com.chaicode.strings;\n\n/**\n * PayShield Card Masker\n *\n * <p>Mask a credit card number for display, showing only the last 4 digits.\n * Use StringBuilder to build the result.\n *\n * <p>Rules:\n * <ul>\n *   <li>Remove all spaces and hyphens from input first</li>\n *   <li>If cleaned length is less than 4, return \"****\"</li>\n *   <li>Otherwise return (length-4) asterisks followed by last 4 digits</li>\n *   <li>If cardNumber is null, return \"****\"</li>\n * </ul>\n *\n * <p>Example: \"4532-1488-0343-6467\" → \"************6467\"\n *\n * @param cardNumber card number string\n * @return masked card number\n */\npublic final class CreditCardMask {\n\n    private CreditCardMask() {}\n\n    public static String mask(String cardNumber) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "strings",
+      "instructions": "## PayShield Card Masker\n\nPayShield Card Masker\n\nMask a credit card number for display, showing only the last 4 digits.\n\nUse StringBuilder to build the result.\n\nRules:\n\n\n\n- Remove all spaces and hyphens from input first\n\n- If cleaned length is less than 4, return \"****\"\n\n- Otherwise return (length-4) asterisks followed by last 4 digits\n\n- If cardNumber is null, return \"****\"\n\n\n\nExample: \"4532-1488-0343-6467\" → \"************6467\"\n\n@param cardNumber card number string\n\n@return masked card number"
+    },
+    {
+      "id": "emailvalidator",
+      "title": "MailGuard Email Validator",
+      "description": "Practice strings concepts in Java.",
+      "tags": [
+        "Java",
+        "strings"
+      ],
+      "order": 44,
+      "files": {
+        "/EmailValidator.java": "package com.chaicode.strings;\n\n/**\n * MailGuard Email Validator\n *\n * <p>Basic email validation for a signup form.\n *\n * <p>Rules — email is valid only if ALL are true:\n * <ul>\n *   <li>Not null, not empty after trim</li>\n *   <li>Contains exactly one '@'</li>\n *   <li>Local part (before @) is non-empty</li>\n *   <li>Domain part (after @) contains at least one '.'</li>\n *   <li>Domain part after the last '.' has at least 2 characters</li>\n * </ul>\n *\n * @param email email address\n * @return true if valid\n */\npublic final class EmailValidator {\n\n    private EmailValidator() {}\n\n    public static boolean isValid(String email) {\n        // Your code here\n        return false;\n    }\n}\n"
+      },
+      "category": "strings",
+      "instructions": "## MailGuard Email Validator\n\nMailGuard Email Validator\n\nBasic email validation for a signup form.\n\nRules — email is valid only if ALL are true:\n\n\n\n- Not null, not empty after trim\n\n- Contains exactly one '@'\n\n- Local part (before @) is non-empty\n\n- Domain part (after @) contains at least one '.'\n\n- Domain part after the last '.' has at least 2 characters\n\n\n\n@param email email address\n\n@return true if valid"
+    },
+    {
+      "id": "palindromechecker",
+      "title": "WordPlay Palindrome Checker",
+      "description": "Practice strings concepts in Java.",
+      "tags": [
+        "Java",
+        "strings"
+      ],
+      "order": 45,
+      "files": {
+        "/PalindromeChecker.java": "package com.chaicode.strings;\n\n/**\n * WordPlay Palindrome Checker\n *\n * <p>Check if a phrase is a palindrome, ignoring case, spaces, and punctuation.\n *\n * <p>Examples: \"Race car\" → true, \"A man, a plan, a canal: Panama\" → true, \"hello\" → false\n *\n * <p>Rules:\n * <ul>\n *   <li>Keep only letters and digits, compare forward vs backward (case-insensitive)</li>\n *   <li>If text is null, return false</li>\n *   <li>Empty after cleaning is considered a palindrome</li>\n * </ul>\n *\n * @param text input phrase\n * @return true if palindrome\n */\npublic final class PalindromeChecker {\n\n    private PalindromeChecker() {}\n\n    public static boolean isPalindrome(String text) {\n        // Your code here\n        return false;\n    }\n}\n"
+      },
+      "category": "strings",
+      "instructions": "## WordPlay Palindrome Checker\n\nWordPlay Palindrome Checker\n\nCheck if a phrase is a palindrome, ignoring case, spaces, and punctuation.\n\nExamples: \"Race car\" → true, \"A man, a plan, a canal: Panama\" → true, \"hello\" → false\n\nRules:\n\n\n\n- Keep only letters and digits, compare forward vs backward (case-insensitive)\n\n- If text is null, return false\n\n- Empty after cleaning is considered a palindrome\n\n\n\n@param text input phrase\n\n@return true if palindrome"
+    },
+    {
+      "id": "slugbuilder",
+      "title": "BlogHost URL Slug Builder",
+      "description": "Practice strings concepts in Java.",
+      "tags": [
+        "Java",
+        "strings"
+      ],
+      "order": 46,
+      "files": {
+        "/SlugBuilder.java": "package com.chaicode.strings;\n\n/**\n * BlogHost URL Slug Builder\n *\n * <p>Convert a blog post title into a URL slug using StringBuilder.\n *\n * <p>Rules:\n * <ul>\n *   <li>Trim and lowercase the title</li>\n *   <li>Replace spaces with hyphens</li>\n *   <li>Remove characters that are not a-z, 0-9, or hyphen</li>\n *   <li>Collapse multiple consecutive hyphens into one</li>\n *   <li>Remove leading/trailing hyphens</li>\n *   <li>If title is null or empty after processing, return \"\"</li>\n * </ul>\n *\n * <p>Example: \"Hello World! Java 101\" → \"hello-world-java-101\"\n *\n * @param title blog post title\n * @return URL slug\n */\npublic final class SlugBuilder {\n\n    private SlugBuilder() {}\n\n    public static String toSlug(String title) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "strings",
+      "instructions": "## BlogHost URL Slug Builder\n\nBlogHost URL Slug Builder\n\nConvert a blog post title into a URL slug using StringBuilder.\n\nRules:\n\n\n\n- Trim and lowercase the title\n\n- Replace spaces with hyphens\n\n- Remove characters that are not a-z, 0-9, or hyphen\n\n- Collapse multiple consecutive hyphens into one\n\n- Remove leading/trailing hyphens\n\n- If title is null or empty after processing, return \"\"\n\n\n\nExample: \"Hello World! Java 101\" → \"hello-world-java-101\"\n\n@param title blog post title\n\n@return URL slug"
+    },
+    {
+      "id": "titlecase",
+      "title": "NewsDesk Title Formatter",
+      "description": "Practice strings concepts in Java.",
+      "tags": [
+        "Java",
+        "strings"
+      ],
+      "order": 47,
+      "files": {
+        "/TitleCase.java": "package com.chaicode.strings;\n\n/**\n * NewsDesk Title Formatter\n *\n * <p>Convert a headline to title case: first letter of each word uppercase, rest lowercase.\n *\n * <p>Rules:\n * <ul>\n *   <li>Words separated by one or more spaces</li>\n *   <li>If input is null, return \"\"</li>\n *   <li>Trim leading/trailing spaces; collapse multiple spaces to single space in output</li>\n * </ul>\n *\n * <p>Example: \"the quick BROWN fox\" → \"The Quick Brown Fox\"\n *\n * @param headline input headline\n * @return title-cased headline\n */\npublic final class TitleCase {\n\n    private TitleCase() {}\n\n    public static String format(String headline) {\n        // Your code here\n        return \"\";\n    }\n}\n"
+      },
+      "category": "strings",
+      "instructions": "## NewsDesk Title Formatter\n\nNewsDesk Title Formatter\n\nConvert a headline to title case: first letter of each word uppercase, rest lowercase.\n\nRules:\n\n\n\n- Words separated by one or more spaces\n\n- If input is null, return \"\"\n\n- Trim leading/trailing spaces; collapse multiple spaces to single space in output\n\n\n\nExample: \"the quick BROWN fox\" → \"The Quick Brown Fox\"\n\n@param headline input headline\n\n@return title-cased headline"
+    }
+  ]
+}

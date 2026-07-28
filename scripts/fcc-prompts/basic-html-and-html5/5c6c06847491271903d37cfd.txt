@@ -1,0 +1,141 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: 5c6c06847491271903d37cfd.md
+Original Title: Use the value attribute with Radio Buttons and Checkboxes
+Challenge ID: 5c6c06847491271903d37cfd
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: 5c6c06847491271903d37cfd
+ORIGINAL TITLE: Use the value attribute with Radio Buttons and Checkboxes
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+When a form gets submitted, the data is sent to the server and includes entries for the options selected. Inputs of type `radio` and `checkbox` report their values from the `value` attribute.
+
+For example:
+
+```html
+<label for="indoor">
+  <input id="indoor" value="indoor" type="radio" name="indoor-outdoor">Indoor
+</label>
+<label for="outdoor">
+  <input id="outdoor" value="outdoor" type="radio" name="indoor-outdoor">Outdoor
+</label>
+```
+
+Here, you have two `radio` inputs. When the user submits the form with the `indoor` option selected, the form data will include the line: `indoor-outdoor=indoor`. This is from the `name` and `value` attributes of the "indoor" input.
+
+If you omit the `value` attribute, the submitted form data uses the default value, which is `on`. In this scenario, if the user clicked the "indoor" option and submitted the form, the resulting form data would be `indoor-outdoor=on`, which is not useful. So the `value` attribute needs to be set to something to identify the option.
+
+INSTRUCTIONS:
+Give each of the existing `radio` and `checkbox` inputs the `value` attribute. Do not create any new radio or checkbox elements. Use the input label text, in lowercase, as the value for the attribute.
+
+TEST HINTS:
+One of your radio buttons should have the `value` attribute of `indoor`.
+const indoorRadioButton = [...document.querySelectorAll('label > input[type="radio"]')].filter(x => x.value === "indoor");
+One of your radio buttons should have the `value` attribute of `outdoor`.
+const outdoorRadioButton = [...document.querySelectorAll('label > input[type="radio"]')].filter(x => x.value === "outdoor");
+One of your checkboxes should have the `value` attribute of `loving`.
+const lovingCheckbox = [...document.querySelectorAll('label > input[type="checkbox"]')].filter(x => x.value === "loving");
+One of your checkboxes should have the `value` attribute of `lazy`.
+const lazyCheckbox = [...document.querySelectorAll('label > input[type="checkbox"]')].filter(x => x.value === "lazy");
+One of your checkboxes should have the `value` attribute of `energetic`.
+const energeticCheckbox =  [...document.querySelectorAll('label > input[type="checkbox"]')].filter(x => x.value === "energetic");
+
+STARTER CODE:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>flea treatment</li>
+    <li>thunder</li>
+    <li>other cats</li>
+  </ol>
+  <form action="https://www.freecatphotoapp.com/submit-cat-photo">
+    <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor"> Indoor</label>
+    <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor"> Outdoor</label><br>
+    <label for="loving"><input id="loving" type="checkbox" name="personality"> Loving</label>
+    <label for="lazy"><input id="lazy" type="checkbox" name="personality"> Lazy</label>
+    <label for="energetic"><input id="energetic" type="checkbox" name="personality"> Energetic</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+SOLUTION:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>catnip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>flea treatment</li>
+    <li>thunder</li>
+    <li>other cats</li>
+  </ol>
+  <form action="https://www.freecatphotoapp.com/submit-cat-photo">
+    <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor" value="indoor"> Indoor</label>
+    <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor" value="outdoor"> Outdoor</label><br>
+    <label for="loving"><input id="loving" type="checkbox" name="personality" value="loving"> Loving</label>
+    <label for="lazy"><input id="lazy" type="checkbox" name="personality" value="lazy"> Lazy</label>
+    <label for="energetic"><input id="energetic" type="checkbox" name="personality" value="energetic"> Energetic</label><br>
+    <input type="text" placeholder="cat photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===

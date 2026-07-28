@@ -1,0 +1,29 @@
+{
+  "mission_id": "bad87fee1348bd9aedd08835",
+  "mission_title": "Automated Input Protocols",
+  "xp_reward": 125,
+  "difficulty": "recruit",
+  "briefing": "Listen up, recruit! In the field, you can't always wait for user input. Sometimes, you need system parameters to be pre-set for rapid deployment. Mastering default states is crucial for efficient data capture.",
+  "objective": "Configure the specified input elements to activate their default states without manual intervention.",
+  "starting_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>\n\n  <a href=\"#\"><img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>\n\n  <p>Things cats love:</p>\n  <ul>\n    <li>catnip</li>\n    <li>laser pointers</li>\n    <li>lasagna</li>\n  </ul>\n  <p>Top 3 things cats hate:</p>\n  <ol>\n    <li>flea treatment</li>\n    <li>thunder</li>\n    <li>other cats</li>\n  </ol>\n  <form action=\"https://www.freecatphotoapp.com/submit-cat-photo\">\n    <label for=\"indoor\"><input id=\"indoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"indoor\"> Indoor</label>\n    <label for=\"outdoor\"><input id=\"outdoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"outdoor\"> Outdoor</label><br>\n    <label for=\"loving\"><input id=\"loving\" type=\"checkbox\" name=\"personality\" value=\"loving\"> Loving</label>\n    <label for=\"lazy\"><input id=\"lazy\" type=\"checkbox\" name=\"personality\" value=\"lazy\"> Lazy</label>\n    <label for=\"energetic\"><input id=\"energetic\" type=\"checkbox\" name=\"personality\" value=\"energetic\"> Energetic</label><br>\n    <input type=\"text\" placeholder=\"cat photo URL\" required>\n    <button type=\"submit\">Submit</button>\n  </form>\n</main>",
+  "solution_code": "<h2>CatPhotoApp</h2>\n<main>\n  <p>Click here to view more <a href=\"#\">cat photos</a>.</p>\n\n  <a href=\"#\"><img src=\"https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg\" alt=\"A cute orange cat lying on its back.\"></a>\n\n  <p>Things cats love:</p>\n  <ul>\n    <li>catnip</li>\n    <li>laser pointers</li>\n    <li>lasagna</li>\n  </ul>\n  <p>Top 3 things cats hate:</p>\n  <ol>\n    <li>flea treatment</li>\n    <li>thunder</li>\n    <li>other cats</li>\n  </ol>\n  <form action=\"https://www.freecatphotoapp.com/submit-cat-photo\">\n    <label for=\"indoor\"><input id=\"indoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"indoor\" checked> Indoor</label>\n    <label for=\"outdoor\"><input id=\"outdoor\" type=\"radio\" name=\"indoor-outdoor\" value=\"outdoor\"> Outdoor</label><br>\n    <label for=\"loving\"><input id=\"loving\" type=\"checkbox\" name=\"personality\" value=\"loving\" checked> Loving</label>\n    <label for=\"lazy\"><input id=\"lazy\" type=\"checkbox\" name=\"personality\" value=\"lazy\"> Lazy</label>\n    <label for=\"energetic\"><input id=\"energetic\" type=\"checkbox\" name=\"personality\" value=\"energetic\"> Energetic</label><br>\n    <input type=\"text\" placeholder=\"cat photo URL\" required>\n    <button type=\"submit\">Submit</button>\n  </form>\n</main>",
+  "test_assertions": [
+    "Your first radio button on your form should be checked by default.",
+    "Your first checkbox on your form should be checked by default.",
+    "You should not change the inner text of the `Indoor` label.",
+    "You should not change the inner text of the `Loving` label."
+  ],
+  "hints": [
+    "Remember the 'checked' attribute? It's your key to pre-setting these controls.",
+    "Target the *first* radio and *first* checkbox in the data stream.",
+    "Don't mess with the labels, just the input's default state."
+  ],
+  "tags": [
+    "html",
+    "forms",
+    "attributes",
+    "beginner"
+  ],
+  "original_fcc_title": "Check Radio Buttons and Checkboxes by Default",
+  "block": "basic-html-and-html5"
+}

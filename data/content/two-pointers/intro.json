@@ -1,0 +1,88 @@
+{
+  "slug": "intro",
+  "category": "two-pointers",
+  "title": "Introduction",
+  "oneLiner": "Opposite-ends two pointers",
+  "problemStatement": "A conceptual overview of the two-pointer technique on a sorted array.",
+  "sequence": [3, 8, 12, 17, 21, 26, 30],
+  "phases": [
+    {
+      "label": "Concept",
+      "complexity": {
+        "time": "O(n)",
+        "space": "O(1)"
+      },
+      "pseudocode": [
+        "left  ← 0",
+        "right ← n - 1",
+        "while left < right:",
+        "    inspect arr[left] and arr[right]",
+        "    decide: move left++  or  right--",
+        "    (occasionally both)",
+        "stop when left ≥ right"
+      ],
+      "steps": [
+        {
+          "pointers": {},
+          "highlightLine": 1,
+          "state": { "n": 7 },
+          "narration": "A two-pointer walk uses just two indices. Most often: one at the start, one at the end."
+        },
+        {
+          "pointers": { "left": 0 },
+          "highlightLine": 1,
+          "state": { "left": 0 },
+          "narration": "Place \"left\" at index 0."
+        },
+        {
+          "pointers": { "left": 0, "right": 6 },
+          "highlightLine": 2,
+          "state": { "left": 0, "right": 6 },
+          "narration": "Place \"right\" at index n − 1."
+        },
+        {
+          "pointers": { "left": 0, "right": 6 },
+          "highlightLine": 3,
+          "state": { "left": 0, "right": 6 },
+          "narration": "We loop while left is strictly less than right."
+        },
+        {
+          "pointers": { "left": 0, "right": 6 },
+          "highlightLine": 4,
+          "state": { "arr[left]": 3, "arr[right]": 30 },
+          "narration": "At each step we look at the pair (arr[left], arr[right])."
+        },
+        {
+          "pointers": { "left": 1, "right": 6 },
+          "highlightLine": 5,
+          "state": { "left": 1, "right": 6 },
+          "narration": "Based on that pair, we shrink the window. Here: move \"left\" forward."
+        },
+        {
+          "pointers": { "left": 1, "right": 5 },
+          "highlightLine": 5,
+          "state": { "left": 1, "right": 5 },
+          "narration": "Or instead: move \"right\" backward."
+        },
+        {
+          "pointers": { "left": 2, "right": 4 },
+          "highlightLine": 6,
+          "state": { "left": 2, "right": 4 },
+          "narration": "Sometimes both move at once."
+        },
+        {
+          "pointers": { "left": 3, "right": 3 },
+          "highlightLine": 6,
+          "state": { "left": 3, "right": 3 },
+          "narration": "The window keeps shrinking."
+        },
+        {
+          "pointers": { "left": 3, "right": 3 },
+          "highlightLine": 7,
+          "state": { "left": 3, "right": 3, "done": "true" },
+          "narration": "When left meets right, we stop. We just visited the array in O(n) time, O(1) space."
+        }
+      ]
+    }
+  ]
+}

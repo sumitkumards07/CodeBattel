@@ -1,0 +1,92 @@
+=== CODEBATTLE MISSION CONVERSION ===
+Block: basic-html-and-html5
+File: bad87fee1348bd9aecf08801.md
+Original Title: Introduction to HTML5 Elements
+Challenge ID: bad87fee1348bd9aecf08801
+
+--- SYSTEM PROMPT (paste this first) ---
+
+You are a Senior Data Engineer and Content Architect for "CodeBattle", a cyberpunk-themed coding education platform.
+
+Your task: Convert raw freeCodeCamp educational Markdown into a gamified JSON mission.
+
+RULES:
+• Replace academic words with Warfare terminology ("Mission Briefing" not "Lesson", "System Breach" not "Test", "Deploy Payload" not "Submit")
+• Tone: Urgent, aggressive, immersive — like a drill sergeant teaching a recruit to hack a mainframe
+• Keep explanations concise. Developers want to write code, not read textbooks
+• Extract starting code from the --seed-- section
+• Extract test assertions from the --hints-- section
+• Infer difficulty from complexity: simple tag knowledge = "recruit", logic/loops = "soldier", algorithms = "commander", advanced patterns = "general"
+
+OUTPUT ONLY THIS EXACT JSON SCHEMA (no markdown, no explanation, just valid JSON):
+{
+  "mission_id": "[the challenge id from frontmatter]",
+  "mission_title": "[A cool cyberpunk-themed title]",
+  "xp_reward": [50-500 based on difficulty],
+  "difficulty": "[recruit|soldier|commander|general]",
+  "briefing": "[2-3 sentences explaining the concept in cyberpunk tone]",
+  "objective": "[1 sentence clear goal]",
+  "starting_code": "[The starter code from --seed-- section, properly escaped]",
+  "solution_code": "[The solution from --solutions-- section, properly escaped]",
+  "test_assertions": ["[Array of test descriptions extracted from --hints--]"],
+  "hints": ["[1-3 short hints in cyberpunk tone]"],
+  "tags": ["[relevant tags like 'html', 'beginner', 'elements']"],
+  "original_fcc_title": "[original title from frontmatter]",
+  "block": "[the block/topic name]"
+}
+
+--- USER PROMPT (paste this second) ---
+
+Convert this freeCodeCamp challenge from the "basic-html-and-html5" block into a CodeBattle mission JSON.
+
+CHALLENGE ID: bad87fee1348bd9aecf08801
+ORIGINAL TITLE: Introduction to HTML5 Elements
+BLOCK: basic-html-and-html5
+
+DESCRIPTION:
+HTML5 introduces more descriptive HTML tags. These include `main`, `header`, `footer`, `nav`, `video`, `article`, `section` and others.
+
+These tags give a descriptive structure to your HTML, make your HTML easier to read, and help with Search Engine Optimization (SEO) and accessibility. The `main` HTML5 tag helps search engines and other developers find the main content of your page.
+
+Example usage, a `main` element with two child elements nested inside it:
+
+```html
+<main> 
+  <h1>Hello World</h1>
+  <p>Hello Paragraph</p>
+</main>
+```
+
+**Note:** Many of the new HTML5 tags and their benefits are covered in the Applied Accessibility section.
+
+INSTRUCTIONS:
+Create a second `p` element with the following kitty ipsum text: `Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.`
+
+Then, create a `main` element and nest only the two `p` elements inside the `main` element.
+
+TEST HINTS:
+You should have 2 `p` elements with Kitty Ipsum text.
+Each of your `p` elements should have a closing tag.
+Your `p` element should contain the first few words of the provided additional `kitty ipsum` text.
+Your code should have one `main` element.
+The `main` element should have two paragraph elements as children.
+const main = document.querySelector('main');
+const children = main.querySelectorAll("p");
+The opening `main` tag should come before the first paragraph tag.
+The closing `main` tag should come after the second closing paragraph tag.
+
+STARTER CODE:
+<h2>CatPhotoApp</h2>
+
+<p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>
+
+SOLUTION:
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Kitty ipsum dolor sit amet, shed everywhere shed everywhere stretching attack your ankles chase the red dot, hairball run catnip eat the grass sniff.</p>
+  <p>Purr jump eat the grass rip the couch scratched sunbathe, shed everywhere rip the couch sleep in the sink fluffy fur catnip scratched.</p>
+</main>
+
+Output ONLY the JSON object. No markdown fences, no explanation.
+
+=== END ===
